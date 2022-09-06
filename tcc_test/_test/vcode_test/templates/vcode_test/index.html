@@ -8,6 +8,19 @@
     <title>vcode</title>
 </head>
 <body>
-
+<h1> TESTE </h1>
+{% for i in result %}
+    {% for palavra in palavras %}
+        {% if palavra in texto %}
+            <p>
+                Em {{ result }} -> Palavra "{{ palavra }}": ✔
+            </p>
+        {% else %}
+            <p>
+                Em {{ result }} -> Palavra "{{ palavra }}": ❌
+            </p>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
 </body>
 </html>
