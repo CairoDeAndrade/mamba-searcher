@@ -13,14 +13,29 @@
     {% for palavra in palavras %}
         {% if palavra in texto %}
             <p>
-                Em {{ result }} -> Palavra "{{ palavra }}": ✔
+                Em {{ i }} -> Palavra "{{ palavra }}": ✔
             </p>
         {% else %}
             <p>
-                Em {{ result }} -> Palavra "{{ palavra }}": ❌
+                Em {{ i }} -> Palavra "{{ palavra }}": ❌
             </p>
         {% endif %}
     {% endfor %}
 {% endfor %}
+<p>
+    {{ texto }}
+</p>
+
+<!--{% for palavra in palavras %}-->
+<!--    {% if palavra in texto %}-->
+<!--        <p>-->
+<!--            Em {{ texto }} -> Palavra "{{ palavra }}": ✔-->
+<!--        </p>-->
+<!--    {% else %}-->
+<!--        <p>-->
+<!--            Em {{ texto }} -> Palavra "{{ palavra }}": ❌-->
+<!--        </p>-->
+<!--    {% endif %}-->
+<!--{% endfor %}-->
 </body>
 </html>
