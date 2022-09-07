@@ -9,22 +9,19 @@
 </head>
 <body>
 <h1> TESTE </h1>
-{% for i in result %}
-    {% for palavra in palavras %}
-        {% if palavra in texto %}
+{% for escrita in doc_texto %}
+    {% for palavra in palavras_chave %}
+        {% if palavra in escrita %}
             <p>
-                Em {{ i }} -> Palavra "{{ palavra }}": ✔
+                Em <a href="#">{{ result }}</a> >>  Palavra "{{ palavra }}": ✔
             </p>
         {% else %}
             <p>
-                Em {{ i }} -> Palavra "{{ palavra }}": ❌
+                Em <a href="#">{{ result }}</a>  >>  Palavra "{{ palavra }}": ❌
             </p>
         {% endif %}
     {% endfor %}
 {% endfor %}
-<p>
-    {{ texto }}
-</p>
 
 <!--{% for palavra in palavras %}-->
 <!--    {% if palavra in texto %}-->

@@ -6,5 +6,5 @@
 # for j in result:
 #     texto = docx2txt.process(fr"C:\Users\entra21\Desktop\testes\{j}").lower()
 #     palavras = ['python', 'inglês']
-
-
+#
+#
