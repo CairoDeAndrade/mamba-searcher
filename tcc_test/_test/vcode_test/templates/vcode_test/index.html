@@ -8,31 +8,22 @@
     <title>vcode</title>
 </head>
 <body>
+
 <h1> TESTE </h1>
-{% for escrita in doc_texto %}
+{% for i in result %}
+{{ forloop.counter0 }}, {{ i }}
     {% for palavra in palavras_chave %}
-        {% if palavra in escrita %}
+        {% if palavra in doc_texto.forloop.counter0 %}
             <p>
-                Em <a href="#">{{ result }}</a> >>  Palavra "{{ palavra }}": ✔
+                Em <a href="#" target="_blank">{{ i }}</a> >>  Palavra "{{ palavra }}": ✔
             </p>
         {% else %}
             <p>
-                Em <a href="#">{{ result }}</a>  >>  Palavra "{{ palavra }}": ❌
+                Em <a href="#" target="_blank">{{ i }}</a>  >>  Palavra "{{ palavra }}": ❌
             </p>
         {% endif %}
     {% endfor %}
 {% endfor %}
 
-<!--{% for palavra in palavras %}-->
-<!--    {% if palavra in texto %}-->
-<!--        <p>-->
-<!--            Em {{ texto }} -> Palavra "{{ palavra }}": ✔-->
-<!--        </p>-->
-<!--    {% else %}-->
-<!--        <p>-->
-<!--            Em {{ texto }} -> Palavra "{{ palavra }}": ❌-->
-<!--        </p>-->
-<!--    {% endif %}-->
-<!--{% endfor %}-->
 </body>
 </html>
