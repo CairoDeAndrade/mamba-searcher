@@ -10,20 +10,30 @@
 <body>
 
 <h1> TESTE </h1>
-{% for i in result %}
-{{ forloop.counter0 }}, {{ i }}
-    {% for palavra in palavras_chave %}
-        {% if palavra in doc_texto.forloop.counter0 %}
-            <p>
-                Em <a href="#" target="_blank">{{ i }}</a> >>  Palavra "{{ palavra }}": ✔
-            </p>
-        {% else %}
-            <p>
-                Em <a href="#" target="_blank">{{ i }}</a>  >>  Palavra "{{ palavra }}": ❌
-            </p>
-        {% endif %}
-    {% endfor %}
+{% for i in lista_final %}
+
+    <p>
+        {{ i }}
+    </p>
+
 {% endfor %}
+
+
+
+
+<!--{% for i in result %}-->
+<!--    {% for palavra in palavras_chave %}-->
+<!--        {% if palavra in doc_texto %}-->
+<!--            <p>-->
+<!--                Em <a href="#" target="_blank">{{ forloop.counter0 }}, {{ i }}</a> >>  Palavra "{{ palavra }}": ✔-->
+<!--            </p>-->
+<!--        {% else %}-->
+<!--            <p>-->
+<!--                Em <a href="#" target="_blank">{{ forloop.counter0 }}, {{ i }}</a>  >>  Palavra "{{ palavra }}": ❌-->
+<!--            </p>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+<!--{% endfor %}-->
 
 </body>
 </html>

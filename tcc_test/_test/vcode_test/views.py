@@ -4,19 +4,28 @@ import os
 
 
 def index(request):
-    global i
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\tcc_test" home
     dirPath = r"C:\Users\entra21\Desktop\tcc_test"
-    result = next(os.walk(dirPath))[2]
+    lista_arquivos = next(os.walk(dirPath))[2]
 
-    doc_texto, texto, palavras_chave,  = [], [], []
-    for i in result:
-        # texto = docx2txt.process(fr"C:\Users\cairo\OneDrive\Área de Trabalho\tcc_test\{i}").lower() home
+    lista_quantidade_palavras, palavras_chave, texto, lista_final = [], [], [], []
+    total = 0
+    quantidade = ''
+
+    for i in lista_arquivos:
+        sum = 0
         texto = docx2txt.process(fr"C:\Users\entra21\Desktop\tcc_test\{i}").lower()
-        doc_texto.append(texto)
-        palavras_chave = ['python', 'inglês']
+        palavras_chave = ['python', 'inglês', 'cep']
+        total = len(palavras_chave)
 
-    return render(request, 'vcode_test/index.html', {'texto': texto,
-                                                     'palavras_chave': palavras_chave,
-                                                     'result': result, 'doc_texto': doc_texto,
-                                                     })
+        for palavra in palavras_chave:
+            if palavra in texto:
+                sum += 1
+            else:
+                continue
+        lista_quantidade_palavras.append(sum)
+
+    for arquivo, quantidade_palavras in zip(lista_arquivos, lista_quantidade_palavras):
+        quantidade = f'Em {arquivo} >> {quantidade_palavras}/{total}'
+        lista_final.append(quantidade)
+
+    return render(request, 'vcode_test/index.html', {'lista_final': lista_final})
