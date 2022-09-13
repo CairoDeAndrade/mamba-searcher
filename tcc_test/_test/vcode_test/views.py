@@ -14,7 +14,7 @@ def index(request):
     for i in lista_arquivos:
         sum = 0
         texto = docx2txt.process(fr"C:\Users\entra21\Desktop\tcc_test\{i}").lower()
-        palavras_chave = ['python', 'inglês', 'cep']
+        palavras_chave = ['python', 'inglês', 'cep', 'arquivo']
         total = len(palavras_chave)
 
         for palavra in palavras_chave:
