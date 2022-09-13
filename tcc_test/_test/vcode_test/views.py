@@ -28,4 +28,4 @@ def index(request):
         quantidade = f'Em {arquivo} >> {quantidade_palavras}/{total}'
         lista_final.append(quantidade)
 
-    return render(request, 'vcode_test/index.html', {'lista_final': lista_final})
+    return render(request, 'vcode_test/mamba.html', {'lista_final': lista_final})
