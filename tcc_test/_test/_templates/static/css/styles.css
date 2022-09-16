@@ -4,6 +4,20 @@
   font-family: Quantico;
   src: url('Quantico-Regular.ttf');
 }
+ /* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { ... }
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { ... }
+/*
+// Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
 
 *{
   margin: 0;
@@ -11,7 +25,9 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
+  user-select: none;
+  text-transform: uppercase;
+  font-family: Quantico
 }
 
 body{
@@ -124,25 +140,6 @@ body{
   /* padding: 10px; */
 }
 
-.login-form {
-  display: flex;
-  justify-self: right;
-}
-
-.submit-button {
-  margin-right: auto;
-  justify-self: right;
-}
-
-.input-container + .input-container {
-  margin-right: auto;
-  justify-self: right;
-}
-
-.input-container label {
-  display: block;
-}
-
 #logo {
   margin-top: 15%;
   margin-left: 40%;
@@ -156,13 +153,6 @@ body{
   font-size: 60px;
   font-family: Quantico;
   margin-left: 5%;
-}
-
-*{
-    box-sizing: border-box;
-    user-select: none;
-    text-transform: uppercase;
-    font-family: Quantico
 }
 
 .box {
@@ -184,6 +174,7 @@ body{
   background-repeat:no-repeat;
   transition:.8s all;
 }
+
 .box:hover {
   background-position:top right,bottom left;
   cursor: pointer;
@@ -192,10 +183,11 @@ body{
 #signin {
   display: inline-flex;
   justify-content: right !important;
+  position: absolute; left: 1800px; top: 33px;
 }
 
-.ola {
-  padding-left: 1670px;
-  text-align: center;
-  background-color: red;
+#login {
+  display: inline-flex;
+  justify-content: right !important;
+  position: absolute; left: 1700px; top: 33px;
 }

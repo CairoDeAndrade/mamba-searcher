@@ -1,39 +1,43 @@
+{% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>vcode</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Code</title>
 </head>
 <body>
+<section style="text-align: center;">
 
-<h1> TESTE </h1>
-{% for i in lista_final %}
+  <h1>Currículos Filtrados</h1>
 
-    <p>
-        {{ i }}
-    </p>
+  <table class="table table-striped table-dark" style="max-width: 700px;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Arquivo</th>
+        <th scope="col">Palavra(s)</th>
+        <th scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in lista_final %}
+      <tr>
+        <th scope="row">{{ forloop.counter0 }}</th>
+        <td>{{ i.0 }}</td>
+          <td>{% for j in palavras_chave %} {{ j }} {% endfor %}</td>
+        <td>{{ i.1 }} / {{ i.2 }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
-{% endfor %}
 
+</section>
 
-
-
-<!--{% for i in result %}-->
-<!--    {% for palavra in palavras_chave %}-->
-<!--        {% if palavra in doc_texto %}-->
-<!--            <p>-->
-<!--                Em <a href="#" target="_blank">{{ forloop.counter0 }}, {{ i }}</a> >>  Palavra "{{ palavra }}": ✔-->
-<!--            </p>-->
-<!--        {% else %}-->
-<!--            <p>-->
-<!--                Em <a href="#" target="_blank">{{ forloop.counter0 }}, {{ i }}</a>  >>  Palavra "{{ palavra }}": ❌-->
-<!--            </p>-->
-<!--        {% endif %}-->
-<!--    {% endfor %}-->
-<!--{% endfor %}-->
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
