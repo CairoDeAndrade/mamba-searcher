@@ -1,42 +1,84 @@
 {% load static %}
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamba</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Code</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="cobra.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#20fcf3">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#20fcf3">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<section style="text-align: center;">
+    <div class="topbar">
+        <div class="topbar-inner">
+          <div class="logo">
+            <img id="logo" src="https://raw.githubusercontent.com/CairoDeAndrade/tcc-entra21/cauan/TCC/cobra.png?token=GHSAT0AAAAAABYBL6V55DGLFQCPLCSLKCPOYZEWYCA">
+          </div>
+        <div class="texto">
+            MAMBA
+        </div>
+        <div>
+          <div id="signin" class="box">
+            Sign In
+          </div>
+          <div id="login" class="box">
+            Login
+          </div>
+       </div>
+        </div>
+      </div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#"><i class="fa fa-home"></i>HOME</a></li>
+                <li><a href="#"><i class="fa fa-user"></i>PESQUISAR</a></li>
+                <li><a href="#"><i class="fa fa-line-chart"></i>RANKING</a></li>
+                <li><a href="#"><i class="fa fa-comment-o"></i>SOBRE NÓS</a></li>
+                <li><a href="#"><i class="fa fa-gears"></i>LOG OUT</a></li>
+            </ul>
+            <div class="social_media">
+              <a href="#"><i class="fa fa-facebook-f"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
 
-  <h1>Currículos Filtrados</h1>
+        <section style="text-align: center; padding-left: 650px;">
 
-  <table class="table table-striped table-dark" style="max-width: 700px;">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Arquivo</th>
-        <th scope="col">Palavra(s)</th>
-        <th scope="col">Quantidade</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for i in lista_final %}
-      <tr>
-        <th scope="row">{{ forloop.counter0 }}</th>
-        <td>{{ i.0 }}</td>
-          <td>{% for j in palavras_chave %} {{ j }} {% endfor %}</td>
-        <td>{{ i.1 }} / {{ i.2 }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+          <div class="title" style="padding-top: 70px; padding-bottom: 50px;">
+              <h1>Currículos Filtrados</h1>
+          </div>
 
+          <table class="table table-striped table-dark" style="width: 800px;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Arquivo</th>
+                <th scope="col">Palavra(s)</th>
+                <th scope="col">Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in lista_final %}
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="#" target="_blank">{{ i.0 }}</a></td>
+                  <td>{% for j in palavras_chave %} {{ j }}, {% endfor %}</td>
+                <td><strong>{{ i.1 }} / {{ i.2 }}</strong></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
 
-</section>
+        </section>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
