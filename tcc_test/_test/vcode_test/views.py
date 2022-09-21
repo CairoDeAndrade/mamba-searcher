@@ -11,36 +11,34 @@ def mamba(request, ):
 
     lista_quantidade_palavras, texto, lista_final = [], [], []
     total = 0
-    quantidade = ''
-    palavras_chave = 'python'
+    caminho = ''
+
+    palavras_chave = 'python,ingles,blumenau,entra21'
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
-    try:
-        for i in lista_arquivos:
+    novas_palavras = palavras_chave.split(",")
+
+    for i in lista_arquivos:
+        try:
+                caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+                sum = 0
+                texto = docx2txt.process(caminho)
+                novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
+                                     if not unicodedata.combining(ch))
+
+                total = len(novas_palavras)
+
+                for palavra in novas_palavras:
+                    if palavra in novo_texto:
+                        sum += 1
+                    else:
+                        continue
+                lista_quantidade_palavras.append(sum)
+        except:
+            quantidade = []
+            text = ''
             sum = 0
-            texto = docx2txt.process(fr"C:\Users\entra21\Desktop\testes\{i}")
-            novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
-                                 if not unicodedata.combining(ch))
-
-            total = len(novas_palavras)
-
-            for palavra in novas_palavras:
-                if palavra in novo_texto:
-                    sum += 1
-                else:
-                    continue
-            lista_quantidade_palavras.append(sum)
-
-        for arquivo, quantidade_palavras in zip(lista_arquivos, lista_quantidade_palavras):
-            quantidade = [arquivo, quantidade_palavras, total]
-            lista_final.append(quantidade)
-    except:
-        text = ''
-
-        for i in lista_arquivos:
-            sum = 0
-
-            with fitz.open(rf"C:\Users\entra21\Desktop\testes\{i}") as doc:
+            with fitz.open(caminho) as doc:
                 for page in doc:
                     text = page.get_text()
             new_text = ''.join(ch for ch in unicodedata.normalize('NFKD', text).lower()
@@ -53,11 +51,12 @@ def mamba(request, ):
                     continue
             lista_quantidade_palavras.append(sum)
 
-        for arquivo, quantidade_palavras in zip(lista_arquivos, lista_quantidade_palavras):
-            quantidade = [arquivo, quantidade_palavras, total]
-            lista_final.append(quantidade)
+    for arquivo, quantidade_palavras in zip(lista_arquivos, lista_quantidade_palavras):
+        quantidade = [arquivo, quantidade_palavras, total]
+        lista_final.append(quantidade)
 
-    return render(request, 'vcode_test/mamba.html', {'lista_final': lista_final})
+    return render(request, 'vcode_test/mamba.html', {'lista_final': lista_final,
+                                                     'novas_palavras': novas_palavras})
 
 #
 # def index(request):

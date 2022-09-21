@@ -68,9 +68,9 @@
             <tbody>
             {% for i in lista_final %}
               <tr>
-                <th scope="row">{{ forloop.counter0 }}</th>
+                <th scope="row">{{ forloop.counter }}</th>
                 <td><a href="#" target="_blank">{{ i.0 }}</a></td>
-                  <td>{% for j in palavras_chave %} {{ j }}, {% endfor %}</td>
+                  <td>{% for j in novas_palavras %} {{ j }}, {% endfor %}</td>
                 <td><strong>{{ i.1 }} / {{ i.2 }}</strong></td>
               </tr>
             {% endfor %}
