@@ -13,7 +13,7 @@ def mamba(request, ):
     total = 0
     caminho = ''
 
-    palavras_chave = 'python,ingles,blumenau,entra21'
+    palavras_chave = 'python'
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
     novas_palavras = palavras_chave.split(",")
