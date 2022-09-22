@@ -7,7 +7,8 @@ from operator import itemgetter
 
 
 def mamba(request, ):
-    dirPath = r"C:\Users\entra21\Desktop\testes"
+    # dirPath = r"C:\Users\entra21\Desktop\testes"
+    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -22,20 +23,21 @@ def mamba(request, ):
 
     for i in lista_arquivos:
         try:
-                caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-                sum = 0
-                texto = docx2txt.process(caminho)
-                novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
-                                     if not unicodedata.combining(ch))
+            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}" # home
+            sum = 0
+            texto = docx2txt.process(caminho)
+            novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
+                                 if not unicodedata.combining(ch))
 
-                total = len(novas_palavras)
+            total = len(novas_palavras)
 
-                for palavra in novas_palavras:
-                    if palavra in novo_texto:
-                        sum += 1
-                    else:
-                        continue
-                lista_quantidade_palavras.append(sum)
+            for palavra in novas_palavras:
+                if palavra in novo_texto:
+                    sum += 1
+                else:
+                    continue
+            lista_quantidade_palavras.append(sum)
         except:
             quantidade = []
             text = ''
@@ -65,7 +67,8 @@ def mamba(request, ):
         list_word_qtd.append(i['quantidade_palavras'])
 
     for files_name, word_qtd in zip(list_files_name, list_word_qtd):
-        real_final = [files_name, word_qtd]
+        complete_list = [files_name, word_qtd]
+        real_final.append(complete_list)
 
     return render(request, 'vcode_test/mamba.html', {'lista_final': lista_final,
                                                      'novas_palavras': novas_palavras, 'result': result,
@@ -75,7 +78,7 @@ def mamba(request, ):
 #
 # def index(request):
 #     dirPath = r"C:\Users\entra21\Desktop\testes"
-#     # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\tcc_test" # Home
+#     # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes" # Home
 #     lista_arquivos = next(os.walk(dirPath))[2]
 #
 #     lista_quantidade_palavras, palavras_chave, texto, lista_final = [], [], [], []
