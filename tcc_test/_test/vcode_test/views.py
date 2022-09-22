@@ -3,17 +3,19 @@ import docx2txt
 import fitz
 import unicodedata
 import os
+from operator import itemgetter
 
 
 def mamba(request, ):
     dirPath = r"C:\Users\entra21\Desktop\testes"
     lista_arquivos = next(os.walk(dirPath))[2]
 
-    lista_quantidade_palavras, texto, lista_final = [], [], []
+    lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
     total = 0
     caminho = ''
+    result, final_dict = [], {}
 
-    palavras_chave = 'python'
+    palavras_chave = 'python,ingles'
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
     novas_palavras = palavras_chave.split(",")
@@ -52,11 +54,23 @@ def mamba(request, ):
             lista_quantidade_palavras.append(sum)
 
     for arquivo, quantidade_palavras in zip(lista_arquivos, lista_quantidade_palavras):
+        final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras, 'total': total}
+
         quantidade = [arquivo, quantidade_palavras, total]
-        lista_final.append(quantidade)
+        lista_final.append(final_dict)
+        result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
+
+    for i in result:
+        list_files_name.append(i['arquivo'])
+        list_word_qtd.append(i['quantidade_palavras'])
+
+    for files_name, word_qtd in zip(list_files_name, list_word_qtd):
+        real_final = [files_name, word_qtd]
 
     return render(request, 'vcode_test/mamba.html', {'lista_final': lista_final,
-                                                     'novas_palavras': novas_palavras})
+                                                     'novas_palavras': novas_palavras, 'result': result,
+                                                     'real_final': real_final, 'total': total,
+                                                     })
 
 #
 # def index(request):
