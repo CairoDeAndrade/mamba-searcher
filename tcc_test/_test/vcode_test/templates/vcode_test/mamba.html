@@ -54,8 +54,6 @@
 
           <div class="title" style="padding-top: 70px; padding-bottom: 50px;">
               <h1>Currículos Filtrados</h1>
-<!--              <h2>{{ result }}</h2>-->
-              <h2>{{ real_final }}</h2>
           </div>
 
           <table class="table table-striped table-dark" style="width: 800px;">
@@ -74,9 +72,7 @@
                     <th scope="row">{{ forloop.counter }}</th>
 <!--                    <td><a href="#" target="_blank">{{ i.0 }}</a></td>-->
                     <td>{{ i.0 }}</td>
-                      <td>{% for j in novas_palavras %}
-                            {{ j }},
-                          {% endfor %}</td>
+                      <td> {{ i.2 }}</td>
                     <td><strong>{{ i.1 }} / {{ total }}</strong></td>
                   </tr>
                 {% endif %}
