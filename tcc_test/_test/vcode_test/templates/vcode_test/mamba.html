@@ -6,97 +6,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamba</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="icon" type="image/png" sizes="128x128" href="cobra.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#20fcf3">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#20fcf3">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="topbar">
         <div class="topbar-inner">
-          <div class="logo">
-            <img id="logo" src="cobra.png">
+            <div class="container-fluid">
+                <div class="navbar-brand">
+                  <img id="logo" src="cobra.png" alt="Logo" width="100" height="100" class="d-inline-flex align-text-top">
+                  MAMBA
+                </div>
+            </div>
+          <div>
+            <div id="login" class="box">
+              LOGIN
+            </div>
           </div>
-        <div class="texto">
-            MAMBA
+          <div>
+            <div id="signin" class="box">
+              SIGN IN
+            </div>
         </div>
         <div>
-          <div id="signin" class="box">
-            Sign In
+          <div id="Personalizar" class="box">
+            PERSONALIZAR
           </div>
-          <div id="login" class="box">
-            Login
-          </div>
-       </div>
         </div>
       </div>
-    <div class="wrapper">
-        <div class="sidebar">
-            <ul>
-                <li><a href="#"><i class="fa fa-home"></i>HOME</a></li>
-                <li><a href="#"><i class="fa fa-user"></i>PESQUISAR</a></li>
-                <li><a href="#"><i class="fa fa-line-chart"></i>RANKING</a></li>
-                <li><a href="#"><i class="fa fa-comment-o"></i>SOBRE NÓS</a></li>
-                <li><a href="#"><i class="fa fa-gears"></i>LOG OUT</a></li>
-            </ul>
-            <div class="social_media">
-              <a href="#"><i class="fa fa-facebook-f"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-          </div>
-        </div>
-
-        <section style="text-align: center; padding-left: 650px;">
-
-          <div class="title" style="padding-top: 70px; padding-bottom: 50px;">
-              <h1>Currículos Filtrados</h1>
-          </div>
-
-            <!--Search bar-->
-          <form method="get" action="{% url 'index' %}" style="width: 800px;">
-            <div class="form-group row">
-              <div class="col-12">
-                <input class="form-control"
-                       type="search" value="{{ request.GET.term }}"
-                       id="search-input"
-                       placeholder="Pesquisar"
-                       name="term">
-              </div>
+    </div>
+    <div class="main_mamba">
+      <p class="intro">
+      Mamba consiste na automação de um processo de seleção de talentos.
+      Para começar, insira os currículos que deseja analisar na área indicada
+      Depois, indique palavras que você gostaria de procurar pelos currículos
+      (Exemplo: "inglês fluente"). Qunado o processo de carregamento acabar,
+      você poderá ver os currículos que possuem as palavras em um ranking dos
+      que mais se alinham com o procurado. Desejamos a você uma ótima experiência
+      e agradecemos  por cunsultar o Mamba.
+      </p>
+      <div class="upload">
+        <form>
+            <div>
+                <label for="arquivo">enviar arquivo</label>
+                <input type="file" name="arquivo" id="arquivo">
             </div>
-          </form>
-          <br>
+        </form>
+       </div>
 
-<!--          <table class="table table-striped table-dark" style="width: 800px;">-->
-<!--            <thead>-->
-<!--              <tr>-->
-<!--                <th scope="col">#</th>-->
-<!--                <th scope="col">Arquivo</th>-->
-<!--                <th scope="col">Palavra(s) contida(s)</th>-->
-<!--                <th scope="col">Quantidade</th>-->
-<!--              </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            {% for i in real_final %}-->
-<!--                {% if i.1 != 0 %}-->
-<!--                  <tr>-->
-<!--                    <th scope="row">{{ forloop.counter }}</th>-->
-<!--&lt;!&ndash;                    <td><a href="#" target="_blank">{{ i.0 }}</a></td>&ndash;&gt;-->
-<!--                    <td>{{ i.0 }}</td>-->
-<!--                      <td> {{ i.2 }}</td>-->
-<!--                    <td><strong>{{ i.1 }} / {{ total }}</strong></td>-->
-<!--                  </tr>-->
-<!--                {% endif %}-->
-<!--            {% endfor %}-->
-<!--            </tbody>-->
-<!--          </table>-->
-
-        </section>
+    </div>
+    <div class="side">
+      <main class="main">
+        <aside class="sidebar">
+          <nav class="nav">
+              <ul>
+                <li class="active"><div class="button"><a class="links" href="#">HOME</a></div></li>
+                <li class="search"><div class="button"><a class="links" href="#">SEARCH</a></div></li>
+                <li class="ranking"><div class="button"><a class="links" href="#">RANKING</a></div></li>
+                <li class="about"><div class="button"><a class="links" href="#">ABOUT</a></div></li>
+                <li class="out"><div class="button"><a class="links" href="#">LOG OUT</a></div></li>
+              </ul>
+          </nav>
+        </aside>
+      </main>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+      <div class="title" style="padding-top: 70px; padding-bottom: 50px;">
+          <h1>Pesquise por palavras-chave</h1>
+      </div>
+
+        <!--Search bar-->
+      <form method="get" action="{% url 'index' %}" style="width: 800px;">
+        <div class="form-group row">
+          <div class="col-12">
+            <input class="form-control"
+                   type="search" value="{{ request.GET.term }}"
+                   id="search-input"
+                   placeholder="Pesquisar"
+                   name="term">
+          </div>
+        </div>
+      </form>
+      <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
 </body>
 </html>
