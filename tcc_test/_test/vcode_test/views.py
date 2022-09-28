@@ -13,8 +13,8 @@ def mamba(request):
 
 def index(request):
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    dirPath = r"C:\Users\entra21\Desktop\testes"
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -29,8 +29,8 @@ def index(request):
 
     for i in lista_arquivos:
         try:
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -99,8 +99,8 @@ def index(request):
 
 def sinonimos(request):
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    dirPath = r"C:\Users\entra21\Desktop\testes"
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -114,14 +114,12 @@ def sinonimos(request):
     synonym_word = Search(f'{palavras_chave}')
     synonym_results = synonym_word.synonyms()
 
-    novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
-                             if not unicodedata.combining(ch))
-    novas_palavras = novas_palavras.split(",")
+    novas_palavras = synonym_word.synonyms()
 
     for i in lista_arquivos:
         try:
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
