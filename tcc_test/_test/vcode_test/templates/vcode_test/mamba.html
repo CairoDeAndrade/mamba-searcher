@@ -37,22 +37,12 @@
       </div>
     </div>
     <div class="main_mamba">
-      <p class="intro">
-      Mamba consiste na automação de um processo de seleção de talentos.
-      Para começar, insira os currículos que deseja analisar na área indicada
-      Depois, indique palavras que você gostaria de procurar pelos currículos
-      (Exemplo: "inglês fluente"). Qunado o processo de carregamento acabar,
-      você poderá ver os currículos que possuem as palavras em um ranking dos
-      que mais se alinham com o procurado. Desejamos a você uma ótima experiência
-      e agradecemos  por cunsultar o Mamba.
-      </p>
-      <div style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
+      <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
           <h1>Pesquise por palavras-chave</h1>
-      </div>
 
         <!--Search bar-->
       <form method="get" action="{% url 'index' %}" style="width: 800px;">
-        <div class="form-group row">
+        <div class="form-group row intro">
           <div class="col-12">
             <input class="form-control"
                    type="search" value="{{ request.GET.term }}"
@@ -63,8 +53,9 @@
         </div>
       </form>
       <br>
-
+      </div>
     </div>
+
     <div class="side">
       <main class="main">
         <aside class="sidebar">

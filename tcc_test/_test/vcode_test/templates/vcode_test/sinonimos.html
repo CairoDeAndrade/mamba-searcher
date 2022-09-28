@@ -37,23 +37,19 @@
       </div>
     </div>
     <div class="main_mamba">
-      <p class="intro">
-      Mamba consiste na automação de um processo de seleção de talentos.
-      Para começar, insira os currículos que deseja analisar na área indicada
-      Depois, indique palavras que você gostaria de procurar pelos currículos
-      (Exemplo: "inglês fluente"). Qunado o processo de carregamento acabar,
-      você poderá ver os currículos que possuem as palavras em um ranking dos
-      que mais se alinham com o procurado. Desejamos a você uma ótima experiência
-      e agradecemos  por cunsultar o Mamba.
-      </p>
-
-           <div class="title" style="padding-top: 70px; padding-bottom: 50px;">
+      <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
           <h1>Pesquise por palavras-chave</h1>
-      </div>
 
+          <p>
+            Na filtragem por sinônimos pedimos que, para uma melhor corretude nos resultados,
+            seja pesquisada apanas <strong>uma</strong> palavra-chave por vez.
+        </p>
+        <p>
+            {{ synonym_results }}
+        </p>
         <!--Search bar-->
       <form method="get" action="{% url 'sinonimos' %}" style="width: 800px;">
-        <div class="form-group row">
+        <div class="form-group row intro">
           <div class="col-12">
             <input class="form-control"
                    type="search" value="{{ request.GET.term }}"
@@ -64,16 +60,8 @@
         </div>
       </form>
       <br>
-    <div class="instrucao">
-        <p>
-            Na filtragem por sinônimos pedimos que, para uma melhor corretude nos resultados,
-            seja pesquisada apanas <strong>uma</strong> palavra-chave por vez.
-        </p>
-        <p>
-            {{ synonym_results }}
-        </p>
-    </div>
-    <table class="table table-striped table-dark" style="width: 800px;">
+<!--          Table-->
+          <table class="table table-striped table-dark" style="width: 800px;">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -96,6 +84,10 @@
         {% endfor %}
         </tbody>
     </table>
+
+      </div>
+    </div>
+
 
 <!--      <div class="upload">-->
 <!--        <form>-->
