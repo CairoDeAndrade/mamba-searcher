@@ -13,8 +13,8 @@ def mamba(request):
 
 def index(request):
     # functionalities
-    dirPath = r"C:\Users\entra21\Desktop\testes"
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    # dirPath = r"C:\Users\entra21\Desktop\testes"
+    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -29,8 +29,8 @@ def index(request):
 
     for i in lista_arquivos:
         try:
-            caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -98,9 +98,18 @@ def index(request):
 
 
 def sinonimos(request):
+    return render(request, 'vcode_test/sinonimos.html')
+
+
+def sinonimos_results(request):
+    # If the search input is empty
+    term = request.GET.get('term')
+    if not term:
+        return redirect('sinonimos')
+    
     # functionalities
-    dirPath = r"C:\Users\entra21\Desktop\testes"
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    # dirPath = r"C:\Users\entra21\Desktop\testes"
+    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -118,8 +127,8 @@ def sinonimos(request):
 
     for i in lista_arquivos:
         try:
-            caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -177,10 +186,6 @@ def sinonimos(request):
         complete_list = [files_name, word_qtd, words]
         real_final.append(complete_list)
 
-    # If the search input is empty
-    term = request.GET.get('term')
-    if not term:
-        return render(request, 'vcode_test/sinonimos.html')
+    return render(request, 'vcode_test/sinonimos_results.html', {'real_final': real_final, 'total': total,
+                                                                 'synonym_results': synonym_results, })
 
-    return render(request, 'vcode_test/sinonimos.html', {'real_final': real_final, 'total': total,
-                                                         'synonym_results': synonym_results,})
