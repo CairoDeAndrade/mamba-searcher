@@ -155,7 +155,7 @@ body{
 }
 
 .main_mamba {
-  background-color: #e5e7ef;
+  background-color: #d3d3d3;
   float: right;
   position: absolute;
   width: 87.99vw;
@@ -206,31 +206,31 @@ span:hover + .lan {
     display: block;
   } */
 .search_pag {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   justify-content: space-evenly;
 }
 .search_page {
-  margin-top: 20%;
+  margin-top: 12%;
   display: flex;
   justify-content: space-evenly;
 }
 
   .dropbtn {
-    background-color: #04AA6D;
+    background-color: #9FA3D7;
     color: white;
     padding: 16px;
-    font-size: 16px;
+    font-size: 2em;
     border: none;
-    width: 280px;
-    height: auto;
+    width: 380px;
+    height: 100px;
     border-radius: 40px;
     justify-content: center;
   }
-  
+
   .dropdown {
     position: relative;
-
+    text-align: center;
   }
   
   .dropdown-content {
@@ -239,8 +239,12 @@ span:hover + .lan {
     text-align: center;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
     z-index: 1;
+    width: 380px;
+    height: 100px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
   }
   
   .dropdown-content a {
@@ -248,10 +252,43 @@ span:hover + .lan {
     padding: 12px 16px;
     text-decoration: none;
     display: flex;
+    justify-content: center;
   }
   
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    background-color: #d6d9ff77;
+    border-radius: 20px;
+  }
   
   .dropdown:hover .dropdown-content {display: inline-table;}
   
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {
+    background-color: #6a6fa0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+.inputbox1{
+  margin-top: 11%;
+  /* margin-left: 40%; */
+  width: 700px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.submit{
+  background-color: #a3cfcd;
+  color: #fff;
+  margin-top: 11%;
+  width: 500px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+}
+
+.inputa {
+  display: flex;
+  justify-content: space-evenly;
+}
