@@ -14,8 +14,8 @@ def mamba(request):
 def index(request):
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\Vitor\Desktop\testes"  # Vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    # dirPath = r"C:\Users\Vitor\Desktop\testes"  # Vitor
+    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -31,8 +31,8 @@ def index(request):
     for i in lista_arquivos:
         try:
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"C:\Users\Vitor\Desktop\testes\{i}"  # vitor
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            # caminho = fr"C:\Users\Vitor\Desktop\testes\{i}"  # vitor
+            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -111,8 +111,8 @@ def sinonimos_results(request):
 
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\Vitor\Desktop\testes"  # vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    # dirPath = r"C:\Users\Vitor\Desktop\testes"  # vitor
+    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -141,7 +141,7 @@ def sinonimos_results(request):
         try:
             caminho = fr"C:\Users\Vitor\Desktop\testes\{i}"  # vitor
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -164,8 +164,8 @@ def sinonimos_results(request):
             # quantidade = []
             text = ''
             sum = 0
-            with fitz.open(caminho) as doc:
-                for page in doc:
+            with fitz.open(caminho) as pdf:
+                for page in pdf:
                     text = page.get_text()
             new_text = ''.join(ch for ch in unicodedata.normalize('NFKD', text).lower()
                                if not unicodedata.combining(ch))
