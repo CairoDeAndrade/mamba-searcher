@@ -14,7 +14,8 @@ def mamba(request):
 def index(request):
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    dirPath = r"C:\Users\Vitor\Desktop\testes"  # Vitor
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -30,7 +31,8 @@ def index(request):
     for i in lista_arquivos:
         try:
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            caminho = fr"C:\Users\Vitor\Desktop\testes\{i}"  # vitor
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -109,32 +111,37 @@ def sinonimos_results(request):
 
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
+    dirPath = r"C:\Users\Vitor\Desktop\testes"  # vitor
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
     total = 0
-    caminho, contained_words = '', ''
+    caminho, contained_words, no_synonyms = '', '', ''
     result, list_contained_words, final_contained_words = [], [], []
     final_dict = {}
 
     # Using the synonyms to search
     palavras_chave = str(request.GET.get('term')).lower()
-    synonym_word = Search(f'{palavras_chave}')
+    search_word = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
+                          if not unicodedata.combining(ch))
+    synonym_word = Search(f'{search_word}')
     synonym_results = synonym_word.synonyms()
 
     # Checking if there is not a synonym
-    if synonym_results is None:
-        novas_palavras = [palavras_chave]
+    if synonym_results == 404:
+        novas_palavras = [search_word]
+        no_synonyms = "Não há sinônimos para esta palavra"
     else:
         novas_palavras = synonym_results
-        novas_palavras.append(palavras_chave)
+        novas_palavras.append(search_word)
 
     # Main code
     for i in lista_arquivos:
         try:
+            caminho = fr"C:\Users\Vitor\Desktop\testes\{i}"  # vitor
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # home
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -193,5 +200,5 @@ def sinonimos_results(request):
         real_final.append(complete_list)
 
     return render(request, 'vcode_test/sinonimos_results.html', {'real_final': real_final, 'total': total,
-                                                                 'synonym_results': synonym_results, })
-
+                                                                 'synonym_results': synonym_results,
+                                                                 'no_synonyms': no_synonyms, })
