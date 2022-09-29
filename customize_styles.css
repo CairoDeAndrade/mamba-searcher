@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@font-face {
+  font-family: Quantico;
+  src: url('Quantico-Regular.ttf');
+}
+@import "compass/css3";
+
+*{
+  background-color: #dcdede;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  font-family: Quantico
+  
+}
+
+body{
+   background-color: #dcdede;
+   background:#e6e6ff;
+   font-family: 'Encode Sans', sans-serif;
+}
+
+.main_mamba {
+  background-color: #e5e7ef;
+  float: right;
+  position: absolute;
+  width: 87.99vw;
+  height: 87.8vh;
+  top: 12.11%;
+  left: 12%;
+}
+
+.customize_box{
+  border-style: solid;
+  border-color: black; 
+  border-width: 1px;
+  position: absolute;
+  width: 70vw;
+  height: 80vh;
+  top: 10%;
+  left: 15%;
+  background: #DCDEDE;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.customize{
+  padding: 5px;
+  font-family: Quantico;
+  font-size: 25px;
+  text-align: center;
+  background-color: #2a272a;
+  color: white;
+}
+
+
+.customizing{
+  width: 360px;
+  height: min-content;
+  padding: 20px;
+  background: #DCDEDE;
+}
+
+.customizing form{
+  font-size: 20px;
+}
+
+.form-group{
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 0;
+}
+
+.inputbox1{
+  user-select:auto;
+  padding-left: 20px;
+  width: 360px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fcfafa;
+  border-width: 1px;
+}
+
+.inputbox2{
+  user-select:auto;
+  padding-left: 20px;
+  width: 650px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fcfafa;
+  border-width: 1px;
+}
+
+.first{
+  height: 120px;
+  max-width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.second{
+  width: 300px;
+  height: 42px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  background-color: #a3cfcd;
+  color: white;
+  font-size: 25px;
+}
+
+
+.sub{
+  margin-top: 20px;
+  margin-left: 470px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #a3cfcd;
+  color: white;
+  font-size: 25px;
+}
+
+
+.nveja {
+  color: #a3cfcd;
+  background-color: #a3cfcd;
+  text-decoration: none;
+  text-decoration-color: #a3cfcd;
+}
+
+.nveja:hover{
+  color:#a3cfcd
+}
