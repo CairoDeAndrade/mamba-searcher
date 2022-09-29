@@ -4,7 +4,7 @@ import fitz
 import unicodedata
 import os
 from operator import itemgetter
-from pysinonimos.sinonimos import Search, historic
+from pysinonimos.sinonimos import Search
 
 
 def mamba(request):
@@ -106,7 +106,7 @@ def sinonimos_results(request):
     term = request.GET.get('term')
     if not term:
         return redirect('sinonimos')
-    
+
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
     dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # Home
@@ -123,8 +123,14 @@ def sinonimos_results(request):
     synonym_word = Search(f'{palavras_chave}')
     synonym_results = synonym_word.synonyms()
 
-    novas_palavras = synonym_word.synonyms()
+    # Checking if there is not a synonym
+    if synonym_results is None:
+        novas_palavras = [palavras_chave]
+    else:
+        novas_palavras = synonym_results
+        novas_palavras.append(palavras_chave)
 
+    # Main code
     for i in lista_arquivos:
         try:
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
