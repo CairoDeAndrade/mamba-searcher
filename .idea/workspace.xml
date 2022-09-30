@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.4">
+    <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.7">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tcc-entra21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc-entra21.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/.historico" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/.historico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/mamba.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/mamba.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/sinonimos.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/sinonimos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663955956918</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="atualização 2.7">
+      <created>1664473832972</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664473832972</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="atualização 2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualização 2.4" />
+    <MESSAGE value="atualização 2.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualização 2.7" />
   </component>
 </project>
