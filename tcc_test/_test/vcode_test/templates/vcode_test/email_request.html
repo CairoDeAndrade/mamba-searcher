@@ -15,7 +15,7 @@
         <div class="topbar-inner">
             <div class="container-fluid">
                 <div class="navbar-brand">
-                  <img id="logo" src="cobra.png" alt="Logo" width="100" height="100" class="d-inline-flex align-text-top">
+                  <img id="logo" src="" alt="Logo" width="100" height="100" class="d-inline-flex align-text-top">
                   MAMBA
                 </div>
             </div>
@@ -36,65 +36,25 @@
         </div>
       </div>
     </div>
-
     <div class="main_mamba">
       <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
-          <h1>Pesquise por palavras-chave</h1>
-        <p>
-            Deseja usar a filtragem para buscar por sinônimos? Para isso
-            <a href="{% url 'sinonimos' %}">clique aqui</a>
-        para ativar.</p>
-        <!--Search bar-->
-      <form method="get" action="{% url 'index' %}" style="width: 800px;">
-        <div class="form-group row intro">
-          <div class="col-12">
-            <input class="form-control"
-                   type="search" value="{{ request.GET.term }}"
-                   id="search-input"
-                   placeholder="Pesquisar"
-                   name="term">
-          </div>
-        </div>
-      </form>
-      <br>
-          <p>Deseja que os arquivos sejam enviados para o seu email? Para isso
-            <a href="{% url 'email_request' %}">clique aqui</a></p>
-<!--          Table-->
-          <table class="table table-striped table-dark" style="width: 800px;">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Arquivo</th>
-            <th scope="col">Palavra(s) contida(s)</th>
-            <th scope="col">Quantidade</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for i in real_final %}
-            {% if i.1 != 0 %}
-              <tr>
-                <th scope="row">{{ forloop.counter }}</th>
-<!--                    <td><a href="#" target="_blank">{{ i.0 }}</a></td>-->
-                <td>{{ i.0 }}</td>
-                  <td> {{ i.2 }}</td>
-                <td><strong>{{ i.1 }} / {{ total }}</strong></td>
-              </tr>
-            {% endif %}
-        {% endfor %}
-        </tbody>
-    </table>
-
+              <p>
+        Coloque o seu email aqui para receber os arquivos.
+    </p>
+              <!--email bar-->
+          <form method="get" action="{% url 'email_request' %}" style="width: 800px;">
+            <div class="form-group row intro">
+              <div class="col-12">
+                <input class="form-control"
+                       type="search" value="{{ request.GET.term }}"
+                       id="search-input"
+                       placeholder="Escreva seu email"
+                       name="term">
+              </div>
+            </div>
+          </form>
       </div>
     </div>
-
-<!--      <div class="upload">-->
-<!--        <form>-->
-<!--            <div>-->
-<!--                <label for="arquivo">enviar arquivo</label>-->
-<!--                <input type="file" name="arquivo" id="arquivo">-->
-<!--            </div>-->
-<!--        </form>-->
-<!--       </div>-->
 
     <div class="side">
       <main class="main">
@@ -111,6 +71,15 @@
         </aside>
       </main>
     </div>
+<!--      <div class="upload">-->
+<!--        <form>-->
+<!--            <div>-->
+<!--                <label for="arquivo">enviar arquivo</label>-->
+<!--                <input name="arquivo" id="arquivo" type="file" multiple />-->
+<!--            </div>-->
+<!--        </form>-->
+<!--       </div>-->
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 

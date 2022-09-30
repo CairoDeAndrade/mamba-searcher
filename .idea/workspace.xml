@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.7">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tcc-entra21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc-entra21.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/email_request.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/.historico" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/.historico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/mamba.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/mamba.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -41,14 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cairo/OneDrive/Documentos/MyStudies/tcc-entra21/tcc_test/_test/vcode_test/templates/vcode_test&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/cairo/OneDrive/Documentos/MyStudies/tcc-entra21/tcc_test/_test/vcode_test/templates/vcode_test",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cairo\OneDrive\Documentos\MyStudies\tcc-entra21\tcc_test\_test\vcode_test\templates\vcode_test" />
