@@ -164,47 +164,6 @@ body{
   left: 12%;
 }
 
-.intro {
-  width: 900px;
-  text-align: center;
-  font-size: 1.7em;
-  margin: auto;
-  margin-top: 7%;  
-}
-
-input[type="file"] {
-  display: none;
-}
-label {
-  padding: 20px 10px;
-  width: 500px;
-  background-color: #a3cfcd;
-  color:black;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 2em;
-  display: block;
-  margin-top: 15px;
-  cursor: pointer;
-  border-radius: 4vh;
-}
-
-.upload{
-  padding: 1em;
-  position: absolute;
-  left: 47%;
-  top: 70%;
-  margin-right: -50%;
-  transform: translate(-40%, -40%) 
-}
-
-/* .language {
-    display: none;
-}
-  
-span:hover + .lan {
-    display: block;
-  } */
 .search_pag {
   margin-top: 5%;
   display: flex;
@@ -272,7 +231,6 @@ span:hover + .lan {
 
 .inputbox1{
   margin-top: 11%;
-  /* margin-left: 40%; */
   width: 650px;
   height: 55px;
   border-radius: 10px;
@@ -293,7 +251,7 @@ span:hover + .lan {
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);  
 }
 
-.inputa {
+.input2{
   display: flex;
   justify-content: space-evenly;
 }
