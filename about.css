@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@font-face {
+  font-family: Quantico;
+  src: url('Quantico-Regular.ttf');
+}
+@import "compass/css3";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  font-family: Quantico
+}
+
+body{
+   background-color: #2a272a;
+   background:#2a272a;
+   font-family: 'Encode Sans', sans-serif;
+}
+
+.topbar {
+  background-color: #2a272a;
+}
+
+.topbar-inner {
+  height: 120px;
+  max-width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+
+}
+
+#logo {
+  margin-left: 3.5%;
+  max-width: 140px;
+  max-height: 140px;
+}
+
+.box {
+  display:inline-flex;
+  padding:10px 20px;
+  border-right:2px solid;
+  border-left:2px solid;
+  margin-right: 10px;
+  color: #a3cfcd;
+  background:
+      linear-gradient(to right,
+      #a3cfcd calc(50% - 5px),transparent calc(50% - 5px),
+        transparent calc(50% + 5px),#a3cfcd calc(50% + 5px)),
+      linear-gradient(to right,
+      #a3cfcd calc(50% - 5px),transparent calc(50% - 5px),
+        transparent calc(50% + 5px),#a3cfcd calc(50% + 5px));
+  background-size:150% 2px;
+  background-position:top left,bottom right;
+  background-repeat:no-repeat;
+  transition:.8s all;
+}
+
+.box:hover {
+  background-position:top right,bottom left;
+  cursor: pointer;
+}
+
+#signin {
+  max-height: 44px;
+  display: inline-flex;
+  justify-content: right;
+  white-space: nowrap;
+}
+
+#login {
+  display: inline-flex;
+  justify-content: right;
+}
+
+#personalizar {
+  display: inline-flex;
+  justify-content: right;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-size: 70px;
+  font-family: Quantico;
+}
+
+.sidebar {
+  justify-content: space-between;
+  position: fixed;
+  width: 12%;
+  height: 110vh;
+  background: #2a272a;
+  color: #fff;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.nav {
+  color: #fff;
+}
+
+.active {
+  margin-top: 20%;
+  height: 80px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.search {
+  margin-top: 20%;
+  height: 80px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.ranking {
+  margin-top: 20%;
+  height: 80px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.about{
+  margin-top: 20%;
+  height: 80px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.out {
+  margin-top: 20%;
+  height: 80px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+#links {
+  text-decoration: none;
+  color: #fff;
+}
+
+.button:hover {
+  margin-left: 15%;
+  background-color: #00000046;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.377);
+  border-radius: 70px;
+  width: 140px;
+}
+
+.side_buttons {
+  padding-left: 0rem;
+  width: 222.95px;
+}
+
+.main_mamba {
+  background-color: #d3d3d3;
+  float: right;
+  position: absolute;
+  width: 87.99vw;
+  height: 87.8vh;
+  top: 12.11%;
+  left: 12%;
+  justify-content: center;
+}
+
+.us{
+display: flex;
+justify-content: center;
+
+}
+
+.foto{
+    border-radius: 150px;
+    margin-top: 20px;
+}
+
+.names{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.6em;
+}
+
+.name {
+    background-color: #a3cfcd;
+    width: 250px;
+    height: 60px;
+    text-align: center;
+}
