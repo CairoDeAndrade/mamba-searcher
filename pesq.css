@@ -251,6 +251,10 @@ body{
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);  
 }
 
+.submit:hover {
+  background-color: #6e9997;
+}
+
 .input2{
   display: flex;
   justify-content: space-evenly;
