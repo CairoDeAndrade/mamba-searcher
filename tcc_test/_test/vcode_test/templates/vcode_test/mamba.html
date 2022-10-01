@@ -38,6 +38,21 @@
     </div>
     <div class="main_mamba">
       <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
+          <!--Forms to upload the file-->
+          <h1>File Uploader</h1>
+        <form action="{% url 'mamba' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table">
+                {{ form }}
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+<!--          Pesquisa-->
           <h1>Pesquise por palavras-chave</h1>
           <p>
             Deseja usar a filtragem para buscar por sinônimos? Para isso
