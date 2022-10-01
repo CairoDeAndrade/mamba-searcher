@@ -10,15 +10,18 @@ from .forms import FileForm
 
 
 def mamba(request):
-    lastfile = File.objects.last()
+    if request.method != 'POST':
+        form = FileForm()
+        return render(request, 'vcode_test/mamba.html', {'form': form})
 
-    form = FileForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
+    form = FileForm(request.POST, request.FILES)
 
-    return render(request, 'vcode_test/mamba.html', {'lastfile': lastfile,
-                                                     'form': form,
-                                                     })
+    if not form.is_valid():
+        form = FileForm(request.POST)
+        return render(request, 'vcode_test/mamba.html', {'form': form})
+
+    form.save()
+    return redirect('mamba')
 
 
 def index(request):
