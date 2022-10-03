@@ -14,16 +14,27 @@
   text-decoration: none;
   user-select: none;
   font-family: Quantico
+  
 }
 
 body{
-   background-color: #dcdede;
-   background:#e6e6ff;
+  background-color: #e5e7ef;
    font-family: 'Encode Sans', sans-serif;
 }
 
+.fixed-nav-bar { position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 9999; 
+  width: 100%; 
+  height: 110px; 
+  background-color: #2a272a; }
+
 .topbar {
-  background-color: #2a272a;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+  
 }
 
 .topbar-inner {
@@ -92,8 +103,9 @@ body{
 }
 
 .sidebar {
+  position:fixed;
+  top: 100px;
   justify-content: space-between;
-  position: fixed;
   width: 12%;
   height: 110vh;
   background: #2a272a;
@@ -156,7 +168,7 @@ ul {
 }
 
 .main_mamba {
-  background-color: #e5e7ef;
+  
   float: right;
   position: absolute;
   width: 87.99vw;
