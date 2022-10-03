@@ -7,6 +7,15 @@ from operator import itemgetter
 from pysinonimos.sinonimos import Search
 from .models import File
 from .forms import FileForm
+# email imports
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+import shutil
+
+list_files_name = []
 
 
 def mamba(request):
@@ -31,7 +40,7 @@ def index(request):
     # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
-    lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
+    lista_quantidade_palavras, texto, lista_final, list_word_qtd, real_final = [], [], [], [], []
     total = 0
     caminho, contained_words = '', ''
     result, list_contained_words, final_contained_words = [], [], []
@@ -95,9 +104,12 @@ def index(request):
         result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
 
     for i in result:
-        list_files_name.append(i['arquivo'])
-        list_word_qtd.append(i['quantidade_palavras'])
-        final_contained_words.append(i['palavras_contidas'])
+        if i['quantidade_palavras'] == 0:
+            pass
+        else:
+            list_files_name.append(i['arquivo'])
+            list_word_qtd.append(i['quantidade_palavras'])
+            final_contained_words.append(i['palavras_contidas'])
 
     for files_name, word_qtd, words in zip(list_files_name, list_word_qtd, final_contained_words):
         complete_list = [files_name, word_qtd, words]
@@ -109,7 +121,7 @@ def index(request):
         return redirect('mamba')
 
     return render(request, 'vcode_test/index.html', {'real_final': real_final, 'total': total,
-                                                     })
+                                                     'list_files_name': list_files_name})
 
 
 def sinonimos(request):
@@ -217,41 +229,40 @@ def sinonimos_results(request):
                                                                  'no_synonyms': no_synonyms, })
 
 
-def email_request(request):
-    #     import smtplib
-    #     from email.mime.multipart import MIMEMultipart
-    #     from email.mime.text import MIMEText
-    #     from email.mime.base import MIMEBase
-    #     from email import encoders
-    #
-    #     fromaddr = "mande.seucurriculo102@gmail.com"
-    #     toaddr = "request.GET.get('term')"
-    #
-    #     msg = MIMEMultipart()
-    #     msg['From'] = fromaddr
-    #     msg['To'] = toaddr
-    #     msg['Subject'] = "Emails Filtrados"
-    #     body = "Aqui estão seus email filtrados"
-    #     msg.attach(MIMEText(body, 'plain'))
-    #
-    #     dirPath = r"media"
-    #     lista_arquivos = next(os.walk(dirPath))[2]
-    #
-    #     for i in lista_arquivos:
-    #         filename = i
-    #         attachment = open(f"media/{i}", "rb")
-    #         p = MIMEBase('application', 'octet-stream')
-    #         p.set_payload((attachment).read())
-    #         encoders.encode_base64(p)
-    #
-    #         p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-    #         msg.attach(p)
-    #
-    #     s = smtplib.SMTP('smtp.gmail.com', 587)
-    #     s.starttls()
-    #     s.login(fromaddr, "CUrriculos.com")
-    #     text = msg.as_string()
-    #     s.sendmail(fromaddr, toaddr, text)
-    #     s.quit()
 
-    return render(request, 'vcode_test/email_request.html', )
+
+def email_request(request):
+    for i in list_files_name:
+        shutil.move(f'media/{i}',
+                    f'media/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú",
+                                                                                                                 "u").replace(
+                        "ã", "a").replace("ç", "c").replace(" ", "_").replace(",", "").replace("õ", "o"))
+
+    fromaddr = "mamba.python.entra21@gmail.com"
+    toaddr = str(request.GET.get('term').replace('%40', '@'))
+
+    msg = MIMEMultipart()
+    msg['From'] = fromaddr
+    msg['To'] = toaddr
+    msg['Subject'] = "Emails Filtrados"
+    body = "Aqui estão seus email filtrados"
+    msg.attach(MIMEText(body, 'plain'))
+
+    for i in list_files_name:
+        filename = i
+        attachment = open(f"media/{i}", "rb")
+        p = MIMEBase('application', 'octet-stream')
+        p.set_payload((attachment).read())
+        encoders.encode_base64(p)
+
+        p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+        msg.attach(p)
+
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    s.starttls()
+    s.login(fromaddr, "pzlyubevjrwgyobq")
+    text = msg.as_string()
+    s.sendmail(fromaddr, toaddr, text)
+    s.quit()
+
+    return render(request, 'vcode_test/email_request.html', {'list_files_name': list_files_name})
