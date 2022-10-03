@@ -166,26 +166,60 @@ body{
 }
 
 .us{
-display: flex;
-justify-content: center;
-
+  width: 600px;
+  text-align: justify;
+  font-size: 1.8em;
+  margin: auto;
+  margin-top: 80px;  
+  margin-left: 80PX;
 }
 
-.foto{
-    border-radius: 150px;
-    margin-top: 20px;
+.dev{
+  font-size: 1.7em;
+  margin-left: 3%;
+  margin-top: 5% ;
 }
 
 .names{
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1.6em;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  margin-right: 3%;
 }
 
-.name {
-    background-color: #a3cfcd;
-    width: 250px;
-    height: 60px;
-    text-align: center;
+.box_name{
+  font-size: 1.6em;
 }
+
+.icon{
+  display: flex;
+  justify-content: space-between;
+  width:55px;
+  height: 55px;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.linkedin{
+  margin-left: 19px;
+}
+
+.git{
+  margin-left: -15px;
+
+}
+.linkedin1{
+  margin-left: 19px;
+
+}
+.txt_img{
+  display: flex;
+  justify-content: space-between ;
+}
+
+.img{
+  margin: auto;
+  margin-top: 80px;  
+  margin-left: 5%;
+}
+
