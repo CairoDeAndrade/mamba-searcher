@@ -119,32 +119,28 @@ body{
 }
 
 .active {
-  margin-top: 20%;
-  height: 80px;
+
+  height: 130px;
   border-bottom: 1px solid #e0e4e8;
 }
 
 .search {
-  margin-top: 20%;
-  height: 80px;
+  height: 130px;
   border-bottom: 1px solid #e0e4e8;
 }
 
 .ranking {
-  margin-top: 20%;
-  height: 80px;
+  height: 130px;
   border-bottom: 1px solid #e0e4e8;
 }
 
 .about{
-  margin-top: 20%;
-  height: 80px;
+  height: 130px;
   border-bottom: 1px solid #e0e4e8;
 }
 
 .out {
-  margin-top: 20%;
-  height: 80px;
+  height: 130px;
   border-bottom: 1px solid #e0e4e8;
 }
 
@@ -153,13 +149,22 @@ body{
   color: #fff;
 }
 
-.button:hover {
-  margin-left: 15%;
-  background-color: #00000046;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.377);
-  border-radius: 70px;
-  width: 140px;
+#buttons2{
+  padding-top: 40px;
+  height:128px;
 }
+
+#buttons2:hover{
+  height:128px;
+  background-color: #101010;
+}
+
+.buttons{
+  height:130px;
+  background-color: #2a272a;
+}
+
+
 
 ol,
 ul {
