@@ -4,27 +4,6 @@
     <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Ana Clara Maiberg-Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Cairo - currículo atualizado.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Cairo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Casa Grande.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Currículo - Ricardo Molinari Boos.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Currículo Afia (1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Currículo Vitor.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Eduardo Bon Dbriga - Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Eliton Novasco de Assis - Currículo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Fábio de Melo - Currículo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Henri Tado Silveira - Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/India Nara Pereira - Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Jesus.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Joiso.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Julia Ana Cardoso - Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Raul Seixas - Currículo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Samuel Lucca Kauê da Paz - Currículo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Thomas Edison - Currículo - Copia.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/Thomas Edison - Currículo.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/curriculo ana.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
