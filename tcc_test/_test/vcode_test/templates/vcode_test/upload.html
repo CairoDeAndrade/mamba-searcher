@@ -40,26 +40,16 @@
     <div class="main_mamba">
 
       <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
-<!--          Pesquisa-->
-          <h1>Pesquise por palavras-chave</h1>
-          <p>
-            Deseja usar a filtragem para buscar por sinônimos? Para isso
-            <a href="{% url 'sinonimos' %}">clique aqui</a>
-        para ativar.
-          </p>
-        <!--Search bar-->
-      <form method="get" action="{% url 'index' %}" style="width: 800px;">
-        <div class="form-group row intro">
-          <div class="col-12">
-            <input class="form-control"
-                   type="search" value="{{ request.GET.term }}"
-                   id="search-input"
-                   placeholder="Pesquisar"
-                   name="term">
-          </div>
+        <div class="upload">
+            <form action="{% url 'send_files' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <label for="upload">Enviar arquivos</label>
+                    <input name="files" id="upload" type="file" multiple />
+                    <input type="submit" value="Upload" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
-      </form>
-      <br>
 
     <div class="side">
       <main class="main">
@@ -76,15 +66,6 @@
         </aside>
       </main>
     </div>
-
-<!--      <div class="upload">-->
-<!--        <form>-->
-<!--            <div>-->
-<!--                <label for="arquivo">enviar arquivo</label>-->
-<!--                <input name="arquivo" id="arquivo" type="file" multiple />-->
-<!--            </div>-->
-<!--        </form>-->
-<!--       </div>-->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

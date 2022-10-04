@@ -5,23 +5,28 @@ import unicodedata
 import os
 from operator import itemgetter
 from pysinonimos.sinonimos import Search
+from django.http import HttpResponse
+# from .forms import FileFieldForm
 from .models import File
-from .forms import FileForm
 
 
 def mamba(request):
-    if request.method != 'POST':
-        form = FileForm()
-        return render(request, 'vcode_test/mamba.html', {'form': form})
+    return render(request, 'vcode_test/mamba.html')
 
-    form = FileForm(request.POST, request.FILES)
 
-    if not form.is_valid():
-        form = FileForm(request.POST)
-        return render(request, 'vcode_test/mamba.html', {'form': form})
+def upload(request):
+    return render(request, 'vcode_test/upload.html')
 
-    form.save()
-    return redirect('mamba')
+
+def send_files(request):
+    if request.method == 'POST':
+        files = request.FILES.getlist('files')
+
+        # storing the files in the DataBase
+        for f in files:
+            File(file=f).save()
+
+        return HttpResponse("The files were uploaded successfully!")
 
 
 def index(request):
