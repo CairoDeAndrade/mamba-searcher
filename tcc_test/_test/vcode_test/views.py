@@ -32,7 +32,7 @@ def send_files(request):
 def index(request):
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"media"  # Vitor
+    dirPath = r"media\files"  # Vitor
     # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
@@ -49,7 +49,7 @@ def index(request):
     for i in lista_arquivos:
         try:
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"media\{i}"  # vitor
+            caminho = fr"media\files\{i}"  # vitor
             # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
             sum = 0
             texto = docx2txt.process(caminho)
@@ -129,7 +129,7 @@ def sinonimos_results(request):
 
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"media"  # vitor
+    dirPath = r"media\files"  # vitor
     # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
@@ -157,7 +157,7 @@ def sinonimos_results(request):
     # Main code
     for i in lista_arquivos:
         try:
-            caminho = fr"media\{i}"  # vitor
+            caminho = fr"media\files\{i}"  # vitor
             # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
             # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
             sum = 0
