@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/.historico" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/.historico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/templates/vcode_test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="destacando-palavras" />
+        <entry key="$PROJECT_DIR$" value="upload_de_arquivos-1.5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

@@ -1,35 +1,121 @@
+# Django imports
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+# Super-searcher imports
 import docx2txt
 import fitz
 import unicodedata
 import os
 from operator import itemgetter
+# Synonyms search imports
 from pysinonimos.sinonimos import Search
-from django.http import HttpResponse
-# from .forms import FileFieldForm
 from .models import File
+# email imports
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+import shutil
 
 
+# Main page
 def mamba(request):
     return render(request, 'vcode_test/mamba.html')
 
 
-def upload(request):
-    return render(request, 'vcode_test/upload.html')
+# Functions that return variables to use
+def list_files_name(request):
+    # functionalities
+    # dirPath = r"C:\Users\entra21\Desktop\testes"
+    dirPath = r"media\files"  # Vitor
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
+    lista_arquivos = next(os.walk(dirPath))[2]
+
+    lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
+    total = 0
+    caminho, contained_words = '', ''
+    result, list_contained_words, final_contained_words = [], [], []
+    final_dict = {}
+    palavras_chave = str(request.GET.get('term')).lower()
+    novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
+                             if not unicodedata.combining(ch))
+    novas_palavras = novas_palavras.split(",")
+
+    for i in lista_arquivos:
+        try:
+            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            caminho = fr"media\files\{i}"  # vitor
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
+            sum = 0
+            texto = docx2txt.process(caminho)
+            novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
+                                 if not unicodedata.combining(ch))
+
+            total = len(novas_palavras)
+
+            for palavra in novas_palavras:
+                if palavra in novo_texto:
+                    sum += 1
+                    contained_words += f'{palavra}, '
+                else:
+                    continue
+
+            list_contained_words.append(contained_words)
+            contained_words = ''
+            lista_quantidade_palavras.append(sum)
+
+        except:
+            # quantidade = []
+            text = ''
+            sum = 0
+            with fitz.open(caminho) as doc:
+                for page in doc:
+                    text = page.get_text()
+            new_text = ''.join(ch for ch in unicodedata.normalize('NFKD', text).lower()
+                               if not unicodedata.combining(ch))
+
+            for j in novas_palavras:
+                if j in new_text:
+                    sum += 1
+                    contained_words += f'{j}, '
+                else:
+                    continue
+
+            list_contained_words.append(contained_words)
+            contained_words = ''
+            lista_quantidade_palavras.append(sum)
+
+    for arquivo, quantidade_palavras, palavras_contidas in zip(lista_arquivos, lista_quantidade_palavras,
+                                                               list_contained_words):
+        final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
+                      'palavras_contidas': palavras_contidas}
+
+        # quantidade = [arquivo, quantidade_palavras, total]
+        lista_final.append(final_dict)
+        result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
+
+    for i in result:
+        if i['quantidade_palavras'] != 0:
+            list_files_name.append(i['arquivo'])
+            list_word_qtd.append(i['quantidade_palavras'])
+            final_contained_words.append(i['palavras_contidas'])
+        else:
+            pass
+
+    for files_name, word_qtd, words in zip(list_files_name, list_word_qtd, final_contained_words):
+        complete_list = [files_name, word_qtd, words]
+        real_final.append(complete_list)
+
+    # If the search input is empty
+    term = request.GET.get('term')
+    if not term:
+        return redirect('mamba')
+
+    return list_files_name
 
 
-def send_files(request):
-    if request.method == 'POST':
-        files = request.FILES.getlist('files')
-
-        # storing the files in the DataBase
-        for f in files:
-            File(file=f).save()
-
-        return HttpResponse("The files were uploaded successfully!")
-
-
-def index(request):
+def total(request):
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
     dirPath = r"media\files"  # Vitor
@@ -113,10 +199,107 @@ def index(request):
     if not term:
         return redirect('mamba')
 
-    return render(request, 'vcode_test/index.html', {'real_final': real_final, 'total': total,
-                                                     })
+    return total
 
 
+def real_final(request):
+    # functionalities
+    # dirPath = r"C:\Users\entra21\Desktop\testes"
+    dirPath = r"media\files"  # Vitor
+    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
+    lista_arquivos = next(os.walk(dirPath))[2]
+
+    lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
+    total = 0
+    caminho, contained_words = '', ''
+    result, list_contained_words, final_contained_words = [], [], []
+    final_dict = {}
+    palavras_chave = str(request.GET.get('term')).lower()
+    novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
+                             if not unicodedata.combining(ch))
+    novas_palavras = novas_palavras.split(",")
+
+    for i in lista_arquivos:
+        try:
+            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
+            caminho = fr"media\files\{i}"  # vitor
+            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
+            sum = 0
+            texto = docx2txt.process(caminho)
+            novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
+                                 if not unicodedata.combining(ch))
+
+            total = len(novas_palavras)
+
+            for palavra in novas_palavras:
+                if palavra in novo_texto:
+                    sum += 1
+                    contained_words += f'{palavra}, '
+                else:
+                    continue
+
+            list_contained_words.append(contained_words)
+            contained_words = ''
+            lista_quantidade_palavras.append(sum)
+
+        except:
+            # quantidade = []
+            text = ''
+            sum = 0
+            with fitz.open(caminho) as doc:
+                for page in doc:
+                    text = page.get_text()
+            new_text = ''.join(ch for ch in unicodedata.normalize('NFKD', text).lower()
+                               if not unicodedata.combining(ch))
+
+            for j in novas_palavras:
+                if j in new_text:
+                    sum += 1
+                    contained_words += f'{j}, '
+                else:
+                    continue
+
+            list_contained_words.append(contained_words)
+            contained_words = ''
+            lista_quantidade_palavras.append(sum)
+
+    for arquivo, quantidade_palavras, palavras_contidas in zip(lista_arquivos, lista_quantidade_palavras,
+                                                               list_contained_words):
+        final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
+                      'palavras_contidas': palavras_contidas}
+
+        # quantidade = [arquivo, quantidade_palavras, total]
+        lista_final.append(final_dict)
+        result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
+
+    for i in result:
+        list_files_name.append(i['arquivo'])
+        list_word_qtd.append(i['quantidade_palavras'])
+        final_contained_words.append(i['palavras_contidas'])
+
+    for files_name, word_qtd, words in zip(list_files_name, list_word_qtd, final_contained_words):
+        complete_list = [files_name, word_qtd, words]
+        real_final.append(complete_list)
+
+    # If the search input is empty
+    term = request.GET.get('term')
+    if not term:
+        return redirect('mamba')
+
+    return real_final
+
+
+# Search function
+def index(request):
+    real_final_list = real_final(request)
+    total_list = total(request)
+    files_name_list = list_files_name(request)
+    return render(request, 'vcode_test/index.html', {'real_final_list': real_final_list,
+                                                     'total_list': total_list,
+                                                     'files_name_list': files_name_list})
+
+
+# Synonyms search functions
 def sinonimos(request):
     return render(request, 'vcode_test/sinonimos.html')
 
@@ -222,41 +405,56 @@ def sinonimos_results(request):
                                                                  'no_synonyms': no_synonyms, })
 
 
-def email_request(request):
-    #     import smtplib
-    #     from email.mime.multipart import MIMEMultipart
-    #     from email.mime.text import MIMEText
-    #     from email.mime.base import MIMEBase
-    #     from email import encoders
-    #
-    #     fromaddr = "mande.seucurriculo102@gmail.com"
-    #     toaddr = "request.GET.get('term')"
-    #
-    #     msg = MIMEMultipart()
-    #     msg['From'] = fromaddr
-    #     msg['To'] = toaddr
-    #     msg['Subject'] = "Emails Filtrados"
-    #     body = "Aqui estão seus email filtrados"
-    #     msg.attach(MIMEText(body, 'plain'))
-    #
-    #     dirPath = r"media"
-    #     lista_arquivos = next(os.walk(dirPath))[2]
-    #
-    #     for i in lista_arquivos:
-    #         filename = i
-    #         attachment = open(f"media/{i}", "rb")
-    #         p = MIMEBase('application', 'octet-stream')
-    #         p.set_payload((attachment).read())
-    #         encoders.encode_base64(p)
-    #
-    #         p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-    #         msg.attach(p)
-    #
-    #     s = smtplib.SMTP('smtp.gmail.com', 587)
-    #     s.starttls()
-    #     s.login(fromaddr, "CUrriculos.com")
-    #     text = msg.as_string()
-    #     s.sendmail(fromaddr, toaddr, text)
-    #     s.quit()
+# Files upload
+def upload(request):
+    return render(request, 'vcode_test/upload.html')
 
-    return render(request, 'vcode_test/email_request.html', )
+
+def send_files(request):
+    if request.method == 'POST':
+        files = request.FILES.getlist('files')
+
+        # storing the files in the DataBase
+        for f in files:
+            File(file=f).save()
+
+        return HttpResponse("The files were uploaded successfully!")
+
+
+# Sending mail
+def email_request(request):
+    files_names = list_files_name(request)
+    for i in files_names:
+        shutil.move(f'media/files/{i}',
+                    f'media/files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
+                    .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
+                    .replace(",", "").replace("õ", "o"))
+
+    fromaddr = "mamba.python.entra21@gmail.com"
+    toaddr = str(request.GET.get('term').replace('%40', '@'))
+
+    msg = MIMEMultipart()
+    msg['From'] = fromaddr
+    msg['To'] = toaddr
+    msg['Subject'] = "Emails Filtrados"
+    body = "Aqui estão seus email filtrados"
+    msg.attach(MIMEText(body, 'plain'))
+
+    for i in files_names:
+        filename = i
+        attachment = open(f"media/{i}", "rb")
+        p = MIMEBase('application', 'octet-stream')
+        p.set_payload((attachment).read())
+        encoders.encode_base64(p)
+
+        p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+        msg.attach(p)
+
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    s.starttls()
+    s.login(fromaddr, "pzlyubevjrwgyobq")
+    text = msg.as_string()
+    s.sendmail(fromaddr, toaddr, text)
+    s.quit()
+
+    return render(request, 'vcode_test/email_request.html', {'list_files_name': list_files_name})
