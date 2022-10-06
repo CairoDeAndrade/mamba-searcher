@@ -38,15 +38,22 @@
     </div>
     <div class="main_mamba">
       <div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
-          <div class="container">
-              <h1>Situação do envio dos arquivos por email</h1>
               <p>
-                  Parabéns! Os arquivos filtrados foram enviados para seu email com sucesso!
-              </p>
-              <p>
-                  Para voltar para página principal <a href="{% url 'mamba' %}">clique aqui</a>
-              </p>
-          </div>
+        Coloque o seu email aqui para receber os arquivos.
+    </p>
+          <p> {{ files_name_list }}</p>
+              <!--email bar-->
+          <form method="get" action="{% url 'email_request' %}" style="width: 800px;">
+            <div class="form-group row intro">
+              <div class="col-12">
+                <input class="form-control"
+                       type="search" value="{{ request.GET.term }}"
+                       id="search-input"
+                       placeholder="Escreva seu email"
+                       name="term">
+              </div>
+            </div>
+          </form>
       </div>
     </div>
 

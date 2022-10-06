@@ -1,6 +1,8 @@
 # Django imports
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+# Models imports
+from .models import File, FilteredFiles
 # Super-searcher imports
 import docx2txt
 import fitz
@@ -9,7 +11,6 @@ import os
 from operator import itemgetter
 # Synonyms search imports
 from pysinonimos.sinonimos import Search
-from .models import File
 # email imports
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -421,14 +422,31 @@ def send_files(request):
         return HttpResponse("The files were uploaded successfully!")
 
 
-# Sending mail
+# Receiving the filtered files
+def email(request):
+    dirPath = r"media/files"
+    lista_arquivos = next(os.walk(dirPath))[2]
+    files_name_list = list_files_name(request)
+    for i, j in enumerate(files_name_list):
+        for file in lista_arquivos:
+            if j == str(file):
+                FilteredFiles(filtered_files=file).save()
+
+    return render(request, 'vcode_test/email.html', {
+        'files_name_list': files_name_list,
+    })
+
+
 def email_request(request):
-    files_names = list_files_name(request)
-    for i in files_names:
-        shutil.move(f'media/files/{i}',
-                    f'media/files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-                    .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
-                    .replace(",", "").replace("õ", "o"))
+    # files_names = list_files_name(request)
+    # for i in files_names:
+    #     shutil.move(f'media/files/{i}',
+    #                 f'media/files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
+    #                 .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
+    #                 .replace(",", "").replace("õ", "o"))
+
+    dirPath = r"media/filtered_files"
+    lista_arquivos = next(os.walk(dirPath))[2]
 
     fromaddr = "mamba.python.entra21@gmail.com"
     toaddr = str(request.GET.get('term').replace('%40', '@'))
@@ -437,12 +455,12 @@ def email_request(request):
     msg['From'] = fromaddr
     msg['To'] = toaddr
     msg['Subject'] = "Emails Filtrados"
-    body = "Aqui estão seus email filtrados"
+    body = "Aqui estão seus emails filtrados"
     msg.attach(MIMEText(body, 'plain'))
 
-    for i in files_names:
+    for i in lista_arquivos:
         filename = i
-        attachment = open(f"media/{i}", "rb")
+        attachment = open(f"media/filtered_files/{i}", "rb")
         p = MIMEBase('application', 'octet-stream')
         p.set_payload(attachment.read())
         encoders.encode_base64(p)
