@@ -295,6 +295,13 @@ def index(request):
     real_final_list = real_final(request)
     total_list = total(request)
     files_name_list = list_files_name(request)
+
+    # Saving the filtered files in the database
+    files = File.objects.all()
+
+    for f in files:
+        FilteredFiles(filtered_files=f).save()
+
     return render(request, 'vcode_test/index.html', {'real_final_list': real_final_list,
                                                      'total_list': total_list,
                                                      'files_name_list': files_name_list})
@@ -424,13 +431,7 @@ def send_files(request):
 
 # Receiving the filtered files
 def email(request):
-    dirPath = r"media/files"
-    lista_arquivos = next(os.walk(dirPath))[2]
     files_name_list = list_files_name(request)
-    for i, j in enumerate(files_name_list):
-        for file in lista_arquivos:
-            if j == str(file):
-                FilteredFiles(filtered_files=file).save()
 
     return render(request, 'vcode_test/email.html', {
         'files_name_list': files_name_list,
@@ -438,15 +439,14 @@ def email(request):
 
 
 def email_request(request):
-    # files_names = list_files_name(request)
-    # for i in files_names:
-    #     shutil.move(f'media/files/{i}',
-    #                 f'media/files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-    #                 .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
-    #                 .replace(",", "").replace("õ", "o"))
-
     dirPath = r"media/filtered_files"
     lista_arquivos = next(os.walk(dirPath))[2]
+
+    for i in lista_arquivos:
+        shutil.move(f'media/filtered_files/{i}',
+                    f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
+                    .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
+                    .replace(",", "").replace("õ", "o"))
 
     fromaddr = "mamba.python.entra21@gmail.com"
     toaddr = str(request.GET.get('term').replace('%40', '@'))
