@@ -297,10 +297,12 @@ def index(request):
     files_name_list = list_files_name(request)
 
     # Saving the filtered files in the database
-    files = File.objects.all()
-
-    for f in files:
-        FilteredFiles(filtered_files=f).save()
+    dirPath = r"media\files"
+    lista_arquivos = next(os.walk(dirPath))[2]
+    for aqur in lista_arquivos:
+        for filt in files_name_list:
+            if aqur == filt:
+                shutil.copy2(f'media/files/{aqur}', f'media/filtered_files/{aqur}')
 
     return render(request, 'vcode_test/index.html', {'real_final_list': real_final_list,
                                                      'total_list': total_list,
@@ -442,11 +444,14 @@ def email_request(request):
     dirPath = r"media/filtered_files"
     lista_arquivos = next(os.walk(dirPath))[2]
 
-    for i in lista_arquivos:
-        shutil.move(f'media/filtered_files/{i}',
-                    f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-                    .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
-                    .replace(",", "").replace("õ", "o"))
+    # for i in lista_arquivos:
+    #     shutil.move(f'media/filtered_files/{i}',
+    #                 f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
+    #                 .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
+    #                 .replace(",", "").replace("õ", "o"))
+
+    dirPath = r"media/filtered_files"
+    list_arq = next(os.walk(dirPath))[2]
 
     fromaddr = "mamba.python.entra21@gmail.com"
     toaddr = str(request.GET.get('term').replace('%40', '@'))
@@ -458,7 +463,7 @@ def email_request(request):
     body = "Aqui estão seus emails filtrados"
     msg.attach(MIMEText(body, 'plain'))
 
-    for i in lista_arquivos:
+    for i in list_arq:
         filename = i
         attachment = open(f"media/filtered_files/{i}", "rb")
         p = MIMEBase('application', 'octet-stream')
@@ -474,5 +479,8 @@ def email_request(request):
     text = msg.as_string()
     s.sendmail(fromaddr, toaddr, text)
     s.quit()
+
+    for i in :
+        os.remove(i)
 
     return render(request, 'vcode_test/email_request.html', {'list_files_name': list_files_name})
