@@ -7,3 +7,7 @@ def home(request):
 
 def search(request):
     return render(request, 'super_searcher/search.html')
+
+
+def search(request):
+    return render(request, 'super_searcher/search.html')
