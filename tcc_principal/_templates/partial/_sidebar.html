@@ -6,11 +6,11 @@
 
             <div class="buttons">
 
-            <li class="active"><a id="links" href="#"><div id="buttons2">HOME</div></a></li>
+            <li class="active"><a id="links" href="{% url 'home' %}"><div id="buttons2">HOME</div></a></li>
             <li class="search"><a id="links" href="{% url 'search' %}"><div id="buttons2">SEARCH</div></a></li>
-            <li class="ranking"><a id="links" href="#"><div id="buttons2">RANKING</div></a></li>
-            <li class="about"><a id="links" href="#"><div id="buttons2">ABOUT</div></a></li>
-            <li class="out"><a id="links" href="#"><div id="buttons2">LOG OUT</div></a></li>
+            <li class="ranking"><a id="links" href="{% url 'ranking' %}"><div id="buttons2">RANKING</div></a></li>
+            <li class="about"><a id="links" href="{% url 'about' %}"><div id="buttons2">ABOUT</div></a></li>
+            <li class="out"><a id="links" href="{% url 'search' %}"><div id="buttons2">LOG OUT</div></a></li>
           </div>
 
           </ul>

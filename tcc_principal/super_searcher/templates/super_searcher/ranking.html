@@ -1,0 +1,58 @@
+{% extends 'super_searcher/default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Home | {% endblock %}
+
+<!--Home content-->
+{% block content %}
+    <div class="main_mamba">
+        <table class="table">
+            <thead>
+              <tr class="titles">
+                <th class="column" scope="col">Rankings</th>
+                <th class="column" scope="col">Nome do Arquivo</th>
+                <th class="column" scope="col">Palavras Encontradas</th>
+                <th class="column" scope="col">Correspondência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="column" scope="row">1</th>
+                <td id="name" class="column"><a id="link_name" href="#">Cairo</a></td>
+                <td class="column">python</td>
+                <td class="column">1/1</td>
+              </tr>
+              <tr>
+                <th class="column" scope="row">2</th>
+                <td id="name" class="column"><a id="link_name" href="#">Vitor</a></td>
+                <td class="column">python</td>
+                <td class="column">1/1</td>
+              </tr>
+              <tr>
+                <th class="column" scope="row">3</th>
+                <td id="name" class="column"><a id="link_name" href="#">Ana</a></td>
+                <td class="column">python</td>
+                <td class="column">1/1</td>
+              </tr>
+              <tr>
+                <th class="column" scope="row">4</th>
+                <td id="name" class="column"><a id="link_name" href="#">Ana</a></td>
+                <td class="column">python</td>
+                <td class="column">1/1</td>
+              </tr>
+              <tr>
+                <th class="column" scope="row">5</th>
+                <td id="name" class="column"><a id="link_name" href="#">Cauan</a></td>
+                <td class="column">python</td>
+                <td class="column">1/1</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
