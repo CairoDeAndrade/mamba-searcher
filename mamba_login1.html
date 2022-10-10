@@ -8,13 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="login1_styles.css">
     <link rel="icon" type="image/png" sizes="128x128" href="cobra.png">
-     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
 </head>
 <body>
+  <nav class="fixed-nav-bar">
     <div class="topbar">
         <div class="topbar-inner">
             <div class="container-fluid">
@@ -40,17 +36,13 @@
         </div>
       </div>
     </div>
-
-    
+  </nav>
     <div class="main_mamba">
-
       <div class="login_box">
          <div class="entrar">
           Login
          </div>
-
          <div class="login">
-  
           <form>
               <div class="form-group">
                   <label for="email">Email</label> <br>
@@ -84,11 +76,16 @@
         <aside class="sidebar">
           <nav class="nav">
               <ul>
-                <li class="active"><div class="button"><a id="links" href="#">HOME</a></div></li>
-                <li class="search"><div class="button"><a id="links" href="#">SEARCH</a></div></li>
-                <li class="ranking"><div class="button"><a id="links" href="#">RANKING</a></div></li>
-                <li class="about"><div class="button"><a id="links" href="#">ABOUT</a></div></li>
-                <li class="out"><div class="button"><a id="links" href="#">LOG OUT</a></div></li>
+              
+                <div class="buttons">
+
+                <li class="active"><a id="links" href="#"><div id="buttons2">HOME</div></a></li>
+                <li class="search"><a id="links" href="#"><div id="buttons2">SEARCH</div></a></li>
+                <li class="ranking"><a id="links" href="#"><div id="buttons2">RANKING</div></a></li>
+                <li class="about"><a id="links" href="#"><div id="buttons2">ABOUT</div></a></li>
+                <li class="out"><a id="links" href="#"><div id="buttons2">LOG OUT</div></a></li>
+              </div>
+
               </ul>
           </nav>
         </aside>
