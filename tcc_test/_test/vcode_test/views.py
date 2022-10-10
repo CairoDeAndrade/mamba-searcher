@@ -296,6 +296,10 @@ def real_final(request):
 
 # Search function
 def index(request):
+    dirPath = r"media/filtered_files"
+    list_arq = next(os.walk(dirPath))[2]
+    for i in list_arq:
+        os.remove(f"media/filtered_files/{i}")
     real_final_list = real_final(request)
     total_list = total(request)
     files_name_list = list_files_name(request)
