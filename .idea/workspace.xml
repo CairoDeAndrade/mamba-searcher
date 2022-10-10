@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fefdfe-9d1f-4b9f-bf8f-92ec551738eb" name="Changes" comment="atualização 2.7">
-      <change beforePath="$PROJECT_DIR$/.idea/tcc-entra21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc-entra21.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/filtered_files/Curriculo_Vitor.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/CURRÍCULO.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Cairo_currículo_atualizado.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Currículo_-_Ricardo_Molinari_Boos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Currículo_Afia_1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Eduardo_Bon_Dbriga_-_Currículo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Eliton_Novasco_de_Assis_-_Currículo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Fábio_de_Melo_-_Currículo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Henri_Tado_Silveira_-_Currículo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/India_Nara_Pereira_-_Currículo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Julia_Ana_Cardoso_-_Currículo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Raul_Seixas_-_Currículo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Samuel_Lucca_Kauê_da_Paz_-_Currículo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/Thomas_Edison_-_Currículo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/files/curríulo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/media/filtered_files/Cairo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_test/_test/vcode_test/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -22,6 +22,10 @@ import shutil
 
 # Main page
 def mamba(request):
+    dirPath = r"media/filtered_files"
+    list_arq = next(os.walk(dirPath))[2]
+    for i in list_arq:
+        os.remove(f"media/filtered_files/{i}")
     return render(request, 'vcode_test/mamba.html')
 
 
@@ -299,6 +303,7 @@ def index(request):
     # Saving the filtered files in the database
     dirPath = r"media\files"
     lista_arquivos = next(os.walk(dirPath))[2]
+
     for aqur in lista_arquivos:
         for filt in files_name_list:
             if aqur == filt:
@@ -428,6 +433,8 @@ def send_files(request):
         for f in files:
             File(file=f).save()
 
+
+
         return HttpResponse("The files were uploaded successfully!")
 
 
@@ -442,17 +449,17 @@ def email(request):
 
 def email_request(request):
     dirPath = r"media/filtered_files"
-    lista_arquivos = next(os.walk(dirPath))[2]
+    lista_arquivo = next(os.walk(dirPath))[2]
 
-    # for i in lista_arquivos:
-    #     shutil.move(f'media/filtered_files/{i}',
-    #                 f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-    #                 .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
-    #                 .replace(",", "").replace("õ", "o"))
-
+    for i in lista_arquivo:
+        shutil.move(f'media/filtered_files/{i}',
+                    f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
+                    .replace("ú", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
+                    .replace(",", "").replace("õ", "o").replace("Á", "A").replace("É", "E").replace("Í", "I").replace("Ó", "O")
+                    .replace("Ú", "U").replace("Ã", "A").replace("Ç", "C").replace(" ", "_")
+                    .replace(",", "").replace("Õ", "O"))
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
-
     fromaddr = "mamba.python.entra21@gmail.com"
     toaddr = str(request.GET.get('term').replace('%40', '@'))
 
@@ -480,7 +487,6 @@ def email_request(request):
     s.sendmail(fromaddr, toaddr, text)
     s.quit()
 
-    for i in :
-        os.remove(i)
-
     return render(request, 'vcode_test/email_request.html', {'list_files_name': list_files_name})
+
+
