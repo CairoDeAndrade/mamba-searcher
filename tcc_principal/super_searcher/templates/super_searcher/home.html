@@ -2,7 +2,7 @@
 {% load static %}
 
 <!--CSS-->
-{% block css%}
+{% block static%}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
@@ -15,8 +15,10 @@
 
      <!--Description/messages-->
       <div class="intro">
-        <!--Messages-->
-        {% include 'partial/_messages.html' %}
+        {% if messages %}
+            <!--Messages-->
+            {% include 'partial/_messages.html' %}
+        {% endif %}
           <p>
           Mamba consiste na automação de um processo de seleção de talentos.
           Ao clicar em começar, insira os currículos que deseja analisar na área indicada.

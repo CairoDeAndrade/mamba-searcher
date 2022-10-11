@@ -2,8 +2,21 @@
 {% load static %}
 
 <!--CSS-->
-{% block css%}
+{% block static%}
 <link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+<!--Javascript-->
+<script>
+  function selecionado(selectElement){
+    let valor = selectElement.innerHTML
+    let barra = document.getElementById('select_words')
+    if (barra.value == ''){
+      barra.value = valor
+    }else{
+      barra.value += ',' + valor
+    }
+  }
+</script>
 {% endblock %}
 
 <!--Title-->
@@ -12,14 +25,15 @@
 <!--Home content-->
 {% block content %}
   <div class="main_mamba">
+
       <div class="search_pag">
         <div class="ui selection dropdown">
           <div class="dropdown">
             <button class="dropbtn">Linguagens</button>
             <div class="dropdown-content">
-              <a href="#">Inglês</a>
-              <a href="#">Alemão</a>
-              <a href="#">Espanhol</a>
+              <a href="#" onclick="selecionado(this)">Inglês</a>
+              <a href="#" onclick="selecionado(this)">Alemão</a>
+              <a href="#" onclick="selecionado(this)">Espanhol</a>
             </div>
           </div>
       </div>
@@ -27,9 +41,9 @@
         <div class="dropdown">
           <button class="dropbtn">Educação</button>
           <div class="dropdown-content">
-            <a href="#">Básico</a>
-            <a href="#">Média</a>
-            <a href="#">Superior</a>
+            <a href="#" onclick="selecionado(this)">Básico</a>
+            <a href="#" onclick="selecionado(this)">Média</a>
+            <a href="#" onclick="selecionado(this)">Superior</a>
           </div>
         </div>
       </div>
@@ -39,9 +53,9 @@
         <div class="dropdown">
           <button class="dropbtn">Cursos</button>
           <div class="dropdown-content">
-            <a href="#">Python</a>
-            <a href="#">C#</a>
-            <a href="#">Java</a>
+            <a href="#" onclick="selecionado(this)">Python</a>
+            <a href="#" onclick="selecionado(this)">C#</a>
+            <a href="#" onclick="selecionado(this)">Java</a>
           </div>
         </div>
         </div>
@@ -49,16 +63,23 @@
       <div class="dropdown">
         <button class="dropbtn">Localidade</button>
         <div class="dropdown-content">
-          <a href="#">Blumenau</a>
-          <a href="#">Gaspar</a>
-          <a href="#">Indaial</a>
+          <a href="#" onclick="selecionado(this)">Blumenau</a>
+          <a href="#" onclick="selecionado(this)">Gaspar</a>
+          <a href="#" onclick="selecionado(this)">Indaial</a>
         </div>
       </div>
       </div>
     </div>
     <div class="input2">
-        <input class="inputbox1" type="text" name="inputBox" placeholder="Pesquisar por outras palavras">
-        <input class="submit" type="submit" value="CONFIRMAR" >
+      <!--Search bar-->
+      <form method="get" action="{% url 'ranking' %}">
+          <input class="form-control inputbox1"
+                 type="search" value="{{ request.GET.term }}"
+                 id="select_words"
+                 placeholder="Pesquisar por outras palavras"
+                 name="term">
+      </form>
     </div>
+
   </div>
 {% endblock %}
