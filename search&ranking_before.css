@@ -7,7 +7,6 @@
 @import "compass/css3";
 
 *{
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,7 +14,6 @@
   text-decoration: none;
   user-select: none;
   font-family: Quantico
-  
 }
 
 body{
@@ -89,7 +87,7 @@ body{
 
 .navbar-brand {
   color: #fff !important;
-  font-size: 70px !important; 
+  font-size: 70px;
   font-family: Quantico;
 }
 
@@ -156,7 +154,6 @@ ul {
   padding-left: 0rem;
   width: 222.95px;
 }
-
 .main_mamba {
   background-color: #e5e7ef;
   float: right;
