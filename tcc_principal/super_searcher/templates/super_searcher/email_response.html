@@ -1,0 +1,16 @@
+{% extends 'super_searcher/default.html' %}
+
+{% block content%}
+<div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
+          <div class="container">
+              <h1>Situação do envio dos arquivos:</h1>
+              <p>
+                  Parabéns! Os arquivos filtrados foram enviados para seu email com sucesso!
+              </p>
+              <p>
+                  Para voltar para página principal e limpar a pasta <a href="{% url 'search' %}">clique aqui</a>
+              </p>
+          </div>
+      </div>
+
+{% endblock %}

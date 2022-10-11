@@ -11,17 +11,22 @@
 
 <!--Home content-->
 {% block content %}
+
     <div class="main_mamba">
-      <div class="search" style="margin-top: 60px;">
+        <div class="messages" style="margin-top: 60px;">
+         <!--Messages-->
+         {% include 'partial/_messages.html' %}
+
           <!--Search bar-->
-          <form method="get" action="{% url 'ranking' %}">
+          <form method="get" action="{% url 'ranking_synonyms' %}">
               <input class="form-control inputbox1"
                      type="search" value="{{ request.GET.term }}"
                      id="select_words"
                      placeholder="Pesquisar por outras palavras"
                      name="term">
           </form>
-      </div>
+
+        </div>
 
         <p>
            Se você deseja receber os currículos filtrados no seu email <a href="{% url 'email_input' %}">clique aqui</a>
@@ -37,13 +42,13 @@
               </tr>
             </thead>
             <tbody>
-            {% for i in real_final_list %}
+            {% for i in real_final %}
               {% if i.1 != 0 %}
                 <tr>
                   <th class="column" scope="row">{{ forloop.counter }}</th>
                   <td id="name" class="column"><a id="link_name" href="#">{{ i.0 }}</a></td>
                   <td class="column">{{ i.2 }}</td>
-                  <td class="column">{{ i.1 }} / {{ total_list }}</td>
+                  <td class="column">{{ i.1 }} / {{ total }}</td>
                 </tr>
               {% endif %}
         {% endfor %}

@@ -25,6 +25,12 @@
 <!--Home content-->
 {% block content %}
   <div class="main_mamba">
+        {% if messages %}
+        <div class="search" style="margin-top: 60px;">
+         <!--Messages-->
+         {% include 'partial/_messages.html' %}
+        </div>
+        {% endif %}
       <div class="search_pag">
         <div class="ui selection dropdown">
           <div class="dropdown">
@@ -69,16 +75,9 @@
       </div>
       </div>
     </div>
-
-    <div style="margin-left: 280px; margin-top: 50px;">
-      <h2>
-          Deseja pesquisar por sinônimos? Para isso, <a href="{% url 'synonyms' %}">clique aqui</a>
-      </h2>
-    </div>
-
     <div class="input2">
       <!--Search bar-->
-      <form method="get" action="{% url 'ranking' %}">
+      <form method="get" action="{% url 'ranking_synonyms' %}">
           <input class="form-control inputbox1"
                  type="search" value="{{ request.GET.term }}"
                  id="select_words"

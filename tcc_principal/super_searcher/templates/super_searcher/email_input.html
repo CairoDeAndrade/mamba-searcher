@@ -1,0 +1,23 @@
+{% extends 'super_searcher/default.html' %}
+
+{% block content%}
+<div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
+              <p>
+        Coloque o seu email aqui para receber os arquivos.
+    </p>
+          <p> {{ files_name_list }}</p>
+              <!--email bar-->
+          <form method="get" action="{% url 'email_response' %}" style="width: 800px;">
+            <div class="form-group row intro">
+              <div class="col-12">
+                <input class="form-control"
+                       type="search" value="{{ request.GET.term }}"
+                       id="search-input"
+                       placeholder="Escreva seu email"
+                       name="term">
+              </div>
+            </div>
+          </form>
+      </div>
+
+{% endblock %}
