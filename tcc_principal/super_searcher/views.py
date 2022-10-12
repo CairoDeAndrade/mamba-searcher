@@ -447,10 +447,12 @@ def ranking(request):
 
 
 # Receiving the filtered files
+@login_required(redirect_field_name='login')
 def email_input(request):
     return render(request, 'super_searcher/email_input.html')
 
 
+@login_required(redirect_field_name='login')
 def email_response(request):
     dirPath = r"media/filtered_files"
     lista_arquivo = next(os.walk(dirPath))[2]

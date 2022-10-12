@@ -4,28 +4,28 @@ from django.contrib.auth.models import User
 from django.core.validators import validate_email
 
 
-# def login(request):
-#     if request.method != 'POST':
-#         return render(request, 'accounts/login.html')
-#
-#     user = request.POST.get('user')
-#     password = request.POST.get('password')
-#
-#     # Checking the authentication of the fields
-#     user = auth.authenticate(request, username=user, password=password)
-#
-#     if not user:
-#         messages.error(request, 'User or password invalids!')
-#         return render(request, 'accounts/login.html')
-#     else:
-#         auth.login(request, user)
-#         messages.success(request, 'Successfully login!')
-#         return redirect('dashboard')
-#
-#
-# def logout(request):
-#     auth.logout(request)
-#     return redirect('index_login')
+def login(request):
+    if request.method != 'POST':
+        return render(request, 'accounts/login.html')
+
+    user = request.POST.get('user')
+    password = request.POST.get('password')
+
+    # Checking the authentication of the fields
+    user = auth.authenticate(request, username=user, password=password)
+
+    if not user:
+        messages.error(request, 'User or password invalids!')
+        return render(request, 'accounts/login.html')
+    else:
+        auth.login(request, user)
+        messages.success(request, 'Successfully login!')
+        return redirect('email_input')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 
 def register(request):
