@@ -1,9 +1,121 @@
 {% extends 'super_searcher/default.html' %}
 {% load static %}
 
-<!--CSS-->
+
 {% block static%}
-<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<!--CSS-->
+<style>
+    /* inside page css */
+.information h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+.pre-sets-title h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 3%;
+}
+
+.search_pag {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .search_page {
+    margin-top: 12%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+    .dropbtn {
+      background-color: #9FA3D7;
+      color: white;
+      padding: 10px;
+      font-size: 1.6em;
+      border: none;
+      width: 400px;
+      height: 80px;
+      border-radius: 40px;
+      justify-content: center;
+    }
+
+    .dropdown {
+      position: relative;
+      text-align: center;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      text-align: center;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+      width: 400px;
+      height: 80px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #c3c6e877;
+      border-radius: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {display: inline-table;}
+
+    .dropdown:hover .dropbtn {
+      background-color: #6a6fa0;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+  .inputbox1{
+    margin-top: 11%;
+    width: 650px;
+    height: 55px;
+    border-radius: 10px;
+    border: 10px;
+    border: black;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    padding-left: 15px;
+  }
+
+  .input2 form{
+    display: inline-flex;
+  }
+
+  .submit{
+    background-color: #118a84;
+    color: #fff;
+    margin-top: 11%;
+    width: 200px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  }
+
+  .submit:hover {
+    background-color: #105451;
+  }
+</style>
 
 <!--Javascript-->
 <script>
@@ -96,8 +208,8 @@
                  id="select_words"
                  placeholder="Pesquisar por outras palavras"
                  name="term">
+          <button class="submit" type="submit">CONFIRMAR</button>
       </form>
-      <input class="submit" type="submit" value="CONFIRMAR">
     </div>
     <!-- page content /-->
 {% endblock %}

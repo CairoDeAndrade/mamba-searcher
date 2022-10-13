@@ -1,9 +1,121 @@
 {% extends 'super_searcher/default.html' %}
 {% load static %}
 
-<!--CSS-->
+
 {% block static%}
-<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<!--CSS-->
+<style>
+    /* inside page css */
+.information h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+.pre-sets-title h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 3%;
+}
+
+.search_pag {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .search_page {
+    margin-top: 12%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+    .dropbtn {
+      background-color: #9FA3D7;
+      color: white;
+      padding: 10px;
+      font-size: 1.6em;
+      border: none;
+      width: 400px;
+      height: 80px;
+      border-radius: 40px;
+      justify-content: center;
+    }
+
+    .dropdown {
+      position: relative;
+      text-align: center;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      text-align: center;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+      width: 400px;
+      height: 80px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #c3c6e877;
+      border-radius: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {display: inline-table;}
+
+    .dropdown:hover .dropbtn {
+      background-color: #6a6fa0;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+  .inputbox1{
+    margin-top: 11%;
+    width: 650px;
+    height: 55px;
+    border-radius: 10px;
+    border: 10px;
+    border: black;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    padding-left: 15px;
+  }
+
+  .input2 form{
+    display: inline-flex;
+  }
+
+  .submit{
+    background-color: #118a84;
+    color: #fff;
+    margin-top: 11%;
+    width: 200px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  }
+
+  .submit:hover {
+    background-color: #105451;
+  }
+</style>
 
 <!--Javascript-->
 <script>
@@ -24,21 +136,33 @@
 
 <!--Home content-->
 {% block content %}
-  <div class="main_mamba">
-        {% if messages %}
-        <div class="search" style="margin-top: 60px;">
-         <!--Messages-->
-         {% include 'partial/_messages.html' %}
+    <!-- page content -->
+    <div class="information">
+        <div class="title">
+            <h1>Aba de Pesquisa</h1>
         </div>
-        {% endif %}
-      <div class="search_pag">
+        <div class="text">
+            <p>
+                Esta é a aba de <strong>pesquisa específica</strong>, temos também, a pesquisa por sinônimos, que você pode usar <a href="{% url 'synonyms' %}">clicando aqui</a>. Para usá-la, basta utilizar os nossos botões "linguagens, educação, cursos e localidade" e clicar nas opções de sua escolha para <strong>pré-selecionar</strong> as palavras no nosso super buscador.
+            </p>
+            <p>
+                Se você desejar algo mais específico, poderá digitar na <strong>barra de pesquisa</strong> a palavra de seu interesse para fazer a busca <a href="#select_words">clicando aqui</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- pre-sets -->
+    <div class="pre-sets-title">
+        <h1>Pré-sets</h1>
+    </div>
+    <div class="search_pag">
         <div class="ui selection dropdown">
           <div class="dropdown">
             <button class="dropbtn">Linguagens</button>
             <div class="dropdown-content">
-              <a href="#" onclick="selecionado(this)">Inglês</a>
-              <a href="#" onclick="selecionado(this)">Alemão</a>
-              <a href="#" onclick="selecionado(this)">Espanhol</a>
+              <a href="#select_words" onclick="selecionado(this)">Inglês</a>
+              <a href="#select_words" onclick="selecionado(this)">Alemão</a>
+              <a href="#select_words" onclick="selecionado(this)">Espanhol</a>
             </div>
           </div>
       </div>
@@ -46,9 +170,9 @@
         <div class="dropdown">
           <button class="dropbtn">Educação</button>
           <div class="dropdown-content">
-            <a href="#" onclick="selecionado(this)">Básico</a>
-            <a href="#" onclick="selecionado(this)">Média</a>
-            <a href="#" onclick="selecionado(this)">Superior</a>
+            <a href="#select_words" onclick="selecionado(this)">Básico</a>
+            <a href="#select_words" onclick="selecionado(this)">Média</a>
+            <a href="#select_words" onclick="selecionado(this)">Superior</a>
           </div>
         </div>
       </div>
@@ -58,9 +182,9 @@
         <div class="dropdown">
           <button class="dropbtn">Cursos</button>
           <div class="dropdown-content">
-            <a href="#" onclick="selecionado(this)">Python</a>
-            <a href="#" onclick="selecionado(this)">C#</a>
-            <a href="#" onclick="selecionado(this)">Java</a>
+            <a href="#select_words" onclick="selecionado(this)">Python</a>
+            <a href="#select_words" onclick="selecionado(this)">C#</a>
+            <a href="#select_words" onclick="selecionado(this)">Java</a>
           </div>
         </div>
         </div>
@@ -68,23 +192,24 @@
       <div class="dropdown">
         <button class="dropbtn">Localidade</button>
         <div class="dropdown-content">
-          <a href="#" onclick="selecionado(this)">Blumenau</a>
-          <a href="#" onclick="selecionado(this)">Gaspar</a>
-          <a href="#" onclick="selecionado(this)">Indaial</a>
+          <a href="#select_words" onclick="selecionado(this)">Blumenau</a>
+          <a href="#select_words" onclick="selecionado(this)">Gaspar</a>
+          <a href="#select_words" onclick="selecionado(this)">Indaial</a>
         </div>
       </div>
       </div>
     </div>
+
+    <!--Search bar-->
     <div class="input2">
-      <!--Search bar-->
       <form method="get" action="{% url 'ranking_synonyms' %}">
           <input class="form-control inputbox1"
                  type="search" value="{{ request.GET.term }}"
                  id="select_words"
                  placeholder="Pesquisar por outras palavras"
                  name="term">
+          <button class="submit" type="submit">CONFIRMAR</button>
       </form>
     </div>
-
-  </div>
+    <!-- page content /-->
 {% endblock %}

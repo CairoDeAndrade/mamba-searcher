@@ -3,7 +3,26 @@
 
 <!--CSS-->
 {% block static%}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<style>
+    /* inside of the home page */
+.title h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+.upload {
+    padding-top: 25px;
+    cursor: pointer;
+}
+
+  .enviar {
+    height: 10vh;
+    width: 20vh;
+    font-size: 100%;
+  }
+</style>
 {% endblock %}
 
 <!--Title-->
@@ -11,35 +30,43 @@
 
 <!--Home content-->
 {% block content %}
-    <div class="main_mamba">
 
      <!--Description/messages-->
-      <div class="intro">
-        {% if messages %}
-            <!--Messages-->
-            {% include 'partial/_messages.html' %}
-        {% endif %}
-          <p>
-          Mamba consiste na automação de um processo de seleção de talentos.
-          Ao clicar em começar, insira os currículos que deseja analisar na área indicada.
-          Depois, indique palavras que você gostaria de procurar pelos currículos,
-          por presets ou por escrito  (Exemplo: "inglês"). Quando o processo de carregamento acabar,
-          você poderá ver os currículos que possuem as palavras em um ranking dos
-          que mais se alinham com o procurado. Desejamos a você uma ótima experiência
-          e agradecemos  por cunsultar o Mamba.
-          </p>
-      </div>
+    {% if messages %}
+        <!--Messages-->
+        {% include 'partial/_messages.html' %}
+    {% endif %}
+      <!-- page content -->
+        <div class="title">
+            <h1>Acelere o seu processo de seleção com o super buscador mamba</h1>
+        </div>
+        <div class="steps">
+            <p>
+                Para fazer a utilização do nosso site, siga o passo a passo abaixo:
+            </p>
+            <li>
+                * Passo 1: Clique no botão <strong>"Selecionar Arquivos"</strong>.
+            </li>
+            <li>
+                * Passo 2: Selecione os currículos que você deseja fazer a filtragem.
+            </li>
+            <li>
+                * Passo 3: Clique no botão <strong>"Enviar"</strong>.
+            </li>
+            <li>
+                * Passo 4: Clique no botão <strong>"Search"</strong> na barra ao lado esquerdo.
+            </li>
+        </div>
 
-      <div class="upload" style="margin-left: 300px;">
-        <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
-                <label for="upload">enviar arquivo</label>
-                <input type="file" name="files" id="upload" multiple />
-                <input type="submit" value="Upload" class="btn btn-primary" />
-            </div>
-        </form>
-       </div>
-    </div>
+        <div class="upload">
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div>
+                    <input type="file" name="files" id="upload" multiple />
+                    <input type="submit" value="Enviar" class="btn btn-primary enviar" />
+                </div>
+            </form>
+        </div>
+        <!-- page content /-->
 
 {% endblock %}
