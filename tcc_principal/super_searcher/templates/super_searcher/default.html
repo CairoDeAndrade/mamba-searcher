@@ -5,14 +5,18 @@
     {% include 'partial/_head.html' %}
     {% block static%}{% endblock %}
     <title>{% block title %}{% endblock %}Mamba</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
 </head>
 <body>
     <!--NavBar-->
     {% include 'partial/_navbar.html' %}
 
     <!--Content-->
-    {% block content %}{% endblock %}
+    <div class="main_mamba">
+      <div class="intro">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
 
     <!--SideBar-->
     {% include 'partial/_sidebar.html' %}
