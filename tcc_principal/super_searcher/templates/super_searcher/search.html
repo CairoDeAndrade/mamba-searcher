@@ -24,15 +24,33 @@
 
 <!--Home content-->
 {% block content %}
-  <div class="main_mamba">
-      <div class="search_pag">
+    <!-- page content -->
+    <div class="information">
+        <div class="title">
+            <h1>Aba de Pesquisa</h1>
+        </div>
+        <div class="text">
+            <p>
+                Esta é a aba de <strong>pesquisa específica</strong>, temos também, a pesquisa por sinônimos, que você pode usar <a href="{% url 'synonyms' %}">clicando aqui</a>. Para usá-la, basta utilizar os nossos botões "linguagens, educação, cursos e localidade" e clicar nas opções de sua escolha para <strong>pré-selecionar</strong> as palavras no nosso super buscador.
+            </p>
+            <p>
+                Se você desejar algo mais específico, poderá digitar na <strong>barra de pesquisa</strong> a palavra de seu interesse para fazer a busca <a href="#select_words">clicando aqui</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- pre-sets -->
+    <div class="pre-sets-title">
+        <h1>Pré-sets</h1>
+    </div>
+    <div class="search_pag">
         <div class="ui selection dropdown">
           <div class="dropdown">
             <button class="dropbtn">Linguagens</button>
             <div class="dropdown-content">
-              <a href="#" onclick="selecionado(this)">Inglês</a>
-              <a href="#" onclick="selecionado(this)">Alemão</a>
-              <a href="#" onclick="selecionado(this)">Espanhol</a>
+              <a href="#select_words" onclick="selecionado(this)">Inglês</a>
+              <a href="#select_words" onclick="selecionado(this)">Alemão</a>
+              <a href="#select_words" onclick="selecionado(this)">Espanhol</a>
             </div>
           </div>
       </div>
@@ -40,9 +58,9 @@
         <div class="dropdown">
           <button class="dropbtn">Educação</button>
           <div class="dropdown-content">
-            <a href="#" onclick="selecionado(this)">Básico</a>
-            <a href="#" onclick="selecionado(this)">Média</a>
-            <a href="#" onclick="selecionado(this)">Superior</a>
+            <a href="#select_words" onclick="selecionado(this)">Básico</a>
+            <a href="#select_words" onclick="selecionado(this)">Média</a>
+            <a href="#select_words" onclick="selecionado(this)">Superior</a>
           </div>
         </div>
       </div>
@@ -52,9 +70,9 @@
         <div class="dropdown">
           <button class="dropbtn">Cursos</button>
           <div class="dropdown-content">
-            <a href="#" onclick="selecionado(this)">Python</a>
-            <a href="#" onclick="selecionado(this)">C#</a>
-            <a href="#" onclick="selecionado(this)">Java</a>
+            <a href="#select_words" onclick="selecionado(this)">Python</a>
+            <a href="#select_words" onclick="selecionado(this)">C#</a>
+            <a href="#select_words" onclick="selecionado(this)">Java</a>
           </div>
         </div>
         </div>
@@ -62,22 +80,16 @@
       <div class="dropdown">
         <button class="dropbtn">Localidade</button>
         <div class="dropdown-content">
-          <a href="#" onclick="selecionado(this)">Blumenau</a>
-          <a href="#" onclick="selecionado(this)">Gaspar</a>
-          <a href="#" onclick="selecionado(this)">Indaial</a>
+          <a href="#select_words" onclick="selecionado(this)">Blumenau</a>
+          <a href="#select_words" onclick="selecionado(this)">Gaspar</a>
+          <a href="#select_words" onclick="selecionado(this)">Indaial</a>
         </div>
       </div>
       </div>
     </div>
 
-    <div style="margin-left: 280px; margin-top: 50px;">
-      <h2>
-          Deseja pesquisar por sinônimos? Para isso, <a href="{% url 'synonyms' %}">clique aqui</a>
-      </h2>
-    </div>
-
+    <!--Search bar-->
     <div class="input2">
-      <!--Search bar-->
       <form method="get" action="{% url 'ranking' %}">
           <input class="form-control inputbox1"
                  type="search" value="{{ request.GET.term }}"
@@ -85,7 +97,7 @@
                  placeholder="Pesquisar por outras palavras"
                  name="term">
       </form>
+      <input class="submit" type="submit" value="CONFIRMAR">
     </div>
-
-  </div>
+    <!-- page content /-->
 {% endblock %}
