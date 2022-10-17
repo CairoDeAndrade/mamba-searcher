@@ -4,17 +4,17 @@
 <!--CSS-->
 {% block static%}
 <style>
-.title {
+.title h1{
     text-align: center;
-    font-size: 10%;
+    font-size: 6vh;
+    font-weight: 600;
+    padding-bottom: 3%
 }
+
 .table {
     text-align: center;
     width: 50%;
     border: #000000 2px;
-
-    left: 25%;
-    top: 10%;
 }
 
 .titles {
@@ -64,12 +64,24 @@
 }
 
 .submit:hover {
-    background-color: #105451;
+    background-color: #16706c;
 }
 
-.back {
-    padding-bottom: 3%;
+.email-button {
+    border-radius: 10px;
+    width: 28%;
+    margin-bottom: 5%;
+    background-color: #28a17e;
+    color: white;
+    border: none;
+    padding-top: v0.7h;
+    padding-bottom: 0.7vh;
 }
+
+.email-button:hover {
+    background-color: #218266;
+}
+
 </style>
 {% endblock %}
 
@@ -95,17 +107,18 @@
     </div>
 
     <div>
-        <div class="back">
-            <button>Voltar para a pesquisa</button>
-        </div>
+        <p>
+            Deseja enviar os currículos filtrados para o seu email?
+        </p>
+        <a href="{% url 'email_input' %}"><button class="email-button">Enviar para o email</button></a>
     </div>
 
     <table class="table">
         <thead>
           <tr class="titles">
             <th class="column" scope="col">Rankings</th>
-            <th class="column" scope="col">Nome do Arquivo</th>
-            <th class="column" scope="col">Palavras Encontradas</th>
+            <th class="column" scope="col">Arquivo</th>
+            <th class="column" scope="col">Palavras</th>
             <th class="column" scope="col">Correspondência</th>
           </tr>
         </thead>
