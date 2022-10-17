@@ -49,7 +49,7 @@ body{
 }
 
 #logo {
-  margin-left: 3.5%;
+  margin-left: 2%;
   max-width: 140px;
   max-height: 140px;
 }
@@ -171,7 +171,7 @@ ul {
   
   float: right;
   position: absolute;
-  width: 87.99vw;
+  width: 86.9vw;
   height: 87.8vh;
   top: 12.11%;
   left: 12%;
@@ -212,7 +212,7 @@ label:hover{
   padding: 1em;
   position: absolute;
   left: 47%;
-  top: 70%;
+  top: 90%;
   margin-right: -50%;
   transform: translate(-40%, -40%) 
 }
