@@ -49,7 +49,7 @@ body{
 }
 
 #logo {
-  margin-left: 3.5%;
+  margin-left: 2%;
   max-width: 140px;
   max-height: 140px;
 }
@@ -159,8 +159,6 @@ body{
   background-color: #2a272a;
 }
 
-
-
 ol,
 ul {
   padding-left: 0rem;
@@ -171,11 +169,12 @@ ul {
   background-color: #e5e7ef;
   float: right;
   position: absolute;
-  width: 87.99vw;
+  width: 86.9vw;
   height: 87.8vh;
   top: 12.11%;
   left: 12%;
 }
+
 
 .login_box{
   border-style: solid;
@@ -193,7 +192,7 @@ ul {
 .entrar{
   padding: 5px;
   font-family: Quantico;
-  font-size: 36px;
+  font-size: 34px;
   text-align: center;
   background-color: #2a272a;
   color: white;
@@ -202,9 +201,8 @@ ul {
 
 .login{
   width: 360px;
-  height: min-content;
-  padding: 20px;
-  background: DCDEDE;
+  height: 250px;
+  background: #DCDEDE;
 }
 
 .login form{
@@ -216,8 +214,9 @@ ul {
 }
 
 .form-group{
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 80px;
+  padding-bottom: 0px;
 }
 
 .login_input{
@@ -234,6 +233,7 @@ ul {
 }
 
 .login_input{
+  width: 550px;
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #fcfafa;
@@ -242,14 +242,21 @@ ul {
   border-width: 1px;
 }
 
+
 .sub{
-  margin-top: 50px;
-  margin-left: 300px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: #a3cfcd;
+  margin-top: 5px;
+  margin-left: 200px;
+  padding-left: 90px;
+  padding-right: 90px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #61b4b0;
   color: white;
-  font-size: 25px;
+  font-size: 22px;
+  border-color: #2a272a; 
+  border-width: 1px;
+}
+
+.sub:hover{
+  background-color: #0a7973;
 }
