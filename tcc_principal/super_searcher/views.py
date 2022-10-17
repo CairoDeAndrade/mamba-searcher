@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Models imports
-from .models import File, Images
+from .models import File
 # Super-searcher imports
 import docx2txt
 import fitz
@@ -23,14 +23,7 @@ import shutil
 
 # home page
 def home(request):
-    # logo_mamba = images()
     return render(request, 'super_searcher/home.html')
-
-
-# images used
-# def images():
-#     logo_mamba = Images.objects.get()
-#     return logo_mamba
 
 
 # upload the files in the database

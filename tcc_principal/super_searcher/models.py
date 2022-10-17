@@ -14,10 +14,3 @@ class FilteredFiles(models.Model):
     def __str__(self):
         return self.filtered_files
 
-
-class Images(models.Model):
-    name = models.CharField(max_length=50)
-    images = models.ImageField(upload_to='images', null=True)
-
-    def __str__(self):
-        return self.name

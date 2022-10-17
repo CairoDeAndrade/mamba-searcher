@@ -3,7 +3,74 @@
 
 <!--CSS-->
 {% block static%}
-<!--<link rel="stylesheet" href="{% static 'css/ranking.css' %}">-->
+<style>
+.title {
+    text-align: center;
+    font-size: 10%;
+}
+.table {
+    text-align: center;
+    width: 50%;
+    border: #000000 2px;
+
+    left: 25%;
+    top: 10%;
+}
+
+.titles {
+    background-color: #a3cfcd;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+}
+
+.column {
+    border: #000000;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#link_name {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+
+#name:hover {
+    background-color: #b4b3b3;
+}
+
+.inputbox1{
+    margin-bottom: 3%;
+    width: 650px;
+    height: 55px;
+    border-radius: 10px;
+    border: 10px;
+    border: black;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    padding-left: 15px;
+}
+
+.input2 form{
+    display: inline-flex;
+}
+
+.submit{
+    background-color: #118a84;
+    color: #fff;
+    width: 200px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+}
+
+.submit:hover {
+    background-color: #105451;
+}
+
+.back {
+    padding-bottom: 3%;
+}
+</style>
 {% endblock %}
 
 <!--Title-->
@@ -11,44 +78,49 @@
 
 <!--Home content-->
 {% block content %}
-    <div class="main_mamba">
-      <div class="search" style="margin-top: 60px;">
-          <!--Search bar-->
-          <form method="get" action="{% url 'ranking' %}">
-              <input class="form-control inputbox1"
-                     type="search" value="{{ request.GET.term }}"
-                     id="select_words"
-                     placeholder="Pesquisar por outras palavras"
-                     name="term">
-          </form>
-      </div>
-
-        <p>
-           Se você deseja receber os currículos filtrados no seu email <a href="{% url 'email_input' %}">clique aqui</a>
-        </p>
-
-        <table class="table">
-            <thead>
-              <tr class="titles">
-                <th class="column" scope="col">Rankings</th>
-                <th class="column" scope="col">Nome do Arquivo</th>
-                <th class="column" scope="col">Palavras Encontradas</th>
-                <th class="column" scope="col">Correspondência</th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for i in real_final_list %}
-              {% if i.1 != 0 %}
-                <tr>
-                  <th class="column" scope="row">{{ forloop.counter }}</th>
-                  <td id="name" class="column"><a id="link_name" href="#">{{ i.0 }}</a></td>
-                  <td class="column">{{ i.2 }}</td>
-                  <td class="column">{{ i.1 }} / {{ total_list }}</td>
-                </tr>
-              {% endif %}
-        {% endfor %}
-            </tbody>
-          </table>
+    <div class="title">
+        <h1>Ranking</h1>
     </div>
+
+    <!--Search bar-->
+    <div class="input2">
+      <form method="get" action="{% url 'ranking' %}">
+          <input class="form-control inputbox1"
+                 type="search" value="{{ request.GET.term }}"
+                 id="select_words"
+                 placeholder="Pesquisar por outras palavras"
+                 name="term">
+          <button class="submit" type="submit">CONFIRMAR</button>
+      </form>
+    </div>
+
+    <div>
+        <div class="back">
+            <button>Voltar para a pesquisa</button>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr class="titles">
+            <th class="column" scope="col">Rankings</th>
+            <th class="column" scope="col">Nome do Arquivo</th>
+            <th class="column" scope="col">Palavras Encontradas</th>
+            <th class="column" scope="col">Correspondência</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in real_final_list %}
+          {% if i.1 != 0 %}
+            <tr>
+              <th class="column" scope="row">{{ forloop.counter }}</th>
+              <td id="name" class="column"><a id="link_name" href="#">{{ i.0 }}</a></td>
+              <td class="column">{{ i.2 }}</td>
+              <td class="column">{{ i.1 }} / {{ total_list }}</td>
+            </tr>
+          {% endif %}
+    {% endfor %}
+        </tbody>
+      </table>
 
 {% endblock %}

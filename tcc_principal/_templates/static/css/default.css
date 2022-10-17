@@ -168,9 +168,10 @@ ul {
 }
 
 .main_mamba {
+  background-color: #d3d3d3;
   float: right;
   position: absolute;
-  width: 87.99vw;
+  width: 86.9vw;
   height: 87.8vh;
   top: 12.11%;
   left: 12%;
