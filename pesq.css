@@ -45,7 +45,7 @@ body{
 }
 
 #logo {
-  margin-left: 3.5%;
+  margin-left: 2%;
   max-width: 140px;
   max-height: 140px;
 }
@@ -165,7 +165,7 @@ ul {
   background-color: #d3d3d3;
   float: right;
   position: absolute;
-  width: 87.99vw;
+  width: 86.9vw;
   height: 87.8vh;
   top: 12.11%;
   left: 12%;
@@ -177,7 +177,7 @@ ul {
   justify-content: space-evenly;
 }
 .search_page {
-  margin-top: 12%;
+  margin-top: 15%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -226,7 +226,7 @@ ul {
     border-radius: 20px;
   }
   
-  .dropdown:hover .dropdown-content {display: inline-table;}
+  .dropdown:hover .dropdown-content {display: table;}
   
   .dropdown:hover .dropbtn {
     background-color: #6a6fa0;
@@ -237,7 +237,8 @@ ul {
   }
 
 .inputbox1{
-  margin-top: 11%;
+  margin-top: 15%;
+  margin-bottom: 2%;
   width: 650px;
   height: 55px;
   border-radius: 10px;
@@ -250,7 +251,8 @@ ul {
 .submit{
   background-color: #a3cfcd;
   color: #fff;
-  margin-top: 11%;
+  margin-top: 15%;
+  margin-bottom: 2%;
   width: 500px;
   height: 55px;
   border-radius: 10px;
