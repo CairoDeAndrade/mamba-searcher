@@ -182,8 +182,8 @@ ul {
   border-width: 1px;
   position: absolute;
   width: 50vw;
-  height: 60vh;
-  top: 12.11%;
+  height: 75vh;
+  top: 10%;
   left: 20%;
   background: #DCDEDE;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -192,7 +192,7 @@ ul {
 .sign{
   padding: 5px;
   font-family: Quantico;
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
   background-color: #2a272a;
   color: white;
@@ -201,9 +201,8 @@ ul {
 
 .signin{
   width: 360px;
-  height: min-content;
-  padding: 20px;
-  background: DCDEDE;
+  height: 250px;
+  background: #DCDEDE;
 }
 
 .signin form{
@@ -230,6 +229,17 @@ ul {
   border-style: solid;
   border-color: #2a272a; 
   border-width: 1px;
+  
+}
+
+.signin_input{
+  width: 550px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fcfafa;
+  border-style: solid;
+  border-color: #2a272a; 
+  border-width: 1px;
 }
 
 .signin_input2{
@@ -241,14 +251,20 @@ ul {
   border-width: 1px;
 }
 
-  .sub{
-  margin-top: 20px;
-  margin-left: 300px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: #a3cfcd;
+.sub{
+  margin-top: 5px;
+  margin-left: 200px;
+  padding-left: 90px;
+  padding-right: 90px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #61b4b0;
   color: white;
-  font-size: 25px;
+  font-size: 22px;
+  border-color: #2a272a; 
+  border-width: 1px;
+}
+
+.sub:hover{
+  background-color: #0a7973;
 }
