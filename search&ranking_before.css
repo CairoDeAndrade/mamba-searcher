@@ -49,7 +49,7 @@ body{
 }
 
 #logo {
-  margin-left: 3.5%;
+  margin-left: 2%;
   max-width: 140px;
   max-height: 140px;
 }
@@ -169,7 +169,7 @@ ul {
   background-color: #e5e7ef;
   float: right;
   position: absolute;
-  width: 87.99vw;
+  width: 86.9vw;
   height: 87.8vh;
   top: 12.11%;
   left: 12%;
