@@ -306,6 +306,7 @@ def real_final(request):
     return real_final
 
 
+# search and ranking pages
 def search(request):
     # Removing the filtered files to make a new search
     dirPath = r"media/filtered_files"
@@ -316,6 +317,33 @@ def search(request):
     return render(request, 'super_searcher/search.html')
 
 
+def ranking(request):
+    # Using the variables to the search
+    real_final_list = real_final(request)
+    total_list = total(request)
+    files_name_list = list_files_name(request)
+
+    # Removing the filtered files
+    dirPath = r"media/filtered_files"
+    list_arq = next(os.walk(dirPath))[2]
+    for i in list_arq:
+        os.remove(f"media/filtered_files/{i}")
+
+    # Saving the filtered files in the database
+    dirPath = r"media\files"
+    lista_arquivos = next(os.walk(dirPath))[2]
+
+    for aqur in lista_arquivos:
+        for filt in files_name_list:
+            if aqur == filt:
+                shutil.copy2(f'media/files/{aqur}', f'media/filtered_files/{aqur}')
+
+    return render(request, 'super_searcher/ranking.html', {'real_final_list': real_final_list,
+                                                           'total_list': total_list,
+                                                           'files_name_list': files_name_list})
+
+
+# search and ranking synonyms
 def synonyms(request):
     return render(request, 'super_searcher/synonyms.html')
 
@@ -421,33 +449,7 @@ def ranking_synonyms(request):
                                                                  'no_synonyms': no_synonyms, })
 
 
-def ranking(request):
-    # Using the variables to the search
-    real_final_list = real_final(request)
-    total_list = total(request)
-    files_name_list = list_files_name(request)
-
-    # Removing the filtered files
-    dirPath = r"media/filtered_files"
-    list_arq = next(os.walk(dirPath))[2]
-    for i in list_arq:
-        os.remove(f"media/filtered_files/{i}")
-
-    # Saving the filtered files in the database
-    dirPath = r"media\files"
-    lista_arquivos = next(os.walk(dirPath))[2]
-
-    for aqur in lista_arquivos:
-        for filt in files_name_list:
-            if aqur == filt:
-                shutil.copy2(f'media/files/{aqur}', f'media/filtered_files/{aqur}')
-
-    return render(request, 'super_searcher/ranking.html', {'real_final_list': real_final_list,
-                                                           'total_list': total_list,
-                                                           'files_name_list': files_name_list})
-
-
-# Receiving the filtered files
+# mail and send-mail pages
 @login_required(redirect_field_name='login')
 def email_input(request):
     return render(request, 'super_searcher/email_input.html')
@@ -494,9 +496,12 @@ def email_response(request):
     s.sendmail(fromaddr, toaddr, text)
     s.quit()
 
-    return render(request, 'super_searcher/email_response.html', {'list_files_name': list_files_name})
+    messages.add_message(request, messages.SUCCESS, 'Os arquivos filtrados foram enviados com sucesso!')
+
+    return render(request, 'super_searcher/email_response.html')
 
 
+# about page
 def about(request):
     return render(request, 'super_searcher/about.html')
 

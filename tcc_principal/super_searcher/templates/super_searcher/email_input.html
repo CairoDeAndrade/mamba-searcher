@@ -1,23 +1,78 @@
 {% extends 'super_searcher/default.html' %}
+{% load static %}
+
+{% block static%}
+<!--CSS-->
+<style>
+.information h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+
+
+.inputbox1{
+    margin-top: 4%;
+    margin-left: 7%;
+    width: 650px;
+    height: 55px;
+    border-radius: 10px;
+    border: 10px;
+    border: black;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    padding-left: 15px;
+}
+
+.input2 form{
+    display: inline-flex;
+}
+
+.submit{
+    background-color: #118a84;
+    color: #fff;
+    margin-top: 4%;
+    width: 150px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+}
+
+.submit:hover {
+    background-color: #16706c;
+}
+</style>
+{% endblock %}
 
 {% block content%}
-<div class="intro" style="padding-top: 70px; padding-bottom: 50px; pading-left: 400px !important;">
-              <p>
-        Coloque o seu email aqui para receber os arquivos.
-    </p>
-          <p> {{ files_name_list }}</p>
-              <!--email bar-->
-          <form method="get" action="{% url 'email_response' %}" style="width: 800px;">
-            <div class="form-group row intro">
-              <div class="col-12">
-                <input class="form-control"
-                       type="search" value="{{ request.GET.term }}"
-                       id="search-input"
-                       placeholder="Escreva seu email"
-                       name="term">
-              </div>
-            </div>
-          </form>
-      </div>
+
+    <!-- page content -->
+    <div class="information">
+        <div class="title">
+            <h1>Enviando arquivos</h1>
+        </div>
+        <div class="text">
+            <p>
+                Para que todos os currículos que foram filtrados com as <strong>palavras-chave</strong>
+                que você utilizou na <strong>última</strong> pesquisa sejam enviados, em ordem alfabética,
+                ao seu email, digite seu email de preferência na campo abaixo:
+            </p>
+        </div>
+    </div>
+
+    <!--email bar-->
+    <div class="input2">
+      <form method="get" action="{% url 'email_response' %}">
+          <input class="form-control inputbox1"
+                 type="search" value="{{ request.GET.term }}"
+                 id="select_words"
+                 placeholder="Digite seu email"
+                 name="term">
+          <button class="submit" type="submit">Enviar</button>
+      </form>
+    </div>
+
 
 {% endblock %}

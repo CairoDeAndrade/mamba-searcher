@@ -56,7 +56,7 @@
 .submit{
     background-color: #118a84;
     color: #fff;
-    width: 200px;
+    width: 170px;
     height: 55px;
     border-radius: 10px;
     border: none;
@@ -89,24 +89,29 @@
 
 <!--Home content-->
 {% block content %}
+    <div class="title">
+        <h1>Ranking de sinônimos</h1>
+    </div>
 
-        <div class="messages" style="margin-top: 60px;">
-             <!--Messages-->
-             {% include 'partial/_messages.html' %}
+    <div class="messages" style="margin-top: 60px;">
+         <!--Messages-->
+         {% include 'partial/_messages.html' %}
 
-            <!--Search bar-->
-            <div class="input2">
-              <form method="get" action="{% url 'ranking_synonyms' %}">
-                  <input class="form-control inputbox1"
-                         type="search" value="{{ request.GET.term }}"
-                         id="select_words"
-                         placeholder="Pesquisar por outras palavras"
-                         name="term">
-                  <button class="submit" type="submit">CONFIRMAR</button>
-              </form>
-            </div>
+        <!--Search bar-->
+        <div class="input2">
+          <form method="get" action="{% url 'ranking_synonyms' %}">
+              <input class="form-control inputbox1"
+                     type="search" value="{{ request.GET.term }}"
+                     id="select_words"
+                     placeholder="Pesquisar por outras palavras"
+                     name="term">
+              <button class="submit" type="submit">Confirmar</button>
+          </form>
         </div>
 
+    </div>
+
+    <!--Send mail-->
     <div>
         <p>
             Deseja enviar os currículos filtrados para o seu email?
@@ -118,8 +123,8 @@
             <thead>
               <tr class="titles">
                 <th class="column" scope="col">Rankings</th>
-                <th class="column" scope="col">Nome do Arquivo</th>
-                <th class="column" scope="col">Palavras Encontradas</th>
+                <th class="column" scope="col">Arquivo</th>
+                <th class="column" scope="col">Palavras</th>
                 <th class="column" scope="col">Correspondência</th>
               </tr>
             </thead>
