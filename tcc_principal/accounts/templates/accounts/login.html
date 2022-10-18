@@ -10,11 +10,23 @@
 
   <!-- Bootstrap core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link href="{% static 'css/register.css'%}" rel="stylesheet">
+  <style>
+    body {
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 10%;
+    }
+
+    form button {
+      margin-bottom: 1%;
+      font-size: 30px;
+    }
+
+  </style>
 </head>
 
 <body>
-<h1 class="mt-4 mb-4">Login</h1>
+<h1 class="mt-4 mb-4">Faça login no mamba</h1>
 
 <!--Messages-->
 {% include 'partial/_messages.html' %}
@@ -24,16 +36,18 @@
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
       <div class="mb-3">
-      <label class="form-label">User</label>
+      <label class="form-label">Usuário</label>
       <input type="text" class="form-control" name="user" value="{{ request.POST.user }}">
       <div class="form-text"></div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <label for="exampleInputPassword1" class="form-label">Senha</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary entrar">Entrar</button>
   </form>
+  <p>Não tem conta ainda? <a href="{% url 'register' %}">Cadastre-se aqui</a></p>
+
 {% else %}
   <p>
     You have logged in with {{ user }},

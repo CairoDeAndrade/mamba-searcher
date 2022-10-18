@@ -1,6 +1,6 @@
 # Django imports
 from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 # Models imports
 from .models import File
@@ -445,8 +445,8 @@ def ranking_synonyms(request):
         real_final.append(complete_list)
 
     return render(request, 'super_searcher/ranking_synonyms.html', {'real_final': real_final, 'total': total,
-                                                                 'synonym_results': synonym_results,
-                                                                 'no_synonyms': no_synonyms, })
+                                                                    'synonym_results': synonym_results,
+                                                                    'no_synonyms': no_synonyms, })
 
 
 # mail and send-mail pages
@@ -462,9 +462,12 @@ def email_response(request):
 
     for i in lista_arquivo:
         shutil.move(f'media/filtered_files/{i}',
-                    f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("ê", "e").replace("í", "i").replace("ó", "o")
+                    f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("ê", "e").replace("í",
+                                                                                                              "i").replace(
+                        "ó", "o")
                     .replace("ú", "u").replace("ü", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
-                    .replace(",", "").replace("õ", "o").replace("Á", "A").replace("É", "E").replace("Ê", "E").replace("Í", "I").replace("Ó", "O")
+                    .replace(",", "").replace("õ", "o").replace("Á", "A").replace("É", "E").replace("Ê", "E").replace(
+                        "Í", "I").replace("Ó", "O")
                     .replace("Ú", "U").replace("Ü", "U").replace("Ã", "A").replace("Ç", "C").replace(" ", "_")
                     .replace(",", "").replace("Õ", "O"))
     dirPath = r"media/filtered_files"
@@ -504,6 +507,4 @@ def email_response(request):
 # about page
 def about(request):
     return render(request, 'super_searcher/about.html')
-
-
 
