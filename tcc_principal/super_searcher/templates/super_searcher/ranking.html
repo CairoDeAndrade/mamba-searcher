@@ -94,6 +94,13 @@
         <h1>Ranking</h1>
     </div>
 
+    <div class="information">
+        <!--Messages-->
+        <div class="messages">
+         {% include 'partial/_messages.html' %}
+        </div>
+    </div>
+
     <!--Search bar-->
     <div class="input2">
       <form method="get" action="{% url 'ranking' %}">

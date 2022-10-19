@@ -59,6 +59,8 @@
     background-color: red;
     border: none;
     border-radius: 8%;
+    text-decoration: none;
+    color: white;
   }
 
   .delete a {
@@ -125,10 +127,10 @@
         <div class="delete">
             <p>Para deletar os arquivos enviados e fazer um novo upload, clique no botão
             <strong>"Deletar"</strong> abaixo:</p>
-            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'delete_files' %}" method="get" enctype="multipart/form-data">
                  {% csrf_token %}
                 <div>
-                    <button type="reset"><a href="">Deletar</a></button>
+                    <button>Deletar</button>
                 </div>
             </form>
         </div>

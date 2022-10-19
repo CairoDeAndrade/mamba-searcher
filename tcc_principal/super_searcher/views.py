@@ -26,6 +26,20 @@ def home(request):
     return render(request, 'super_searcher/home.html')
 
 
+# Deleting files if the user want to search in other ones
+def delete_files(request):
+    # Getting inside the directory
+    dirPath = r"media/files"
+    lista_arquivo = next(os.walk(dirPath))[2]
+
+    # Deleting files
+    for i in lista_arquivo:
+        os.remove(f'media/files/{i}')
+    messages.info(request, 'Os arquivos foram deletados com sucesso!')
+
+    return redirect('home')
+
+
 # upload the files in the database
 def upload(request):
     if request.method == 'POST':
@@ -318,24 +332,27 @@ def search(request):
 
 
 def ranking(request):
+    # If the search input is empty
+    term = request.GET.get('term')
+    if not term:
+        messages.error(request, 'O campo de pesquisa não pode estar vazio!')
+        return redirect('search')
+
+    # If there is no keyword in the files
+    # To do...
+
     # Using the variables to the search
     real_final_list = real_final(request)
     total_list = total(request)
     files_name_list = list_files_name(request)
-
-    # Removing the filtered files
-    dirPath = r"media/filtered_files"
-    list_arq = next(os.walk(dirPath))[2]
-    for i in list_arq:
-        os.remove(f"media/filtered_files/{i}")
 
     # Saving the filtered files in the database
     dirPath = r"media\files"
     lista_arquivos = next(os.walk(dirPath))[2]
 
     for aqur in lista_arquivos:
-        for filt in files_name_list:
-            if aqur == filt:
+        for filtered in files_name_list:
+            if aqur == filtered:
                 shutil.copy2(f'media/files/{aqur}', f'media/filtered_files/{aqur}')
 
     return render(request, 'super_searcher/ranking.html', {'real_final_list': real_final_list,
