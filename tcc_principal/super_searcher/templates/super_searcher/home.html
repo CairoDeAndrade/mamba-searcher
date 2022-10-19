@@ -5,24 +5,70 @@
 {% block static%}
 <style>
     /* inside of the home page */
-.title h1{
-    text-align: center;
-    color: #000000;
-    font-weight: 600;
-    padding-bottom: 2%;
-}
+    .title h1{
+        text-align: center;
+        color: #000000;
+        font-weight: 600;
+        padding-bottom: 2%;
+    }
 
-#upload {
-    padding-top: 25px;
-    margin-top: 3%;
-}
+    .content {
+        margin-left: 8%;
+    }
+
+    .steps {
+        margin-top: 3%;
+    }
+
+    .upload {
+        margin-top: 3%;
+    }
 
   .enviar {
-    height: 10vh;
-    width: 20vh;
+    height: 8vh;
+    width: 16vh;
     font-size: 100%;
   }
 
+  .limpar {
+    height: 8.3vh;
+    width: 16vh;
+    font-size: 100%;
+    background-color: #e8570e;
+    border: none;
+    border-radius: 8%;
+  }
+
+  .limpar a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .limpar:hover {
+    background-color: #f74205;
+  }
+
+  .delete {
+    margin-top: 5%;
+  }
+
+  .delete button {
+    height: 8.3vh;
+    width: 16vh;
+    font-size: 100%;
+    background-color: red;
+    border: none;
+    border-radius: 8%;
+  }
+
+  .delete a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .delete button:hover {
+    background-color: #eb1610;
+  }
 </style>
 {% endblock %}
 
@@ -32,30 +78,36 @@
 <!--Home content-->
 {% block content %}
 
-     <!--Description/messages-->
-    {% if messages %}
-        <!--Messages-->
-        {% include 'partial/_messages.html' %}
-    {% endif %}
       <!-- page content -->
         <div class="title">
             <h1>Acelere o seu processo de seleção com o super buscador mamba</h1>
         </div>
+
+         <!--Description/messages-->
+        {% if messages %}
+            <!--Messages-->
+            {% include 'partial/_messages.html' %}
+        {% endif %}
+
+    <div class="content">
         <div class="steps">
             <p>
                 Para fazer a utilização do nosso site, siga o passo a passo abaixo:
             </p>
             <li>
-                * Passo 1: Clique no botão <strong>"Selecionar Arquivos"</strong>.
+                * Passo 1: Clique no botão <strong>"Escolher Arquivos"</strong>.
             </li>
             <li>
-                * Passo 2: Selecione os currículos que você deseja fazer a filtragem.
+                * Passo 2: Selecione os <strong>"currículos"</strong> que você deseja fazer a filtragem.
             </li>
             <li>
                 * Passo 3: Clique no botão <strong>"Enviar"</strong>.
             </li>
             <li>
                 * Passo 4: Clique no botão <strong>"Search"</strong> na barra ao lado esquerdo.
+            </li>
+            <li>
+                * Passo 5: Digite o que você deseja buscar na <strong>"Barra de pesquisa"</strong>.
             </li>
         </div>
 
@@ -65,9 +117,22 @@
                 <div>
                     <input type="file" name="files" id="upload" multiple />
                     <input type="submit" value="Enviar" class="btn btn-primary enviar" />
+                    <button type="reset" class="limpar"><a href="{% url 'home' %}">Limpar</a></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="delete">
+            <p>Para deletar os arquivos enviados e fazer um novo upload, clique no botão
+            <strong>"Deletar"</strong> abaixo:</p>
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div>
+                    <button type="reset"><a href="">Deletar</a></button>
                 </div>
             </form>
         </div>
         <!-- page content /-->
+    </div>
 
 {% endblock %}
