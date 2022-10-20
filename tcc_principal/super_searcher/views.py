@@ -35,7 +35,7 @@ def delete_files(request):
     # Deleting files
     for i in lista_arquivo:
         os.remove(f'media/files/{i}')
-    messages.info(request, 'Os arquivos foram deletados com sucesso!')
+    messages.success(request, 'Os arquivos foram deletados com sucesso!')
 
     return redirect('home')
 
@@ -338,13 +338,19 @@ def ranking(request):
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('search')
 
-    # If there is no keyword in the files
-    # To do...
-
     # Using the variables to the search
     real_final_list = real_final(request)
     total_list = total(request)
     files_name_list = list_files_name(request)
+
+    # If there is no keyword in the files
+    words = False
+    for i in real_final_list:
+        if i[1] != 0:
+            words = True
+
+    if not words:
+        messages.warning(request, 'Não há currículos com esta(s) palavra(s)')
 
     # Saving the filtered files in the database
     dirPath = r"media\files"
@@ -362,6 +368,12 @@ def ranking(request):
 
 # search and ranking synonyms
 def synonyms(request):
+    # Removing the filtered files to make a new search
+    dirPath = r"media/filtered_files"
+    list_arq = next(os.walk(dirPath))[2]
+    for i in list_arq:
+        os.remove(f"media/filtered_files/{i}")
+
     return render(request, 'super_searcher/synonyms.html')
 
 
@@ -369,12 +381,11 @@ def ranking_synonyms(request):
     # If the search input is empty
     term = request.GET.get('term')
     if not term:
+        messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('synonyms')
 
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"media\files"  # vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
+    dirPath = r"media\files"
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
@@ -393,7 +404,7 @@ def ranking_synonyms(request):
     # Checking if there is not a synonym
     if synonym_results == 404:
         novas_palavras = [search_word]
-        messages.add_message(request, messages.INFO, 'Não há sinônimos para esta palavra!')
+        messages.add_message(request, messages.WARNING, 'Não há sinônimos para esta palavra!')
     else:
         novas_palavras = synonym_results
         novas_palavras.append(search_word)
@@ -401,9 +412,7 @@ def ranking_synonyms(request):
     # Main code
     for i in lista_arquivos:
         try:
-            caminho = fr"media\files\{i}"  # vitor
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
+            caminho = fr"media\files\{i}"
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -423,7 +432,6 @@ def ranking_synonyms(request):
             lista_quantidade_palavras.append(sum)
 
         except:
-            # quantidade = []
             text = ''
             sum = 0
             with fitz.open(caminho) as pdf:
@@ -448,7 +456,6 @@ def ranking_synonyms(request):
         final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
                       'palavras_contidas': palavras_contidas}
 
-        # quantidade = [arquivo, quantidade_palavras, total]
         lista_final.append(final_dict)
         result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
 
@@ -460,6 +467,13 @@ def ranking_synonyms(request):
     for files_name, word_qtd, words in zip(list_files_name, list_word_qtd, final_contained_words):
         complete_list = [files_name, word_qtd, words]
         real_final.append(complete_list)
+
+    # Saving the filtered files in the database
+    files_name_list = list_files_name(request)
+    for i in lista_arquivos:
+        for filtered in list_files_name:
+            if i == filtered:
+                shutil.copy2(f'media/files/{i}', f'media/filtered_files/{i}')
 
     return render(request, 'super_searcher/ranking_synonyms.html', {'real_final': real_final, 'total': total,
                                                                     'synonym_results': synonym_results,

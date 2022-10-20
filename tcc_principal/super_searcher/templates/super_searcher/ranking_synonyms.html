@@ -8,7 +8,7 @@
     text-align: center;
     font-size: 6vh;
     font-weight: 600;
-    padding-bottom: 3%
+    padding-bottom: 3%;
 }
 
 .table {
@@ -90,12 +90,18 @@
 <!--Home content-->
 {% block content %}
     <div class="title">
-        <h1>Ranking de sinônimos</h1>
+        <h1>Ranking de Sinônimos</h1>
     </div>
 
-    <div class="messages" style="margin-top: 60px;">
-         <!--Messages-->
-         {% include 'partial/_messages.html' %}
+    <div class="messages">
+
+        <div class="information">
+            <p>Para uma maior corretude na pesquisa através de sinônimos,
+            pedimos que seja pesquisada apenas uma palavra-chave por vez.</p>
+        </div>
+
+        <!--Messages-->
+        {% include 'partial/_messages.html' %}
 
         <!--Search bar-->
         <div class="input2">
