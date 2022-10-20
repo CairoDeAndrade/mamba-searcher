@@ -1,4 +1,4 @@
-{% extends 'super_searcher/default.html' %}
+{% extends 'default.html' %}
 {% load static %}
 
 <!--CSS-->
@@ -20,11 +20,20 @@
         margin-top: 3%;
     }
 
-  .enviar {
-    height: 8vh;
-    width: 16vh;
+.enviar {
+    height: 7vh;
+    width: 25vh;
     font-size: 100%;
-  }
+    color: white;
+    background-color: #a3cfcd;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
+    border: none;
+    border-radius: 20px;
+}
+
+.enviar:hover {
+    background-color: #6e9997;
+}
 
   .limpar {
     height: 8.3vh;
@@ -94,7 +103,7 @@
                  {% csrf_token %}
                 <div>
                     <input type="file" name="files" id="upload" multiple />
-                    <input type="submit" value="Enviar" class="btn btn-primary enviar" />
+                    <input type="submit" value="Enviar" class="enviar" />
                     <button type="reset" class="limpar"><a href="{% url 'home' %}">Limpar</a></button>
                 </div>
             </form>

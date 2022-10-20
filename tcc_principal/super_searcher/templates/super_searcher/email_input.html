@@ -1,4 +1,4 @@
-{% extends 'super_searcher/default.html' %}
+{% extends 'default.html' %}
 {% load static %}
 
 {% block static%}
@@ -55,12 +55,20 @@
         </div>
         <div class="text">
             <p>
+                Parabéns, agora você pode usar a opção para receber emails!
+            </p>
+            <p>
                 Para que todos os currículos filtrados com base nas <strong>palavras-chave</strong>
                 que você utilizou na <strong>última</strong> pesquisa sejam enviados em ordem alfabética
                 a você, digite seu email de preferência no campo abaixo:
             </p>
         </div>
     </div>
+
+        <!--Messages-->
+        <div class="messages">
+         {% include 'partial/_messages.html' %}
+        </div>
 
     <!--email bar-->
     <div class="input2">

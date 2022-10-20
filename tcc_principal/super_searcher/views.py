@@ -1,7 +1,9 @@
 # Django imports
 from django.shortcuts import render, redirect
-from django.contrib import messages, auth
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 # Models imports
 from .models import File
 # Super-searcher imports
@@ -56,7 +58,7 @@ def upload(request):
 
 
 # Functions that return variables to use
-def list_files_name(request):
+def list_files(request):
     # functionalities
     # dirPath = r"C:\Users\entra21\Desktop\testes"
     dirPath = r"media\files"  # Vitor
@@ -320,13 +322,18 @@ def real_final(request):
     return real_final
 
 
-# search and ranking pages
-def search(request):
-    # Removing the filtered files to make a new search
+# Removing the filtered files to make a new search
+def remove_filtered():
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
     for i in list_arq:
         os.remove(f"media/filtered_files/{i}")
+
+
+# search and ranking pages
+def search(request):
+    # Removing the filtered files to make a new search
+    remove_filtered()
 
     return render(request, 'super_searcher/search.html')
 
@@ -338,10 +345,13 @@ def ranking(request):
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('search')
 
+    # Removing the filtered files to make a new search
+    remove_filtered()
+
     # Using the variables to the search
     real_final_list = real_final(request)
     total_list = total(request)
-    files_name_list = list_files_name(request)
+    files_name_list = list_files(request)
 
     # If there is no keyword in the files
     words = False
@@ -369,11 +379,7 @@ def ranking(request):
 # search and ranking synonyms
 def synonyms(request):
     # Removing the filtered files to make a new search
-    dirPath = r"media/filtered_files"
-    list_arq = next(os.walk(dirPath))[2]
-    for i in list_arq:
-        os.remove(f"media/filtered_files/{i}")
-
+    remove_filtered()
     return render(request, 'super_searcher/synonyms.html')
 
 
@@ -383,6 +389,9 @@ def ranking_synonyms(request):
     if not term:
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('synonyms')
+
+    # Removing the filtered files to make a new search
+    remove_filtered()
 
     # functionalities
     dirPath = r"media\files"
@@ -469,11 +478,11 @@ def ranking_synonyms(request):
         real_final.append(complete_list)
 
     # Saving the filtered files in the database
-    files_name_list = list_files_name(request)
-    for i in lista_arquivos:
-        for filtered in list_files_name:
-            if i == filtered:
-                shutil.copy2(f'media/files/{i}', f'media/filtered_files/{i}')
+    files_list = list_files(request)
+    for aqur in lista_arquivos:
+        for filtered in files_list:
+            if aqur == filtered:
+                shutil.copy2(f'media/files/{aqur}', f'media/filtered_files/{aqur}')
 
     return render(request, 'super_searcher/ranking_synonyms.html', {'real_final': real_final, 'total': total,
                                                                     'synonym_results': synonym_results,
@@ -494,43 +503,51 @@ def email_response(request):
     for i in lista_arquivo:
         shutil.move(f'media/filtered_files/{i}',
                     f'media/filtered_files/{i}'.replace("á", "a").replace("é", "e").replace("ê", "e").replace("í",
-                                                                                                              "i").replace(
-                        "ó", "o")
+                                                                                                              "i")
+                    .replace("ó", "o")
                     .replace("ú", "u").replace("ü", "u").replace("ã", "a").replace("ç", "c").replace(" ", "_")
                     .replace(",", "").replace("õ", "o").replace("Á", "A").replace("É", "E").replace("Ê", "E").replace(
                         "Í", "I").replace("Ó", "O")
                     .replace("Ú", "U").replace("Ü", "U").replace("Ã", "A").replace("Ç", "C").replace(" ", "_")
                     .replace(",", "").replace("Õ", "O"))
+
+    # Sending email
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
     fromaddr = "mamba.python.entra21@gmail.com"
     toaddr = str(request.GET.get('term').replace('%40', '@'))
 
-    msg = MIMEMultipart()
-    msg['From'] = fromaddr
-    msg['To'] = toaddr
-    msg['Subject'] = "Emails Filtrados"
-    body = "Aqui estão seus emails filtrados"
-    msg.attach(MIMEText(body, 'plain'))
+    try:
+        validate_email(toaddr)
+    except ValidationError as e:
+        messages.error(request, 'Email inválido!')
+        return redirect('email_input')
+    else:
+        msg = MIMEMultipart()
+        msg['From'] = fromaddr
+        msg['To'] = toaddr
+        msg['Subject'] = "Emails Filtrados"
+        body = "Aqui estão seus emails filtrados"
+        msg.attach(MIMEText(body, 'plain'))
 
-    for i in list_arq:
-        filename = i
-        attachment = open(f"media/filtered_files/{i}", "rb")
-        p = MIMEBase('application', 'octet-stream')
-        p.set_payload(attachment.read())
-        encoders.encode_base64(p)
+        for i in list_arq:
+            filename = i
+            attachment = open(f"media/filtered_files/{i}", "rb")
+            p = MIMEBase('application', 'octet-stream')
+            p.set_payload(attachment.read())
+            encoders.encode_base64(p)
 
-        p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-        msg.attach(p)
+            p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+            msg.attach(p)
 
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-    s.starttls()
-    s.login(fromaddr, "pzlyubevjrwgyobq")
-    text = msg.as_string()
-    s.sendmail(fromaddr, toaddr, text)
-    s.quit()
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+        s.starttls()
+        s.login(fromaddr, "pzlyubevjrwgyobq")
+        text = msg.as_string()
+        s.sendmail(fromaddr, toaddr, text)
+        s.quit()
 
-    messages.add_message(request, messages.SUCCESS, 'Os arquivos filtrados foram enviados com sucesso!')
+        messages.add_message(request, messages.SUCCESS, 'Os arquivos filtrados foram enviados com sucesso!')
 
     return render(request, 'super_searcher/email_response.html')
 

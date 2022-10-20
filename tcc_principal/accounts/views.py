@@ -25,7 +25,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    messages.info(request, 'Você desconectou sua conta! Faça login aqui!')
+    messages.warning(request, 'Você desconectou sua conta! Faça login aqui!')
     return redirect('login')
 
 
