@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1156b767-06be-4ce2-9fc0-32660257079f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/tcc-entra21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc-entra21.iml" afterDir="false" />
+    <list default="true" id="1156b767-06be-4ce2-9fc0-32660257079f" name="Changes" comment="3.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/synonyms.html" beforeDir="false" afterPath="$PROJECT_DIR$/tcc_principal/super_searcher/templates/super_searcher/synonyms.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,29 @@
       <option name="presentableId" value="Default" />
       <updated>1665405195032</updated>
     </task>
+    <task id="LOCAL-00001" summary="3.0">
+      <created>1666364878099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666364878099</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.0" />
   </component>
 </project>

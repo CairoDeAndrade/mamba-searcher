@@ -9,13 +9,20 @@
         text-align: center;
         color: #000000;
         font-weight: 600;
-        padding-bottom: 2%;
+        padding-bottom: 3%;
     }
 
     .content {
-        margin-left: 8%;
+        justify-content: space-around;
     }
-
+    .intro{
+      width: 900px;
+      text-align: center;
+      font-size: 1.7em;
+      margin: auto;
+      margin-top: 7%;
+      text-align: justify;
+    }
     .upload {
         margin-top: 3%;
     }
@@ -89,7 +96,6 @@
         <div class="title">
             <h1>Acelere o seu processo de seleção com o super buscador Mamba!</h1>
         </div>
-
          <!--Description/messages-->
         {% if messages %}
             <!--Messages-->
@@ -97,7 +103,11 @@
         {% endif %}
 
     <div class="content">
-        
+        <p class="into">
+        Mamba consiste na automação de um processo de seleção de talentos.
+        Ao clicar em começar, insira os currículos que deseja analisar na área indicada.  Depois, indique as palavras que você gostaria de procurar pelos currículos, por presets ou por escrito (Exemplo: “inglês”). Quando o processo de carregamento acabar, você poderá ver os currículos que possuem as palavras escolhidas em um ranking dos que mais se alinham com o procurado.
+        Desejamos a você uma ótima experiência e agradecemos por consultar o Mamba.
+        <p>
         <div class="upload">
             <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
                  {% csrf_token %}

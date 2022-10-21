@@ -116,18 +116,29 @@
   .submit:hover {
     background-color: #16706c;
   }
-
+.title{
+   justify-content: left;
+}
+.syn{
+    display: flex;
+    justify-content: center;
+}
   .text {
+  align-items: center;
   text-align: center;
   background-color: #a3cfcd;
-  height: 6vh;
+  height: 8vh;
   width: 50vh;
   border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+
   }
 
   .link_syn {
   text-decoration: none;
   color: white;
+  align self: center;
   }
 
   .text:hover {
@@ -161,11 +172,12 @@
         <div class="title">
             <h1>Aba de Pesquisa</h1>
         </div>
+        <div class="syn">
         <div class="text">
              <a class="link_syn" href="{% url 'synonyms' %}"><div class="text">Mudar para a aba sinônimos</div></a>
         </div>
+        </div>
     </div>
-
     <!-- pre-sets -->
     <div class="pre-sets-title">
         <h1>Pré-sets</h1>
@@ -191,10 +203,10 @@
       </div>
       <div class="ui selection dropdown">
         <div class="dropdown">
-          <button class="dropbtn">Educação</button>
+          <button class="dropbtn">Ensino</button>
           <div class="dropdown-content">
             <a href="#select_words" onclick="selecionado(this)">Básico</a>
-            <a href="#select_words" onclick="selecionado(this)">Média</a>
+            <a href="#select_words" onclick="selecionado(this)">Médio</a>
             <a href="#select_words" onclick="selecionado(this)">Superior</a>
           </div>
         </div>
