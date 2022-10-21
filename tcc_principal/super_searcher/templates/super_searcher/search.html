@@ -116,6 +116,25 @@
   .submit:hover {
     background-color: #16706c;
   }
+
+  .text {
+  text-align: center;
+  background-color: #a3cfcd;
+  height: 6vh;
+  width: 50vh;
+  border-radius: 15px;
+  }
+
+  .link_syn {
+  text-decoration: none;
+  color: white;
+  }
+
+  .text:hover {
+  background-color: #95B1AF;
+  text-decoration: none;
+  color: white;
+  }
 </style>
 
 <!--Javascript-->
@@ -143,7 +162,7 @@
             <h1>Aba de Pesquisa</h1>
         </div>
         <div class="text">
-             <a href="{% url 'synonyms' %}">Mudar para a aba sinônimos</a>. 
+             <a class="link_syn" href="{% url 'synonyms' %}"><div class="text">Mudar para a aba sinônimos</div></a>
         </div>
     </div>
 
