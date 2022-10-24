@@ -1,6 +1,6 @@
 # Mamba - um super buscador de currículos
 
-![Alt text](/../<main>/![mamba_logo](https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png)
+(/../<main>/![mamba_logo](https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png)
 
 
 # Sobre o Projeto
@@ -12,4 +12,4 @@ Bem, o Mamba consiste em um programa que vem para solucionar um problema muito r
 Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetividade, agilidade, eficiência, e ainda, otimizando o tempo gasto e, consequentemente, economizando dinheiro.
 
 # Tecnologias usadas:
-- Python ![Alt text](/../<main>/![icons8-python-48](https://user-images.githubusercontent.com/107778041/197631316-1e0f4f14-6a90-4746-a1d3-3bf73b7cee78.png))
+- Python (/../<main>/![icons8-python-48](https://user-images.githubusercontent.com/107778041/197631316-1e0f4f14-6a90-4746-a1d3-3bf73b7cee78.png)
