@@ -1,0 +1,142 @@
+/* inside page css */
+
+.information h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-bottom: 2%;
+}
+
+.pre-sets-title h1{
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 3%;
+}
+
+.search_pag {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .search_page {
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+    .dropbtn {
+      background-color: #9FA3D7;
+      color: white;
+      padding: 10px;
+      font-size: 1.6em;
+      border: none;
+      width: 400px;
+      height: 80px;
+      border-radius: 40px;
+      justify-content: center;
+    }
+
+    .dropdown {
+      position: relative;
+      text-align: center;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      text-align: center;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+      width: 400px;
+      height: 80px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #c3c6e877;
+      border-radius: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {display: table;}
+
+    .dropdown:hover .dropbtn {
+      background-color: #6a6fa0;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+  .inputbox1{
+    margin-top: 17%;
+    margin-left: 7%;
+    width: 650px;
+    height: 55px;
+    border-radius: 10px;
+    border: 10px;
+    border: black;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    padding-left: 15px;
+  }
+
+  .input2 form{
+    display: inline-flex;
+  }
+
+  .submit{
+    background-color: #118a84;
+    color: #fff;
+    margin-top: 17%;
+    width: 170px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  }
+
+  .submit:hover {
+    background-color: #16706c;
+  }
+.title{
+   justify-content: left;
+}
+.syn{
+    display: flex;
+    justify-content: center;
+}
+  .text {
+  align-items: center;
+  text-align: center;
+  background-color: #a3cfcd;
+  height: 8vh;
+  width: 50vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+
+  }
+
+  .link_syn {
+  text-decoration: none;
+  color: white;
+  align self: center;
+  }
+
+  .text:hover {
+  background-color: #95B1AF;
+  text-decoration: none;
+  color: white;
+  }

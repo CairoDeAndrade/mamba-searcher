@@ -3,61 +3,7 @@
 
 <!--CSS-->
 {% block static%}
-<style>
-.title h1{
-    text-align: center;
-    font-size: 6vh;
-    font-weight: 600;
-    padding-bottom: 3%
-}
-
-.options {
-    display: flex;
-    margin-left: 15vh;
-    margin-top: 5vh;
-}
-
-.home button{
-    width: 40vh;
-    height: 10vh;
-    font-size: 100%;
-    background-color: #23a696;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
-    border: none;
-    border-radius: 20px;
-    margin-right: 3vh;
-}
-
-.home a{
-    text-decoration: None;
-    color: white;
-}
-
-.home button:hover {
-    background-color: #1e8578;
-}
-
-.search button{
-    width: 40vh;
-    height: 10vh;
-    font-size: 100%;
-    background-color: #28a17e;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
-    border: none;
-    border-radius: 20px;
-    margin-right: 3vh;
-}
-
-.search a{
-    text-decoration: None;
-    color: white;
-}
-
-.search button:hover {
-    background-color: #218266;
-}
-
-</style>
+<link rel="stylesheet" href="{% static 'css/email_response.css' %}">
 {% endblock %}
 
 {% block content%}

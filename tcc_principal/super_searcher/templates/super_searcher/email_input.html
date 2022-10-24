@@ -1,48 +1,9 @@
 {% extends 'default.html' %}
 {% load static %}
 
-{% block static%}
 <!--CSS-->
-<style>
-.information h1{
-    text-align: center;
-    color: #000000;
-    font-weight: 600;
-    padding-bottom: 2%;
-}
-
-.inputbox1{
-    margin-top: 4%;
-    margin-left: 7%;
-    width: 650px;
-    height: 55px;
-    border-radius: 10px;
-    border: 10px;
-    border: black;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
-    padding-left: 15px;
-}
-
-.input2 form{
-    display: inline-flex;
-}
-
-.submit{
-    background-color: #118a84;
-    color: #fff;
-    margin-top: 4%;
-    width: 150px;
-    height: 55px;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
-}
-
-.submit:hover {
-    background-color: #16706c;
-}
-
-</style>
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/email_input.css' %}">
 {% endblock %}
 
 {% block content%}
