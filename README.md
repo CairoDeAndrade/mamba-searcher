@@ -12,4 +12,13 @@ Bem, o Mamba consiste em um programa que vem para solucionar um problema muito r
 Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetividade, agilidade, eficiência, e ainda, otimizando o tempo gasto e, consequentemente, economizando dinheiro.
 
 # Tecnologias usadas:
--  (/../<main>/![icons8-python-48](https://user-images.githubusercontent.com/107778041/197631316-1e0f4f14-6a90-4746-a1d3-3bf73b7cee78.png) Python
+- Python
+- Django
+- SQLite
+- HTML/CSS
+- Bootstrap
+- Javascript
+- Git/GitHub
+  
+(/../<main>/![icons8-python-48](https://user-images.githubusercontent.com/107778041/197631316-1e0f4f14-6a90-4746-a1d3-3bf73b7cee78.png) (/../<main>/![icons8-django-48](https://user-images.githubusercontent.com/107778041/197635740-bb67adf4-b936-42ce-afd7-dfdf3fa6fa9a.png)
+
