@@ -556,3 +556,7 @@ def email_response(request):
 def about(request):
     return render(request, 'super_searcher/about.html')
 
+
+# about page
+def personalize(request):
+    return render(request, 'super_searcher/personalize.html')

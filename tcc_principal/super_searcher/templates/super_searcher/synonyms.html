@@ -100,6 +100,7 @@
 
   .input2 form{
     display: inline-flex;
+    margin-bottom: 20px;
   }
 
   .submit{
@@ -115,6 +116,34 @@
 
   .submit:hover {
     background-color: #105451;
+  }
+
+  .syn{
+    display: flex;
+    justify-content: center;
+}
+  .text {
+  align-items: center;
+  text-align: center;
+  background-color: #a3cfcd;
+  height: 8vh;
+  width: 50vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+
+  }
+
+  .link_syn {
+  text-decoration: none;
+  color: white;
+  align self: center;
+  }
+
+  .text:hover {
+  background-color: #95B1AF;
+  text-decoration: none;
+  color: white;
   }
 </style>
 
@@ -140,10 +169,15 @@
     <!-- page content -->
     <div class="information">
         <div class="title">
-            <h1>Aba de Pesquisa por sinônimos</h1>
+            <h1>Aba de Pesquisa por Sinônimos</h1>
         </div>
-        <a href="{% url 'search' %}">Mudar para a aba de pesquisa</a>
+           <div class="syn">
+        <div class="text">
+             <a class="link_syn" href="{% url 'search' %}"><div class="text">Mudar para a aba de pesquisa</div></a>
+        </div>
+        </div>
     </div>
+
 
     <!-- pre-sets -->
     <div class="pre-sets-title">
@@ -170,7 +204,7 @@
       </div>
       <div class="ui selection dropdown">
         <div class="dropdown">
-          <button class="dropbtn">Educação</button>
+          <button class="dropbtn">Ensino</button>
           <div class="dropdown-content">
             <a href="#select_words" onclick="selecionado(this)">Básico</a>
             <a href="#select_words" onclick="selecionado(this)">Médio</a>

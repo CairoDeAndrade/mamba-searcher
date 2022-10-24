@@ -19,14 +19,14 @@ def login(request):
         return render(request, 'accounts/login.html')
     else:
         auth.login(request, user)
-        messages.success(request, 'Successfully login!')
+        messages.success(request, 'Parabéns, agora você está logado e pode usar a opção para receber emails!')
         return redirect('email_input')
 
 
 def logout(request):
     auth.logout(request)
-    messages.warning(request, 'Você desconectou sua conta! Faça login aqui!')
-    return redirect('login')
+    messages.warning(request, 'Você desconectou sua conta!')
+    return redirect('home')
 
 
 def register(request):

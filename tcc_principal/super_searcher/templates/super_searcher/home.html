@@ -9,20 +9,27 @@
         text-align: center;
         color: #000000;
         font-weight: 600;
-        padding-bottom: 2%;
+        padding-bottom: 3%;
     }
 
     .content {
-        margin-left: 8%;
+        justify-content: space-around;
     }
-
+    .intro{
+      width: 900px;
+      text-align: center;
+      font-size: 1.7em;
+      margin: auto;
+      margin-top: 7%;
+      text-align: justify;
+    }
     .upload {
         margin-top: 3%;
     }
 
 .enviar {
     height: 7vh;
-    width: 25vh;
+    width: 22vh;
     font-size: 100%;
     color: white;
     background-color: #a3cfcd;
@@ -32,14 +39,14 @@
 }
 
 .enviar:hover {
-    background-color: #6e9997;
+    background-color: #95B1AF;
 }
 
   .limpar {
     height: 8.3vh;
     width: 16vh;
     font-size: 100%;
-    background-color: #e8570e;
+    background-color: #324B4A;
     border: none;
     border-radius: 8%;
   }
@@ -50,7 +57,7 @@
   }
 
   .limpar:hover {
-    background-color: #f74205;
+    background-color: #627C7B;
   }
 
   .delete {
@@ -61,7 +68,7 @@
     height: 8.3vh;
     width: 16vh;
     font-size: 100%;
-    background-color: red;
+    background-color: #324B4A;
     border: none;
     border-radius: 8%;
     text-decoration: none;
@@ -74,7 +81,7 @@
   }
 
   .delete button:hover {
-    background-color: #eb1610;
+    background-color: #627C7B;
   }
 </style>
 {% endblock %}
@@ -89,7 +96,6 @@
         <div class="title">
             <h1>Acelere o seu processo de seleção com o super buscador Mamba!</h1>
         </div>
-
          <!--Description/messages-->
         {% if messages %}
             <!--Messages-->
@@ -97,7 +103,15 @@
         {% endif %}
 
     <div class="content">
-        
+        <p class="into">
+        Mamba consiste na automação de um processo de seleção de talentos.
+        Ao clicar em "Escolher arquivos", insira os currículos que deseja analisar na
+        área indicada.  Depois, indique as palavras que você gostaria de
+        procurar pelos currículos, por presets ou por escrito (Exemplo: “inglês”).
+        Quando o processo de carregamento acabar, você poderá ver os currículos
+        que possuem as palavras escolhidas em um ranking dos que mais se alinham com o procurado.
+        Desejamos a você uma ótima experiência e agradecemos por consultar o Mamba.
+        <p>
         <div class="upload">
             <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
                  {% csrf_token %}

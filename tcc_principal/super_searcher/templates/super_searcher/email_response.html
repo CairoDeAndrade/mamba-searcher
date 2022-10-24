@@ -10,6 +10,53 @@
     font-weight: 600;
     padding-bottom: 3%
 }
+
+.options {
+    display: flex;
+    margin-left: 15vh;
+    margin-top: 5vh;
+}
+
+.home button{
+    width: 40vh;
+    height: 10vh;
+    font-size: 100%;
+    background-color: #23a696;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
+    border: none;
+    border-radius: 20px;
+    margin-right: 3vh;
+}
+
+.home a{
+    text-decoration: None;
+    color: white;
+}
+
+.home button:hover {
+    background-color: #1e8578;
+}
+
+.search button{
+    width: 40vh;
+    height: 10vh;
+    font-size: 100%;
+    background-color: #28a17e;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
+    border: none;
+    border-radius: 20px;
+    margin-right: 3vh;
+}
+
+.search a{
+    text-decoration: None;
+    color: white;
+}
+
+.search button:hover {
+    background-color: #218266;
+}
+
 </style>
 {% endblock %}
 
@@ -25,8 +72,16 @@
 
   <div class="container">
       <p>
-          Para voltar à página principal <a href="{% url 'home' %}">, clique aqui</a>. Mas se
-          deseja continuar buscando <a href="{% url 'search' %}">,clique aqui</a>
+          Você pode voltar à página principal clicando no botão "Voltar para Home" ou pode
+          continuar suas buscas clicando em "Continuar buscando":
       </p>
+      <div class="options">
+          <div class="home">
+            <button><a href="{% url 'home' %}">Voltar para Home</a></button>
+          </div>
+          <div class="search">
+              <button><a href="{% url 'search' %}">Continuar buscando</a></button>
+          </div>
+      </div>
   </div>
 {% endblock %}
