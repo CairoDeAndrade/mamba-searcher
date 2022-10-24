@@ -1,4 +1,4 @@
-![Alt text](http://Área de Trabalho/programing-trabs/mamba-frontend/media/img/mamba-logo.png.jpg)
+![Alt text](/../<main>/tcc-principal/_templates/static/images/mamba_logo.png?raw=true "Optional Title")
 
 # Mamba - um super buscador de currículos
 
