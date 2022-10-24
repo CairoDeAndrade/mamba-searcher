@@ -1,6 +1,4 @@
 # Mamba - um super buscador de currículos
-(<main>/![mamba_logo](https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png)
-
 
 # Sobre o Projeto
 Bem, o Mamba consiste em um programa que vem para solucionar um problema muito recorrente no RH das empresas, um processo de seleção, mais especificamente a análise de currículos. Veja, segundo estatísticas, um recrutador leva em média de 6 a 30 segundos para analisar cerca de 1 currículo, sem contar o tempo de abertura dos arquivos, já o Mamba leva, em média, 2 segundos analisando cerca de 100 currículos, sendo assim 900 vezes mais rápido e eficiente, gerando menos estresse desnecessário, assim, beneficiando o profissional.
@@ -21,4 +19,5 @@ Tudo que nós nos propomos a fazer no início do projeto e estabelecemos como me
 - Javascript
 - Git/GitHub
 
+(<main>/![mamba_logo](https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png)
 
