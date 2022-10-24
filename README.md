@@ -10,6 +10,8 @@ Bem, o Mamba consiste em um programa que vem para solucionar um problema muito r
 É exatamente em cima dessa necessidade que o Mamba atua, sendo um super buscador, que tem o objetivo de realizar uma automação de um processo de recrutamento e seleção de candidatos. Então, imaginem comigo que, para uma determinada vaga, o inglês fluente ou avançado é obrigatório, e o funcionário não consegue atuar sem essas características especificamente, é aí que entra o Mamba. Na nossa solução, você faz o upload do banco de currículos da sua empresa que deseja analisar, digita quais palavras-chave, ou expressões-chave, que deseja buscar nos currículos ou utiliza nossos presets que você só seleciona e a partir disso o Mamba faz uma filtragem ágil destes arquivos, que podem estar em mais de um tipo, como Docx e PDF, e o Mamba os filtra para identificar padrões de interesse, ou seja, padrões entre o que o candidato tem a oferecer e o que a empresa realmente necessita para a vaga. Também, temos um modo de pesquisa “inteligente” em que as palavras-chave são localizadas por meio de seus sinônimos,trazendo mais abrangência à pesquisa. 
 
 Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetividade, agilidade, eficiência, e ainda, otimizando o tempo gasto e, consequentemente, economizando dinheiro.
+  
+Tudo que nós nos propomos a fazer no início do projeto e estabelecemos como meta ao longo dele foi entregue, mas as nossas ideias não param por aí, planejamos ir adicionando novos formatos de currículos e novas funcionalidades como, por exemplo, a opção do user adicionar novas palavras e sinônimos personalizados ao banco de dados utilizado.
 
 # Tecnologias usadas:
 - Python
@@ -19,6 +21,5 @@ Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetiv
 - Bootstrap
 - Javascript
 - Git/GitHub
-  
-(/../<main>/![icons8-python-48](https://user-images.githubusercontent.com/107778041/197631316-1e0f4f14-6a90-4746-a1d3-3bf73b7cee78.png) (/../<main>/![icons8-django-48](https://user-images.githubusercontent.com/107778041/197635740-bb67adf4-b936-42ce-afd7-dfdf3fa6fa9a.png)
+
 
