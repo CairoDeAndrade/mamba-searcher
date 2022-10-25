@@ -404,11 +404,15 @@ def ranking_synonyms(request):
     final_dict = {}
 
     # Using the synonyms to search
-    palavras_chave = str(request.GET.get('term')).lower()
-    search_word = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
-                          if not unicodedata.combining(ch))
-    synonym_word = Search(f'{search_word}')
-    synonym_results = synonym_word.synonyms()
+    try:
+        palavras_chave = str(request.GET.get('term')).lower()
+        search_word = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
+                              if not unicodedata.combining(ch))
+        synonym_word = Search(f'{search_word}')
+        synonym_results = synonym_word.synonyms()
+    except:
+        messages.warning(request, 'Erro de conexão com internet!')
+        return redirect('ranking_synonyms')
 
     # Checking if there is not a synonym
     if synonym_results == 404:
@@ -514,7 +518,7 @@ def email_response(request):
     # Sending email
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
-    fromaddr = "mamba.python.entra21@gmail.com"
+    fromaddr = "cairo.guto777@gmail.com" # mamba.python.entra21@gmail.com
     toaddr = str(request.GET.get('term').replace('%40', '@'))
 
     try:
