@@ -518,7 +518,7 @@ def email_response(request):
     # Sending email
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
-    fromaddr = "cairo.guto777@gmail.com" # mamba.python.entra21@gmail.com
+    fromaddr = "mamba.entra21@gmail.com" # mamba.python.entra21@gmail.com
     toaddr = str(request.GET.get('term').replace('%40', '@'))
 
     try:
@@ -546,7 +546,7 @@ def email_response(request):
 
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login(fromaddr, "pzlyubevjrwgyobq")
+        s.login(fromaddr, "utjwzdlbrpvwgovh") # pzlyubevjrwgyobq
         text = msg.as_string()
         s.sendmail(fromaddr, toaddr, text)
         s.quit()
