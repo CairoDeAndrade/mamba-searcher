@@ -17,6 +17,13 @@ Tudo que nós nos propomos a fazer no início do projeto e estabelecemos como me
 - Javascript
 - Git/GitHub
 
-(<main>/![mamba_logo](https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png)
+# Contribuintes para o progeto
+- Ana Carolina, Ana Clara, Cairo Augusto, Cauan Strey e Vitor da Silva.
+
+<div>
+  <img src="https://user-images.githubusercontent.com/107778041/197628931-b2a7a572-ec8f-472e-bf4d-8461fd789c8f.png" alt="logo"
+  style="height: 25rem">
+</div>
+
 
 
