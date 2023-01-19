@@ -8,7 +8,7 @@ Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetiv
   
 Tudo que nós nos propomos a fazer no início do projeto e estabelecemos como meta ao longo dele foi entregue, mas as nossas ideias não param por aí, planejamos ir adicionando novos formatos de currículos e novas funcionalidades como, por exemplo, a opção do user adicionar novas palavras e sinônimos personalizados ao banco de dados utilizado.
 
-# Tecnologias usadas
+# Tecnologias e ferramentas usadas
 - Python
 - Django
 - SQLite
@@ -16,6 +16,7 @@ Tudo que nós nos propomos a fazer no início do projeto e estabelecemos como me
 - Bootstrap
 - Javascript
 - Git/GitHub
+- Metodologia ágil kanban no Trello
 
 # Contribuintes para o progeto
 - Ana Carolina, Ana Clara, Cairo Augusto, Cauan Strey e Vitor da Silva.
