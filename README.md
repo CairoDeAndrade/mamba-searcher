@@ -26,6 +26,24 @@ Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetiv
 - Git/GitHub
 - Trello
 
+# Como executar o projeto
+## Pré-requisitos: 
+- Você possui a versão mais recente do <code>Python</code>
+- Você instalou a versão mais recente de <code>Django</code>
+
+### No terminal Git Bash
+- Clonar repositório:
+
+  git clone https://github.com/CairoDeAndrade/mamba-searcher
+
+- Entrar na pasta do projeto:
+
+  cd mamba-searcher
+
+- Executar o projeto:
+
+  python manage.py runserver 
+
 # Desenvolvedores
   <a href="https://www.linkedin.com/in/ana-carolina-vieira-da-costa/" target="blank">Ana Carolina, </a>
     <a href="https://www.linkedin.com/in/ana-clara-maiberg-0215a7244/" target="blank">Ana Clara, </a>
