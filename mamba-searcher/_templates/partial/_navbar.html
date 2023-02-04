@@ -1,0 +1,29 @@
+{% load static %}
+<!-- navbar -->
+<nav class="fixed-nav-bar">
+<div class="topbar">
+    <div class="topbar-inner">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+              <img id="logo" src="{% static '/images/mamba_logo.png' %}" alt="Logo" width="120" height="120">
+              MAMBA
+            </div>
+        </div>
+      <div>
+        <div id="login" class="box">
+            <a href="{% url 'login' %}" style="text-decoration: none; color: #a3cfcd;">LOGIN</a>
+        </div>
+      </div>
+      <div>
+        <div id="signin" class="box">
+          <a href="{% url 'register' %}" style="text-decoration: none; color: #a3cfcd;">SIGN IN</a>
+        </div>
+    </div>
+    <div>
+      <div id="Personalizar" class="box">
+        <a href="{% url 'personalize' %}" style="text-decoration: none; color: #a3cfcd;">PERSONALIZAR</a>
+      </div>
+    </div>
+  </div>
+</div>
+</nav>

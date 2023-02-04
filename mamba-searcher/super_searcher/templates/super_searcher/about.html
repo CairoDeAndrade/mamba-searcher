@@ -1,0 +1,101 @@
+{% extends 'default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}About | {% endblock %}
+
+{% block content %}
+        <!-- page content -->
+        <div class="title">
+            <h1>Sobre nós</h1>
+        </div>
+
+      <div class="txt_img">
+        <div class="us">
+            A partir da Mostra de Talentos do programa Entra21,
+            que tem o objetivo de aproximar os alunos formados das empresas,
+            o grupo Mamba desenvolveu um projeto de automação que visa
+            solucionar o problema da demora das empresas em analisar
+            curriculos, uma vez que nosso projeto é 900x mais
+            rápido que o método tradicional.
+        </div>
+        <div class="img">
+          <img src="{% static '/images/group-pic.jpg' %}"  height="400" width="500">
+        </div>
+      </div>
+      <div class="dev">
+          <strong>Desenvolvedores:</strong>
+      </div>
+      <div class="photos">
+        <img src="{% static '/images/perfil_pic.jpg' %}" alt="" class="cairo">
+        <img src="{% static '/images/vitor.jpg' %}" alt="" class="vitor">
+      </div>
+      <div class="names">
+          <div class="box_name">
+              <div class="names">
+                  <div class="name1"><p>Cairo de Andrade</p></div>
+                  <div class="name1"><p>Vitor da Silva</p></div>
+              </div>
+              <div class="icon">
+                <div class="icon-cairo">
+                    <a href="https://github.com/CairoDeAndrade">
+                      <img class="github" src="{% static '/images/github.png' %}" height="55" width="55">
+                    </a>
+                    <a href="https://www.linkedin.com/in/cairodeandrade/">
+                      <img class="linkedin" src="{% static '/images/linkedin.png' %}"  height="55" width="55">
+                    </a>
+                </div>
+                <div class="icon-vitor">
+                  <a href="https://github.com/silvadavitor">
+                    <img class="github" src="{% static '/images/github.png' %}" height="55" width="55">
+                  </a>
+                  <a href="https://www.linkedin.com/in/vitor-da-silva-/">
+                    <img class="linkedin1" src="{% static '/images/linkedin.png' %}" height="55" width="55">
+                  </a>
+                </div>
+              </div>
+
+              <div class="photos2">
+                <img src="{% static '/images/ana-carolina.jpg' %}" alt="" class="ana-carolina">
+                <img src="{% static '/images/ana-clara.jpg' %}" alt="" class="ana-clara">
+                <img src="{% static '/images/cauan.jpg' %}" alt="" class="cauan">
+              </div>
+              <div class="names">
+                <div class="name2"><p>Ana Carolina Vieira</p></div>
+                <div class="name2"><p>Ana Clara Maiberg</p></div>
+                <div class="name2"><p>Cauan Strey Breier</p></div>
+            </div>
+            <div class="icon">
+              <div class="icon-ana-carolina">
+                <a href="https://github.com/AnaVieiraCosta">
+                  <img class="github" src="{% static '/images/github.png' %}" height="55" width="55">
+                </a>
+                <a href="https://www.linkedin.com/in/ana-carolina-vieira-da-costa/">
+                  <img class="linkedin" src="{% static '/images/linkedin.png' %}" height="55" width="55">
+                </a>
+              </div>
+              <div class="icon-ana-clara">
+                <a href="https://github.com/anamaiberg">
+                  <img class="github" src="{% static '/images/github.png' %}" height="55" width="55">
+                </a>
+                <a href="https://www.linkedin.com/in/ana-clara-maiberg-0215a7244/">
+                  <img class="linkedin" src="{% static '/images/linkedin.png' %}" height="55" width="55">
+                </a>
+              </div>
+              <div class="icon-cauan">
+                <a href="https://github.com/cstrey">
+                  <img class="github" src="{% static '/images/github.png' %}" height="55" width="55">
+                </a>
+                <a href="https://www.linkedin.com/in/cauan-strey-breier-847369232/">
+                  <img class="linkedin" src="{% static '/images/linkedin.png' %}" height="55" width="55">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+{% endblock %}

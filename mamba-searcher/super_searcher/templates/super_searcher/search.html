@@ -1,0 +1,97 @@
+{% extends 'default.html' %}
+{% load static %}
+
+{% block static%}
+<!--CSS-->
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+<!--Javascript-->
+<script type="text/javascript" src="{% static 'javascript/search.js' %}"></script>
+{% endblock %}
+
+<!--Title-->
+{% block title %}Search | {% endblock %}
+
+<!--Home content-->
+{% block content %}
+    <!-- page content -->
+    <div class="information">
+        <div class="title">
+            <h1>Aba de Pesquisa</h1>
+        </div>
+        <div class="syn">
+        <div class="text">
+             <a class="link_syn" href="{% url 'synonyms' %}"><div class="text">Mudar para a aba sinônimos</div></a>
+        </div>
+        </div>
+    </div>
+    <!-- pre-sets -->
+    <div class="pre-sets-title">
+        <h1>Pré-sets</h1>
+    </div>
+
+    <div class="information">
+        <!--Messages-->
+        <div class="messages">
+         {% include 'partial/_messages.html' %}
+        </div>
+    </div>
+
+    <div class="search_pag">
+        <div class="ui selection dropdown">
+          <div class="dropdown">
+            <button class="dropbtn">Linguagens</button>
+            <div class="dropdown-content">
+              <a href="#select_words" onclick="selecionado(this)">Inglês</a>
+              <a href="#select_words" onclick="selecionado(this)">Alemão</a>
+              <a href="#select_words" onclick="selecionado(this)">Espanhol</a>
+            </div>
+          </div>
+      </div>
+      <div class="ui selection dropdown">
+        <div class="dropdown">
+          <button class="dropbtn">Ensino</button>
+          <div class="dropdown-content">
+            <a href="#select_words" onclick="selecionado(this)">Básico</a>
+            <a href="#select_words" onclick="selecionado(this)">Médio</a>
+            <a href="#select_words" onclick="selecionado(this)">Superior</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search_page">
+      <div class="ui selection dropdown">
+        <div class="dropdown">
+          <button class="dropbtn">Cursos</button>
+          <div class="dropdown-content">
+            <a href="#select_words" onclick="selecionado(this)">Python</a>
+            <a href="#select_words" onclick="selecionado(this)">C#</a>
+            <a href="#select_words" onclick="selecionado(this)">Java</a>
+          </div>
+        </div>
+        </div>
+        <div class="ui selection dropdown">
+      <div class="dropdown">
+        <button class="dropbtn">Localidade</button>
+        <div class="dropdown-content">
+          <a href="#select_words" onclick="selecionado(this)">Blumenau</a>
+          <a href="#select_words" onclick="selecionado(this)">Gaspar</a>
+          <a href="#select_words" onclick="selecionado(this)">Indaial</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!--Search bar-->
+    <div class="input2">
+      <form method="get" action="{% url 'ranking' %}">
+          <input class="form-control inputbox1"
+                 type="search" value="{{ request.GET.term }}"
+                 id="select_words"
+                 placeholder="Pesquisar por outras palavras"
+                 name="term">
+          <button class="submit" type="submit">Confirmar</button>
+      </form>
+    </div>
+    <!-- page content /-->
+{% endblock %}

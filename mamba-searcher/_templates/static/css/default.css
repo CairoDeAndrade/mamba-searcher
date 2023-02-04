@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@font-face {
+  font-family: Quantico;
+  src: url('Quantico-Regular.ttf');
+}
+@import "compass/css3";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  font-family: Quantico
+
+}
+
+body{
+  background-color: #e5edf0;
+   font-family: 'Encode Sans', sans-serif;
+}
+
+.fixed-nav-bar { position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 90px;
+  background-color: #2a272a; }
+
+.topbar {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+
+}
+
+.topbar-inner {
+  height: 90px;
+  max-width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+
+}
+
+#logo {
+  margin-left: 2%;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.box {
+  display:inline-flex;
+  padding:10px 20px;
+  border-right:2px solid;
+  border-left:2px solid;
+  margin-right: 10px;
+  color: #a3cfcd;
+  background:
+      linear-gradient(to right,
+      #a3cfcd calc(50% - 5px),transparent calc(50% - 5px),
+        transparent calc(50% + 5px),#a3cfcd calc(50% + 5px)),
+      linear-gradient(to right,
+      #a3cfcd calc(50% - 5px),transparent calc(50% - 5px),
+        transparent calc(50% + 5px),#a3cfcd calc(50% + 5px));
+  background-size:150% 2px;
+  background-position:top left,bottom right;
+  background-repeat:no-repeat;
+  transition:.8s all;
+}
+
+.box:hover {
+  background-position:top right,bottom left;
+  cursor: pointer;
+}
+
+#signin {
+  display: inline-flex;
+  justify-content: right;
+  white-space: nowrap;
+}
+
+#login {
+  display: inline-flex;
+  justify-content: right;
+}
+
+#personalizar {
+  display: inline-flex;
+  justify-content: right;
+}
+
+.navbar-brand {
+  color: rgb(255, 255, 255) !important;
+  font-size: 40px;
+  font-family: Quantico;
+}
+
+.sidebar {
+  position:fixed;
+  top: 80px;
+  justify-content: space-between;
+  width: 11%;
+  height: 110vh;
+  background: #2a272a;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.nav {
+  color: #fff;
+}
+
+.active {
+  height: 100px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.search {
+  height: 100px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.ranking {
+  height: 100px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.about{
+  height: 100px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.out {
+  height: 100px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+#links {
+  text-decoration: none;
+  color: #fff;
+}
+
+#buttons2{
+  padding-top: 30px;
+  height:100px;
+}
+
+#buttons2:hover{
+  height:100px;
+  background-color: #101010;
+}
+
+.buttons{
+  height:100px;
+  background-color: #2a272a;
+}
+
+ol,
+ul {
+  padding-left: 0rem;
+  width: 222.95px;
+}
+
+.main_mamba {
+  float: right;
+  position: absolute;
+  width: 86.9vw;
+  top: 12.11%;
+  left: 12%;
+}
+
+.intro {
+  width: 900px;
+  text-align: center;
+  font-size: 1.6em;
+  margin: auto;
+  margin-top: 7%;
+  text-align: justify;
+}
+

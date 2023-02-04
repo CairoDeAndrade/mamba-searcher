@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="{% static 'css/register.css'%}" rel="stylesheet">
+
+  <!--CSS-->
+  <style>
+    body {
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 3%;
+      font-size: 2.7vh;
+    }
+
+    .title {
+      margin-bottom: 3%;
+    }
+
+    form button {
+      margin-bottom: 1%;
+      font-size: 2.7vh !important;
+    }
+
+    .inputs input {
+      font-size: 2.3vh;
+    }
+  </style>
+</head>
+
+<body>
+<div class="title">
+  <h1>Cadastre-se no Mamba</h1>
+</div>
+
+<!--Messages-->
+{% include 'partial/_messages.html' %}
+
+<!--Form-->
+<form method="POST" action="{% url 'register' %}">
+  {% csrf_token %}
+    <div class="mb-3 inputs">
+    <label for="exampleInputEmail1" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="name" value="{{ request.POST.name }}">
+    <div class="form-text"></div>
+  </div>
+    <div class="mb-3 inputs">
+    <label for="exampleInputEmail1" class="form-label">Sobrenome</label>
+    <input type="text" class="form-control" name="last_name" value="{{ request.POST.last_name }}">
+    <div class="form-text"></div>
+  </div>
+  <div class="mb-3 inputs">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+    value="{{ request.POST.email }}">
+    <div id="emailHelp" class="form-text">Nós nunca iremos compartilhar este e-mail.</div>
+  </div>
+    <div class="mb-3 inputs">
+    <label for="exampleInputEmail1" class="form-label">Usuário</label>
+    <input type="text" class="form-control" name="user" value="{{ request.POST.user }}">
+    <div class="form-text"></div>
+  </div>
+  <div class="mb-3 inputs">
+    <label for="exampleInputPassword1" class="form-label">Senha</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <div class="mb-3 inputs">
+    <label for="exampleInputPassword1" class="form-label">Confirme sua Senha</label>
+    <input type="password" class="form-control" name="password2">
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>

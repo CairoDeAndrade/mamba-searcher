@@ -1,0 +1,36 @@
+{% extends 'default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/email_response.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Email | {% endblock %}
+
+{% block content%}
+    <div class="title">
+        <h1>Situação de envio dos arquivos:</h1>
+    </div>
+
+    <div class="messages">
+         <!--Messages-->
+         {% include 'partial/_messages.html' %}
+    </div>
+
+  <div class="container">
+      <p>
+          Você pode voltar à página principal clicando no botão "Voltar para Home" ou pode
+          continuar suas buscas clicando em "Continuar buscando":
+      </p>
+      <div class="options">
+          <div class="home">
+            <button><a href="{% url 'home' %}">Voltar para Home</a></button>
+          </div>
+          <div class="search">
+              <button><a href="{% url 'search' %}">Continuar buscando</a></button>
+          </div>
+      </div>
+  </div>
+{% endblock %}

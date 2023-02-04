@@ -1,0 +1,92 @@
+{% extends 'default.html' %}
+{% load static %}
+
+{% block static%}
+<!--CSS-->
+<link rel="stylesheet" href="{% static 'css/personalize.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Personalize | {% endblock %}
+
+{% block content%}
+
+ <div class="customize_box">
+     <div class="customize">
+        GOSTARIA DE CADASTRAR NOVAS PALAVRAS E SINÔNIMOS AO NOSSO BANCO DE DADOS PARA UMA EXPERIÊNCIA MAIS PRECISA?
+     </div>
+
+     <div class="em-breve">
+        <h1>EM BREVE!</h1>
+    </div>
+
+     <div class="customizing">
+
+      <form>
+
+          <div class="form-group">
+            <div class="first">
+                <div class="second">
+                    Linguagens
+                </div>
+                <div class="third">
+                    <input class="inputbox1" type="text" name="inputBox" placeholder="palavra">
+                </div>
+                <div class="fourth">
+                  <input class="inputbox2" type="text" name="inputBox" placeholder="sinônimo1,sinônimo2,">
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="first">
+                <div class="second">
+                    Educação<a class="nveja">_</a>
+                </div>
+                <div class="third">
+                    <input class="inputbox1" type="text" name="inputBox" placeholder="palavra">
+                </div>
+                <div class="fourth">
+                  <input class="inputbox2" type="text" name="inputBox" placeholder="sinônimo1,sinônimo2,">
+                </div>
+              </div>
+
+          </div>
+
+          <div class="form-group">
+            <div class="first">
+                <div class="second">
+                  <a class="nveja">_.</a>Cursos<a class="nveja">_.</a>
+                </div>
+                <div class="third">
+                    <input class="inputbox1" type="text" name="inputBox" placeholder="palavra">
+                </div>
+                <div class="fourth">
+                  <input class="inputbox2" type="text" name="inputBox" placeholder="sinônimo1,sinônimo2,">
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="first">
+                <div class="second">
+                    Localidade
+                </div>
+                <div class="third">
+                    <input class="inputbox1" type="text" name="inputBox" placeholder="palavra">
+                </div>
+                <div class="fourth">
+                  <input class="inputbox2" type="text" name="inputBox" placeholder="sinônimo1,sinônimo2,">
+                </div>
+            </div>
+          </div>
+
+          <input class="sub" type="submit" value="CONFIRMAR">
+
+
+      </form>
+
+  </div>
+ </div>
+
+{% endblock %}

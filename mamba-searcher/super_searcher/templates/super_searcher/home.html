@@ -1,0 +1,59 @@
+{% extends 'default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Home | {% endblock %}
+
+<!--Home content-->
+{% block content %}
+
+      <!-- page content -->
+        <div class="title">
+            <h1>Acelere o seu processo de seleção com o super buscador Mamba!</h1>
+        </div>
+         <!--Description/messages-->
+        {% if messages %}
+            <!--Messages-->
+            {% include 'partial/_messages.html' %}
+        {% endif %}
+
+    <div class="content">
+        <p class="into">
+        Mamba consiste na automação de um processo de seleção de talentos.
+        Ao clicar em "Escolher arquivos", insira os currículos que deseja analisar na
+        área indicada.  Depois, indique as palavras que você gostaria de
+        procurar pelos currículos, por presets ou por escrito (Exemplo: “inglês”).
+        Quando o processo de carregamento acabar, você poderá ver os currículos
+        que possuem as palavras escolhidas em um ranking dos que mais se alinham com o procurado.
+        Desejamos a você uma ótima experiência e agradecemos por consultar o Mamba.
+        <p>
+        <div class="upload">
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div>
+                    <input type="file" name="files" id="upload" multiple />
+                    <input type="submit" value="Enviar" class="enviar" />
+                    <button type="reset" class="limpar"><a href="{% url 'home' %}">Limpar</a></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="delete">
+            <p>Para deletar os arquivos enviados e fazer um novo upload, clique no botão
+            <strong>"Deletar"</strong> abaixo:</p>
+            <form action="{% url 'delete_files' %}" method="get" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div>
+                    <button>Deletar</button>
+                </div>
+            </form>
+        </div>
+        <!-- page content /-->
+    </div>
+
+{% endblock %}

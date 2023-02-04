@@ -1,0 +1,73 @@
+{% extends 'default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/ranking_synonyms.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Synonyms Rank | {% endblock %}
+
+<!--Home content-->
+{% block content %}
+    <div class="title">
+        <h1>Ranking de Sinônimos</h1>
+    </div>
+
+    <div class="messages">
+
+        <div class="information">
+            <p>Para uma maior corretude na pesquisa através de sinônimos,
+            pedimos que seja pesquisada apenas uma palavra-chave por vez.</p>
+        </div>
+
+        <!--Messages-->
+        {% include 'partial/_messages.html' %}
+
+        <!--Search bar-->
+        <div class="input2">
+          <form method="get" action="{% url 'ranking_synonyms' %}">
+              <input class="form-control inputbox1"
+                     type="search" value="{{ request.GET.term }}"
+                     id="select_words"
+                     placeholder="Pesquisar por outras palavras"
+                     name="term">
+              <button class="submit" type="submit">Confirmar</button>
+          </form>
+        </div>
+
+    </div>
+
+    <!--Send mail-->
+    <div>
+        <p>
+            Deseja enviar os currículos filtrados para o seu email?
+        </p>
+        <a href="{% url 'email_input' %}"><button class="email-button">Enviar para o email</button></a>
+    </div>
+
+        <table class="table">
+            <thead>
+              <tr class="titles">
+                <th class="column" scope="col">Rankings</th>
+                <th class="column" scope="col">Arquivo</th>
+                <th class="column" scope="col">Palavras</th>
+                <th class="column" scope="col">Correspondência</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in real_final %}
+              {% if i.1 != 0 %}
+                <tr>
+                  <th class="column" scope="row">{{ forloop.counter }}</th>
+                  <td id="name" class="column"><a id="link_name" href="#">{{ i.0 }}</a></td>
+                  <td class="column">{{ i.2 }}</td>
+                  <td class="column">{{ i.1 }} / {{ total }}</td>
+                </tr>
+              {% endif %}
+        {% endfor %}
+            </tbody>
+          </table>
+
+{% endblock %}

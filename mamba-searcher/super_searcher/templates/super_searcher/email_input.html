@@ -1,0 +1,46 @@
+{% extends 'default.html' %}
+{% load static %}
+
+<!--CSS-->
+{% block static%}
+<link rel="stylesheet" href="{% static 'css/email_input.css' %}">
+{% endblock %}
+
+<!--Title-->
+{% block title %}Email | {% endblock %}
+
+{% block content%}
+
+    <!-- page content -->
+    <div class="information">
+        <div class="title">
+            <h1>Enviando arquivos</h1>
+        </div>
+        <div class="text">
+            <p>
+                Para que todos os currículos filtrados com base nas <strong>palavras-chave</strong>
+                que você utilizou na <strong>última</strong> pesquisa sejam enviados em ordem alfabética
+                a você, digite seu email de preferência no campo abaixo:
+            </p>
+        </div>
+    </div>
+
+        <!--Messages-->
+        <div class="messages">
+         {% include 'partial/_messages.html' %}
+        </div>
+
+    <!--email bar-->
+    <div class="input2">
+      <form method="get" action="{% url 'email_response' %}">
+          <input class="form-control inputbox1"
+                 type="search" value="{{ request.GET.term }}"
+                 id="select_words"
+                 placeholder="Digite seu email"
+                 name="term">
+          <button class="submit" type="submit">Enviar</button>
+      </form>
+    </div>
+
+
+{% endblock %}
