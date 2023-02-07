@@ -4,7 +4,7 @@
 </div>
 
 <div align="center"><h1>Mamba - um super buscador de currículos</h1></div>
-Bem, o Mamba consiste em um website feito em Django que vem para solucionar um problema muito recorrente no RH das empresas, um processo de seleção, mais especificamente a análise de currículos. Veja, segundo estatísticas, um recrutador leva em média de 6 a 30 segundos para analisar cerca de 1 currículo, sem contar o tempo de abertura dos arquivos, já o Mamba leva, em média, 30 segundos analisando cerca de 1000 currículos, sendo em média 600 vezes mais rápido, gerando menos estresse desnecessário, assim, beneficiando o profissional.
+Bem, o Mamba consiste em um website feito em Django que vem para solucionar um problema muito recorrente no RH das empresas, um processo de seleção, mais especificamente a análise de currículos. Veja, segundo estatísticas, um recrutador leva de 6 a 30 segundos para analisar cerca de 1 currículo, sem contar o tempo de abertura dos arquivos, já o Mamba leva 30 segundos analisando 1000 currículos, sendo em média 600 vezes mais rápido, gerando menos estresse desnecessário, e assim, beneficiando o profissional.
 
 ## Solução e Funcionalidade
 O Mamba atua como um super buscador, que tem o objetivo de realizar uma automação de um processo de recrutamento e seleção de candidatos. Então, imaginem comigo que, para uma determinada vaga, o inglês fluente ou avançado é obrigatório, e o funcionário não consegue atuar sem essas características especificamente, é aí que entra o Mamba. Na nossa solução, você faz o upload do banco de currículos da sua empresa que deseja analisar, digita quais palavras-chave, ou expressões-chave, que deseja buscar nos currículos ou utiliza nossos presets que você só seleciona e a partir disso o Mamba faz uma filtragem ágil destes arquivos, que podem estar em mais de um tipo, como Docx e PDF, e o Mamba os filtra para identificar padrões de interesse, ou seja, padrões entre o que o candidato tem a oferecer e o que a empresa realmente necessita para a vaga. Também, temos um modo de pesquisa “inteligente” em que as palavras-chave são localizadas por meio de seus sinônimos,trazendo mais abrangência à pesquisa. 
@@ -30,6 +30,7 @@ Dessa forma, o Mamba entra para solucionar esse problema do RH, trazendo objetiv
 ## Pré-requisitos: 
 - Você possui a versão mais recente do <code>Python</code>
 - Você instalou a versão mais recente de <code>Django</code>
+- Você instalou a versão mais atual do Git
 
 ### No terminal Git Bash
 - Clonar repositório:
