@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .. import views
 from . import searchService
 import docx2txt
 import fitz
@@ -17,7 +16,7 @@ def ranking(request):
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('search')
 
-    views.remove_filtered()
+    searchService.remove_filtered()
 
     # Using the variables to the search
     real_final_list = searchService.real_final(request)
@@ -53,7 +52,7 @@ def ranking_synonyms(request):
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('synonyms')
 
-    views.remove_filtered()
+    searchService.remove_filtered()
 
     # functionalities
     dirPath = r"media\files"

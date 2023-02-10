@@ -1,6 +1,5 @@
 from django.urls import path
-from . import views
-from . import homeService, rankingService, emailService
+from . import views, homeService, rankingService, emailService
 
 urlpatterns = [
         path('', views.home, name='home'),

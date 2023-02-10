@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from services import searchService
+from . import searchService
 
 
 # Rendering pages
