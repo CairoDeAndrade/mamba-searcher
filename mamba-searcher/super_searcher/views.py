@@ -28,9 +28,7 @@ def home(request):
     return render(request, 'super_searcher/home.html')
 
 
-# Deleting files if the user want to search in other ones
 def delete_files(request):
-    # Getting inside the directory
     dirPath = r"media/files"
     lista_arquivo = next(os.walk(dirPath))[2]
 
@@ -47,11 +45,9 @@ def upload(request):
     if request.method == 'POST':
         files = request.FILES.getlist('files')
 
-        # storing the files in the DataBase
         for f in files:
             File(file=f).save()
 
-        # Message if the files were uploaded
         messages.add_message(request, messages.SUCCESS, 'Os arquivos foram enviados com sucesso!')
 
     return redirect('home')
@@ -60,16 +56,12 @@ def upload(request):
 # Functions that return variables to use
 def list_files(request):
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
     dirPath = r"media\files"  # Vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
-    total = 0
     caminho, contained_words = '', ''
     result, list_contained_words, final_contained_words = [], [], []
-    final_dict = {}
     palavras_chave = str(request.GET.get('term')).lower()
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
@@ -77,15 +69,11 @@ def list_files(request):
 
     for i in lista_arquivos:
         try:
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"media\files\{i}"  # vitor
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
+            caminho = fr"media\files\{i}"
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
                                  if not unicodedata.combining(ch))
-
-            total = len(novas_palavras)
 
             for palavra in novas_palavras:
                 if palavra in novo_texto:
@@ -99,7 +87,6 @@ def list_files(request):
             lista_quantidade_palavras.append(sum)
 
         except:
-            # quantidade = []
             text = ''
             sum = 0
             with fitz.open(caminho) as doc:
@@ -124,7 +111,6 @@ def list_files(request):
         final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
                       'palavras_contidas': palavras_contidas}
 
-        # quantidade = [arquivo, quantidade_palavras, total]
         lista_final.append(final_dict)
         result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
 
@@ -150,16 +136,13 @@ def list_files(request):
 
 def total(request):
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"media\files"  # Vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
+    dirPath = r"media\files"
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
     total = 0
     caminho, contained_words = '', ''
     result, list_contained_words, final_contained_words = [], [], []
-    final_dict = {}
     palavras_chave = str(request.GET.get('term')).lower()
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
@@ -167,9 +150,7 @@ def total(request):
 
     for i in lista_arquivos:
         try:
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
             caminho = fr"media\files\{i}"  # vitor
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
@@ -189,7 +170,6 @@ def total(request):
             lista_quantidade_palavras.append(sum)
 
         except:
-            # quantidade = []
             text = ''
             sum = 0
             with fitz.open(caminho) as doc:
@@ -214,7 +194,6 @@ def total(request):
         final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
                       'palavras_contidas': palavras_contidas}
 
-        # quantidade = [arquivo, quantidade_palavras, total]
         lista_final.append(final_dict)
         result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
 
@@ -237,16 +216,12 @@ def total(request):
 
 def real_final(request):
     # functionalities
-    # dirPath = r"C:\Users\entra21\Desktop\testes"
-    dirPath = r"media\files"  # Vitor
-    # dirPath = r"C:\Users\cairo\OneDrive\Área de Trabalho\testes"  # cairo
+    dirPath = r"media\files"
     lista_arquivos = next(os.walk(dirPath))[2]
 
     lista_quantidade_palavras, texto, lista_final, list_files_name, list_word_qtd, real_final = [], [], [], [], [], []
-    total = 0
     caminho, contained_words = '', ''
     result, list_contained_words, final_contained_words = [], [], []
-    final_dict = {}
     palavras_chave = str(request.GET.get('term')).lower()
     novas_palavras = ''.join(ch for ch in unicodedata.normalize('NFKD', palavras_chave).lower()
                              if not unicodedata.combining(ch))
@@ -254,15 +229,11 @@ def real_final(request):
 
     for i in lista_arquivos:
         try:
-            # caminho = fr"C:\Users\entra21\Desktop\testes\{i}"
-            caminho = fr"media\files\{i}"  # vitor
-            # caminho = fr"C:\Users\cairo\OneDrive\Área de Trabalho\testes\{i}"  # cairo
+            caminho = fr"media\files\{i}"
             sum = 0
             texto = docx2txt.process(caminho)
             novo_texto = ''.join(ch for ch in unicodedata.normalize('NFKD', texto).lower()
                                  if not unicodedata.combining(ch))
-
-            total = len(novas_palavras)
 
             for palavra in novas_palavras:
                 if palavra in novo_texto:
@@ -276,7 +247,6 @@ def real_final(request):
             lista_quantidade_palavras.append(sum)
 
         except:
-            # quantidade = []
             text = ''
             sum = 0
             with fitz.open(caminho) as doc:
@@ -301,7 +271,6 @@ def real_final(request):
         final_dict = {'arquivo': arquivo, 'quantidade_palavras': quantidade_palavras,
                       'palavras_contidas': palavras_contidas}
 
-        # quantidade = [arquivo, quantidade_palavras, total]
         lista_final.append(final_dict)
         result = sorted(lista_final, key=itemgetter('quantidade_palavras'), reverse=True)
 
@@ -339,13 +308,11 @@ def search(request):
 
 
 def ranking(request):
-    # If the search input is empty
     term = request.GET.get('term')
     if not term:
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('search')
 
-    # Removing the filtered files to make a new search
     remove_filtered()
 
     # Using the variables to the search
@@ -378,19 +345,16 @@ def ranking(request):
 
 # search and ranking synonyms
 def synonyms(request):
-    # Removing the filtered files to make a new search
     remove_filtered()
     return render(request, 'super_searcher/synonyms.html')
 
 
 def ranking_synonyms(request):
-    # If the search input is empty
     term = request.GET.get('term')
     if not term:
         messages.error(request, 'O campo de pesquisa não pode estar vazio!')
         return redirect('synonyms')
 
-    # Removing the filtered files to make a new search
     remove_filtered()
 
     # functionalities
@@ -401,7 +365,6 @@ def ranking_synonyms(request):
     total = 0
     caminho, contained_words, no_synonyms = '', '', ''
     result, list_contained_words, final_contained_words = [], [], []
-    final_dict = {}
 
     # Using the synonyms to search
     try:
@@ -518,7 +481,7 @@ def email_response(request):
     # Sending email
     dirPath = r"media/filtered_files"
     list_arq = next(os.walk(dirPath))[2]
-    fromaddr = "mamba.entra21@gmail.com" # mamba.python.entra21@gmail.com
+    fromaddr = "mamba.entra21@gmail.com"  # Alternative email: mamba.python.entra21@gmail.com
     toaddr = str(request.GET.get('term').replace('%40', '@'))
 
     try:
@@ -546,7 +509,7 @@ def email_response(request):
 
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login(fromaddr, "utjwzdlbrpvwgovh") # pzlyubevjrwgyobq
+        s.login(fromaddr, "utjwzdlbrpvwgovh")
         text = msg.as_string()
         s.sendmail(fromaddr, toaddr, text)
         s.quit()
@@ -561,6 +524,6 @@ def about(request):
     return render(request, 'super_searcher/about.html')
 
 
-# about page
+# personalize page
 def personalize(request):
     return render(request, 'super_searcher/personalize.html')
